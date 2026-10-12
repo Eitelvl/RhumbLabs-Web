@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
-import { Scale, ChevronRight, Shield, Building2, Map as MapIcon, Activity } from 'lucide-react';
+import { Scale, ChevronRight, Building2, Map as MapIcon } from 'lucide-react';
 
 export default function LegalPage() {
   return (
@@ -78,8 +78,12 @@ export default function LegalPage() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-card-border relative z-10">
-              <div className="p-3 bg-[#7C3AED]/10 rounded-xl border border-[#7C3AED]/20">
-                <Activity className="w-6 h-6 text-[#7C3AED]" />
+              <div className="w-12 h-12 bg-[#7C3AED]/10 rounded-xl border border-[#7C3AED]/20 overflow-hidden">
+                <img
+                  src="/images/pogo-app-icon.png"
+                  alt="Pogo app icon"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h2 className="text-2xl font-bold text-text-primary">Pogo</h2>
             </div>
