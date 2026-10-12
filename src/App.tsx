@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import {lazy, Suspense} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
@@ -21,8 +20,6 @@ import TermsPage from './pages/TermsPage';
 import ScrollToTop from './components/ScrollToTop';
 import { BrandThemeProvider } from './context/BrandThemeContext';
 import { BrandSmokeCanvas } from './components/BrandSmokeCanvas';
-
-const PogoEventPage = lazy(() => import('./pages/PogoEventPage'));
 
 export default function App() {
   const basename = import.meta.env.BASE_URL || '/';
@@ -55,14 +52,6 @@ export default function App() {
           <Route path="/rhumbnav/delete-account" element={<RhumbNavDeleteAccountPage />} />
           <Route path="/rhumbnav-delete-account" element={<RhumbNavDeleteAccountPage />} />
           <Route path="/pogo" element={<PogoPage />} />
-          <Route
-            path="/pogo/event"
-            element={(
-              <Suspense fallback={<div className="min-h-screen bg-[#09050f]" />}>
-                <PogoEventPage />
-              </Suspense>
-            )}
-          />
           <Route path="/pogo/delete-account" element={<PogoDeleteAccountPage />} />
           <Route path="/pogo-delete-account" element={<PogoDeleteAccountPage />} />
           <Route path="/delete-account" element={<DeleteAccountPage />} />
