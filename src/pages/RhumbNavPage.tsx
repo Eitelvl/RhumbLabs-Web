@@ -2,7 +2,7 @@ import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { DeviceMockup } from '../components/DeviceMockup';
-import { Compass, BookText, Calculator, Map, Crosshair, IdCard } from 'lucide-react';
+import { Compass, BookText, Calculator, Map, IdCard } from 'lucide-react';
 import { useRef } from 'react';
 import { SafeImage } from '../components/SafeImage';
 
@@ -204,7 +204,6 @@ export default function RhumbNavPage() {
           {/* Bottom Callout */}
           <div className="mt-24 mb-10 p-12 md:p-20 rounded-[2.5rem] linear-card text-center relative overflow-hidden backdrop-blur-xl">
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[300px] bg-sky-500/5 rounded-[100%] blur-[80px] pointer-events-none"></div>
-             <Crosshair className="w-12 h-12 text-text-secondary mx-auto mb-8 opacity-60" />
              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Aviation in your pocket.</h2>
              <p className="text-text-secondary text-xl font-light leading-relaxed max-w-2xl mx-auto">
                Experience modern flying without the clutter. Start navigating, planning, and logging with unprecedented clarity.

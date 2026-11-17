@@ -2,7 +2,7 @@ import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { DeviceMockup } from '../components/DeviceMockup';
-import { Activity, MapPin, TrendingUp, NotebookPen, Mountain, Instagram, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Activity, MapPin, TrendingUp, NotebookPen, Instagram, ArrowUpRight, Sparkles } from 'lucide-react';
 import { useRef } from 'react';
 import { SafeImage } from '../components/SafeImage';
 
@@ -252,11 +252,6 @@ export default function PogoPage() {
              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-fuchsia-600/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
              
              <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-               {/* Icon / Emblem */}
-               <div className="w-16 h-16 rounded-2xl bg-purple-500/10 border border-purple-500/25 flex items-center justify-center mb-8 shadow-sm">
-                  <Mountain className="w-8 h-8 text-fuchsia-400" />
-               </div>
-
                {/* Headline */}
                <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight text-text-primary">
                  Join the Community Now!
