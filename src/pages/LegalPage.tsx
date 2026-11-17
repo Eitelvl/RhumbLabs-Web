@@ -3,19 +3,16 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
-import { Scale, ChevronRight, Building2 } from 'lucide-react';
+import { ChevronRight, Building2 } from 'lucide-react';
 
 export default function LegalPage() {
   return (
     <div className="bg-surface text-on-surface min-h-screen flex flex-col">
       <TopBar />
       
-      <main className="flex-1 pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+      <main className="flex-1 pt-28 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
         {/* Header */}
-        <header className="mb-16 md:mb-24 mt-8 md:mt-12 max-w-3xl">
-          <div className="w-16 h-16 bg-card-element rounded-2xl flex items-center justify-center mb-8 border border-card-border shadow-[inset_0_1px_1px_var(--border-subtle)]">
-            <Scale className="w-8 h-8 text-text-primary" />
-          </div>
+        <header className="mb-14 md:mb-20 max-w-3xl">
           <h1 className="text-4xl md:text-[3.5rem] font-bold tracking-tight mb-6 leading-tight text-text-primary">
             Legal Center
           </h1>
