@@ -1,112 +1,439 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es" data-language="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidad / Privacy Policy — Pogo | Rhumb Labs</title>
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; color: #333; }
-    h1, h2, h3 { color: #111; }
-    a { color: #11A8FD; }
+    :root { color-scheme: light dark; font-family: system-ui, -apple-system, sans-serif; line-height: 1.65; }
+    body { max-width: 800px; margin: 0 auto; padding: 24px 20px 80px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid #8885; }
+    a { color: #11a8fd; }
+    button { padding: 8px 14px; border: 1px solid #8888; border-radius: 999px; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+    main { padding-top: 28px; overflow-wrap: anywhere; }
+    h1, h2, h3 { line-height: 1.2; }
+    h2 { margin-top: 2em; }
+    li { margin: 0.45em 0; }
+    [data-language="es"] [lang="en"], [data-language="en"] [lang="es"] { display: none; }
   </style>
+  <script>
+    try { document.documentElement.dataset.language = localStorage.getItem('language') === 'en' ? 'en' : 'es'; document.documentElement.lang = document.documentElement.dataset.language; } catch {}
+  </script>
 </head>
 <body>
-  <p><h1>PRIVACY POLICY</h1><br />
-<b>Last update:</b> 02/06/2026<br />
-This Privacy Policy describes how RhumbLabs, RUT 19.524.712-9 (the "Company"), collects, uses, stores, and protects the personal data of users of the Pogo (the "Application").<br />
-This Privacy Policy should be read in conjunction with the Terms of Use of the Application. By using the Application, the User agrees to the practices described in this document.<br />
-This policy is governed by Chilean Law N° 19.628 on the Protection of Privacy, Law N° 19.496 on Consumer Protection, and Law N° 21.719 on the Protection and Processing of Personal Data.<br />
-The Company is the data controller responsible for the personal data processed through the Application and can be contacted at: <a href='mailto:support@rhumblabs.com'>support@rhumblabs.com</a><br />
-By using the Application, the User acknowledges having read and understood this Privacy Policy. This Privacy Policy forms an integral part of the Terms of Use of the Application.<br />
----<br />
-<h2>1. Data We Collect</h2><br />
-The Application collects only the data necessary to provide its core functionalities. Depending on how the User interacts with the Application, the following categories of personal data may be collected:<br />
-- <b>Account Data:</b> Email address and, where applicable, name and profile information provided through Google Sign-In at the time of registration.
-- <b>Profile and Preferences:</b> Display name, avatar, skill level, personal goals, session type preferences, language, theme, and dashboard configuration set by the User within the Application. Certain profile information, including display name, avatar, skill level, statistics, achievements, and rankings, may be visible to other users of the Application when the User shares their profile via QR code.
-- <b>Gym Data:</b> Name, location, coordinates, type, and difficulty levels of climbing gyms associated with the User's account.
-- <b>Support Data:</b> Email address and content of messages sent voluntarily by the User to RhumbLabs support.
-- <b>Legal Acceptances:</b> Record of the version of the Terms and Privacy Policy accepted by the User, including date and time of acceptance.
-- <b>Session Data:</b> Climbing session records entered by the User, including routes, difficulty levels, gym visited, dates, and personal notes.
-- <b>Location Data:</b> Geographic coordinates of the device collected solely when the User enables the gym proximity feature. This data is used exclusively to identify nearby climbing gyms within a 200-meter radius and is not stored permanently.
-- <b>Camera Data:</b> The device camera is accessed solely for QR code scanning, to allow the User to view other users' profiles. No images or videos are captured, stored, or transmitted.
-- <b>Usage and Technical Data:</b> Information about how the User interacts with the Application, crash reports, and technical diagnostics, collected through Firebase Analytics and Firebase Crashlytics.
-- <b>Advertising Data:</b> If the User is on the free version of the Application, Google AdMob may collect data related to ad interactions and device identifiers in accordance with Google's advertising policies.<br />
----<br />
-<h2>2. How We Collect Data</h2><br />
-Data is collected through the following means:<br />
-- <b>Directly from the User</b>, when registering an account, logging climbing sessions, or interacting with Application features.
-- <b>Automatically</b>, through Firebase services integrated into the Application, which collect technical and usage data during normal use.
-- <b>Through third-party authentication</b>, when the User chooses to sign in via Google.<br />
----<br />
-<h2>3. Purpose of Data Processing</h2><br />
-The personal data collected is used exclusively for the following purposes:<br />
-- To create and manage the User's account.
-- To enable the core features of the Application, including session logging, gym proximity detection, and profile sharing via QR code.
-- To synchronize, back up, and protect User data stored in the Application.
-- To analyze usage patterns and improve Application performance and user experience.
-- To detect and resolve technical errors and crashes.
-- To display personalized or contextual advertising in the free version of the Application.
-- To process and validate the one-time in-app purchase for the ad-free version.
-- To respond to User support requests and inquiries.<br />
----<br />
-<h2>4. Legal Basis for Processing</h2><br />
-In accordance with Chilean Law N° 19.628 and Law N° 21.719, the processing of personal data is carried out on the following legal bases:<br />
-- <b>Consent:</b> The User actively accepts these terms upon first use of the Application. Location and camera access require explicit permission granted by the User through the device's operating system.
-- <b>Contractual necessity:</b> Processing is necessary to provide the services described in the Terms of Use.
-- <b>Legitimate interest:</b> Technical data and crash reports are processed to maintain the security and proper functioning of the Application.
-- <b>Legal obligation:</b> Where required by applicable Chilean law.<br />
-Users may withdraw their consent at any time by contacting RhumbLabs at <a href='mailto:support@rhumblabs.com'>support@rhumblabs.com</a> or by revoking the relevant device permissions through their device settings. Withdrawal of consent does not affect the lawfulness of processing carried out prior to its withdrawal. Withdrawal of consent for optional features, such as location access, usage analytics, crash reporting, or personalized advertising, will not prevent the User from accessing the core functionalities of the Application. Only those features that strictly depend on the revoked permission will be affected.<br />
----<br />
-<h2>5. Third-Party Services and Data Processors</h2><br />
-The Application uses the following third-party services, which may process personal data on behalf of RhumbLabs. Each service operates under its own privacy policy:<br />
-- <b>Firebase Authentication (Google LLC):</b> Manages user login and identity verification.
-- <b>Firebase Cloud Firestore (Google LLC):</b> Stores User session data and Application content in the cloud.
-- <b>Firebase Analytics (Google LLC):</b> Collects usage and behavioral data, which may include pseudonymous identifiers, to help improve the Application.
-- <b>Firebase Crashlytics (Google LLC):</b> Collects crash and error reports to detect and fix technical issues.
-- <b>Firebase App Check (Google LLC):</b> Verifies the authenticity of requests made to the Application's backend.
-- <b>Firebase Remote Config (Google LLC):</b> Allows remote configuration of Application features without requiring an update.
-- <b>Google AdMob (Google LLC):</b> Manages advertising in the free version of the Application.<br />
-All Firebase services are operated by Google LLC, headquartered in the United States. Users may consult Google's Privacy Policy at: <a href='https://policies.google.com/privacy'>https://policies.google.com/privacy</a><br />
----<br />
-<h2>6. Advertising and Personalization</h2><br />
-The free version of the Application may display personalized or non-personalized advertisements through Google AdMob.<br />
-Personalized ads may be based on the User's previous behavior and interests. Non-personalized ads do not use behavioral history but may still use contextual information, approximate location, device identifiers, and technical data for purposes such as frequency capping, aggregate measurement, and fraud prevention.<br />
-Users may manage their advertising preferences through their device settings (iOS: Settings > Privacy & Security > Tracking; Android: Settings > Google > Ads).<br />
-RhumbLabs does not sell personal data. If new advertising partners or advanced personalization features are incorporated, this Privacy Policy will be updated accordingly.<br />
----<br />
-<h2>7. International Data Transfers</h2><br />
-Some of the third-party services listed above may process personal data on servers located outside of Chile, including in the United States. Where such transfers occur, they are carried out in accordance with the data protection standards required by Chilean law and subject to the terms and data processing agreements established with each service provider.<br />
----<br />
-<h2>8. Data Retention</h2><br />
-Personal data is retained for as long as the User's account remains active. Upon account deletion, personal data will be deleted within 30 days, except where retention is required by applicable law or for legitimate security purposes.<br />
-Session data and account information stored through Firebase Cloud Firestore will be deleted in accordance with the data deletion process initiated upon account termination.<br />
-Data files exported or backed up by the User from within the Application remain under the User's own control. RhumbLabs is not responsible for the storage, sharing, or use of files that the User saves or manages outside of the Application.<br />
----<br />
-<h2>9. Children’s Privacy</h2><br />
-The Application is not directed at children under the age of 13. RhumbLabs does not knowingly collect personal data from users under 13 years of age. If the Company becomes aware that a user under 13 has created an account, the account and associated data will be deleted without prior notice.<br />
----<br />
-<h2>10. User Rights</h2><br />
-Under Chilean Law N° 19.628 and Law N° 21.719, Users have the following rights regarding their personal data:<br />
-- <b>Right of access:</b> To request information about what personal data is held and how it is being processed.
-- <b>Right of rectification:</b> To request correction of inaccurate or incomplete data.
-- <b>Right of deletion:</b> To request the deletion of personal data, subject to legal retention obligations.
-- <b>Right of opposition:</b> To object to the processing of personal data in certain circumstances.
-- <b>Right to data portability:</b> To request a copy of personal data in a structured and commonly used format, where technically feasible.<br />
-To exercise any of these rights, Users may contact RhumbLabs at <a href='mailto:support@rhumblabs.com'>support@rhumblabs.com</a>. Requests will be addressed within the timeframes established by applicable Chilean law.<br />
----<br />
-<h2>11. Data Security</h2><br />
-RhumbLabs implements reasonable technical and organizational measures to protect personal data against unauthorized access, loss, alteration, or disclosure. These measures include the use of Firebase App Check for backend security, encrypted data transmission, and access controls within the Application's infrastructure.<br />
-However, no method of electronic transmission or storage is completely secure. RhumbLabs cannot guarantee absolute security of personal data.<br />
----<br />
-<h2>12. Security Incidents</h2><br />
-RhumbLabs maintains internal procedures to detect, evaluate, contain, and document security incidents that may affect personal data. In the event of a security breach that poses a risk to Users' rights, RhumbLabs will notify affected Users through reasonable means within the timeframes required by applicable Chilean law, including the obligations established under Law N° 21.719.<br />
----<br />
-<h2>13. Modifications to this Policy</h2><br />
-RhumbLabs may update this Privacy Policy at any time. Users will be notified of material changes through an in-app notice or by email. Continued use of the Application following such notification constitutes acceptance of the updated policy.<br />
----<br />
-<h2>14. Contact</h2><br />
-For questions, requests, or complaints regarding this Privacy Policy or the processing of personal data, Users may contact RhumbLabs at:<br />
-<b>Email:</b> <a href='mailto:support@rhumblabs.com'>support@rhumblabs.com</a><br />
-Users also have the right to file a complaint before the relevant Chilean data protection authority or competent courts where applicable.<br /></p>
+  <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Cambiar idioma">ES / EN</button></header>
+  <main><article lang="es"><h1>POLÍTICA DE PRIVACIDAD</h1>
+<p>Última actualización: 17/11/2026</p>
+<p>Esta Política de Privacidad describe cómo RhumbLabs, RUT 19.524.712-9 (&quot;la Empresa&quot;), recopila, utiliza, almacena y protege los datos personales de los usuarios de Pogo (&quot;la Aplicación&quot;).</p>
+<p>Esta Política de Privacidad debe leerse junto con los Términos y Condiciones de Uso de la Aplicación. Al utilizar la Aplicación, el Usuario acepta las prácticas descritas en este documento.</p>
+<p>Esta política se rige actualmente por las leyes chilenas nº 19.628 sobre protección de la vida privada y nº 19.496 sobre protección del consumidor. La Ley nº 21.719, sobre protección y tratamiento de datos personales, entrará en vigencia el 1 de diciembre de 2026.</p>
+<p>La Compañía es la responsable de los datos personales tratados a través de la Aplicación y puede ser contactada en: <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a>. Al utilizar la Aplicación, el Usuario reconoce haber leído y comprendido esta Política de Privacidad.</p>
+<p>Esta Política de Privacidad forma parte integral de los Términos y Condiciones de Uso de la Aplicación.</p>
+<h2>1. Datos que recopilamos</h2>
+<p>La Aplicación recopila solo los datos necesarios para proporcionar sus funcionalidades principales. Dependiendo de cómo interactúe el Usuario con la Aplicación, se pueden recopilar las siguientes categorías de datos personales:</p>
+<ul>
+<li>
+<p>Datos de la cuenta: Dirección de correo electrónico y, cuando corresponda, nombre e información de perfil proporcionados mediante Google Log-In o Sign in with Apple en el momento del registro. Con Sign in with Apple, el correo puede ser una dirección de reenvío proporcionada por Apple.</p>
+</li>
+<li>
+<p>Perfil y preferencias: Nombre de visualización, avatar, nivel de habilidad, objetivos personales, preferencias de tipo de sesión, idioma, tema y configuración del panel de control establecida por el usuario dentro de la aplicación. Cierta información del perfil, incluyendo nombre visible, avatar, nivel de habilidad, estadísticas, logros y rankings, puede ser visible para otros usuarios de la aplicación cuando el usuario comparte su perfil mediante código QR.</p>
+</li>
+<li>
+<p>Datos del gimnasio: Nombre, ubicación, coordenadas, tipo y niveles de dificultad de los gimnasios de escalada asociados con la cuenta del usuario.</p>
+</li>
+<li>
+<p>Datos de soporte: Dirección de correo electrónico y contenido de los mensajes enviados voluntariamente por el usuario al soporte de RhumbLabs.</p>
+</li>
+<li>
+<p>Aceptaciones legales: Registro de la versión de los Términos y la Política de Privacidad aceptadas por el Usuario, incluyendo fecha y hora de aceptación.</p>
+</li>
+<li>
+<p>Datos de la sesión: Registros de las sesiones de escalada introducidos por el usuario, incluyendo rutas, niveles de dificultad, gimnasios visitados, fechas y notas personales.</p>
+</li>
+<li>
+<p>Datos de Sesiones Compartidas: Cuando el usuario crea o se une voluntariamente a una Sesión Compartida, se comparte temporalmente con los demás participantes de esa sala su nombre visible, avatar, niveles de las rutas registradas, cantidad de caídas, puntaje y marcas de tiempo de actividad. La sesión completa se guarda únicamente en el historial individual de cada participante. Las salas temporales vencen después de 12 horas y son eliminadas automáticamente de los sistemas activos de Firebase.</p>
+</li>
+<li>
+<p>Datos de Comunidad (opcional): Si el Usuario activa la Comunidad, se tratan su alias, usuario de Instagram, biografía, ciudad, gimnasio, roles (escalador, setter o gimnasio), la configuración de cuenta privada, las personas que sigue y que lo siguen, los bloqueos, las publicaciones de sesiones y logros que decide compartir, las reacciones y los reportes que envía o recibe. El perfil de Comunidad, las publicaciones y los contadores de seguidores son visibles para otros usuarios según la configuración de privacidad del Usuario. Los bloqueos y los reportes no son visibles para las personas involucradas.</p>
+</li>
+<li>
+<p>Mensajes directos: Contenido de los mensajes que el Usuario envía y recibe, sus participantes y su estado de lectura. Los mensajes solo son visibles para los dos participantes. RhumbLabs puede revisar un mensaje cuando ha sido reportado, con el único fin de moderar.</p>
+</li>
+<li>
+<p>Páginas de gimnasio: Las cuentas de gimnasio pueden publicar dirección, horario, sitio web, eventos, equipo de setters y fotos de portada y logo. Esta información es pública para los usuarios de la Aplicación.</p>
+</li>
+<li>
+<p>Notificaciones push: Identificador del dispositivo para notificaciones (token de Firebase Cloud Messaging), plataforma, idioma, zona horaria y preferencias de notificación, incluidos los gimnasios silenciados. Se usan solo para enviar avisos que el Usuario puede desactivar en Configuración o en el sistema operativo.</p>
+</li>
+<li>
+<p>Imágenes: La Aplicación accede a la galería solo cuando una cuenta de gimnasio elige una foto de portada o logo. La imagen elegida se sube a Cloud Storage y es pública dentro de la Aplicación.</p>
+</li>
+<li>
+<p>Datos de localización: Coordenadas geográficas del dispositivo recogidas únicamente cuando el usuario activa la función de proximidad al gimnasio. Estos datos se utilizan exclusivamente para identificar gimnasios cercanos en un radio de 200 metros y no se almacenan de forma permanente.</p>
+</li>
+<li>
+<p>Datos de la cámara: La cámara del dispositivo se accede únicamente para escanear códigos QR, para permitir al usuario ver perfiles o unirse voluntariamente a Sesiones Compartidas. Las imágenes de la cámara usadas para escanear códigos QR no se almacenan ni se transmiten.</p>
+</li>
+<li>
+<p>Datos de uso y técnicos: Información sobre cómo el usuario interactúa con la aplicación, informes de fallos y diagnósticos técnicos, recopilados a través de Firebase Analytics y Firebase Crashlytics.</p>
+</li>
+<li>
+<p>Datos publicitarios: Si el usuario utiliza la versión gratuita de la Aplicación, Google AdMob puede recopilar datos relacionados con interacciones publicitarias e identificadores de dispositivos de acuerdo con las políticas publicitarias de Google.</p>
+</li>
+</ul>
+<h2>2. Cómo recopilamos datos</h2>
+<p>Los datos se recopilan por los siguientes medios:</p>
+<ul>
+<li>
+<p>Directamente del Usuario, al registrar una cuenta, registrar sesiones de escalada o interactuar con funciones de la Aplicación.</p>
+</li>
+<li>
+<p>Automáticamente, a través de Firebase, los servicios integrados en la Aplicación recopilan datos técnicos y de uso durante el uso normal.</p>
+</li>
+<li>
+<p>A través de la autenticación de terceros, cuando el usuario decide iniciar sesión a través de Google o de Apple.</p>
+</li>
+</ul>
+<h2>3. Propósito del procesamiento de datos</h2>
+<p>Los datos personales recopilados se utilizan exclusivamente para los siguientes fines:</p>
+<ul>
+<li>
+<p>Para crear y gestionar la cuenta del usuario.</p>
+</li>
+<li>
+<p>Para habilitar las funciones principales de la aplicación, incluyendo el registro de sesiones, las Sesiones Compartidas en tiempo real, la detección de proximidad al gimnasio y el intercambio de perfiles mediante código QR.</p>
+</li>
+<li>
+<p>Para sincronizar, hacer copias de seguridad y proteger los datos del usuario almacenados en la Aplicación.</p>
+</li>
+<li>
+<p>Analizar patrones de uso y mejorar el rendimiento de las aplicaciones y la experiencia del usuario.</p>
+</li>
+<li>
+<p>Para detectar y resolver errores técnicos y fallos.</p>
+</li>
+<li>
+<p>Mostrar publicidad personalizada o contextual en la versión gratuita de la Aplicación.</p>
+</li>
+<li>
+<p>Para procesar y validar la compra única dentro de la Aplicación para la versión sin anuncios.</p>
+</li>
+<li>
+<p>Para habilitar las funciones sociales opcionales: perfil de Comunidad, publicaciones, mensajes, páginas de gimnasio y eventos.</p>
+</li>
+<li>
+<p>Para enviar notificaciones push que el Usuario puede desactivar.</p>
+</li>
+<li>
+<p>Para moderar contenido y atender reportes con el fin de mantener la seguridad de la comunidad.</p>
+</li>
+<li>
+<p>Para responder a solicitudes y consultas de soporte de los usuarios.</p>
+</li>
+</ul>
+<h2>4. Base legal para el procesamiento</h2>
+<p>El tratamiento de datos personales se realiza para las siguientes finalidades y con las habilitaciones que correspondan según la legislación chilena vigente. La Ley nº 21.719 ampliará el marco aplicable a partir del 1 de diciembre de 2026:</p>
+<ul>
+<li>
+<p>Consentimiento: El usuario acepta activamente estos términos en el primer uso de la Aplicación. La ubicación y el acceso a la cámara requieren permiso explícito otorgado por el usuario a través del sistema operativo del dispositivo.</p>
+</li>
+<li>
+<p>Necesidad contractual: El procesamiento es necesario para proporcionar los servicios descritos en los Términos y Condiciones de Uso.</p>
+</li>
+<li>
+<p>Interés legítimo: Los datos técnicos y los informes de fallos se procesan para mantener la seguridad y el correcto funcionamiento de la Aplicación.</p>
+</li>
+<li>
+<p>Obligación legal: Cuando lo requiera la legislación chilena aplicable. Los usuarios pueden retirar su consentimiento en cualquier momento contactando con RhumbLabs en <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a> o revocando los permisos correspondientes del dispositivo mediante la configuración de este mismo. La retirada del consentimiento no afecta la legalidad del procesamiento realizado antes de su retirada. La retirada del consentimiento para funciones opcionales, como acceso a ubicación, análisis de uso, informes de fallos o publicidad personalizada, no impedirá que el Usuario acceda a las funcionalidades principales de la Aplicación. Solo se verán afectadas aquellas características que dependan estrictamente del permiso revocado.</p>
+</li>
+</ul>
+<h2>5. Servicios de terceros y procesadores de datos</h2>
+<p>La aplicación utiliza los siguientes servicios de terceros, que pueden procesar datos personales en nombre de RhumbLabs. Cada servicio opera bajo su propia política de privacidad:</p>
+<ul>
+<li>
+<p>Autenticación Firebase (Google LLC): Gestiona el inicio de sesión de usuarios y la verificación de identidad.</p>
+</li>
+<li>
+<p>Firebase Cloud Firestore (Google LLC): Almacena los datos de sesión del usuario y el contenido de la aplicación en la nube.</p>
+</li>
+<li>
+<p>Firebase Analytics (Google LLC): Recopila datos de uso y comportamiento, que pueden incluir identificadores seudónimos, para ayudar a mejorar la aplicación.</p>
+</li>
+<li>
+<p>Firebase Crashlytics (Google LLC): Recopila informes de fallos y errores para detectar y corregir problemas técnicos.</p>
+</li>
+<li>
+<p>Firebase App Check (Google LLC): Verifica la autenticidad de las solicitudes realizadas al backend de la Aplicación.</p>
+</li>
+<li>
+<p>Firebase Remote Config (Google LLC): Permite la configuración remota de las funciones de la aplicación sin necesidad de actualización.</p>
+</li>
+<li>
+<p>Cloud Functions for Firebase (Google LLC): Procesa en el servidor las acciones de la Comunidad (seguir, publicar, mensajes y reportes) y la eliminación de cuentas.</p>
+</li>
+<li>
+<p>Cloud Storage for Firebase (Google LLC): Almacena las fotos de las páginas de gimnasio.</p>
+</li>
+<li>
+<p>Firebase Cloud Messaging (Google LLC): Entrega las notificaciones push.</p>
+</li>
+<li>
+<p>Sign in with Apple (Apple Inc.): Autenticación de usuarios que eligen iniciar sesión con Apple.</p>
+</li>
+<li>
+<p>Google AdMob (Google LLC): Gestiona la publicidad en la versión gratuita de la Aplicación. Todos los servicios de Firebase son operados por Google LLC, con sede en Estados Unidos. Los usuarios pueden consultar la Política de Privacidad de Google en: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+</li>
+</ul>
+<h2>6. Publicidad y personalización</h2>
+<p>La versión gratuita de la aplicación puede mostrar anuncios personalizados o no personalizados a través de Google AdMob. Los anuncios personalizados pueden basarse en el comportamiento e intereses previos del usuario.</p>
+<p>Los anuncios no personalizados no utilizan historial de comportamiento, pero pueden seguir utilizando información contextual, ubicación aproximada, identificadores de dispositivos y datos técnicos para fines como el límite de frecuencia, la medición agregada y la prevención de fraudes.</p>
+<p>Los usuarios pueden gestionar sus preferencias publicitarias a través de la configuración de su dispositivo (iOS: Configuración &gt; Privacidad y Seguridad &gt; Seguimiento; Android: Configuración &gt; Google &gt; Ads).</p>
+<p>RhumbLabs no vende datos personales. Si se incorporan nuevos socios publicitarios o funciones avanzadas de personalización, esta Política de Privacidad se actualizará en consecuencia.</p>
+<h2>7. Transferencias internacionales</h2>
+<p>Algunos de los servicios de terceros mencionados anteriormente pueden procesar datos personales en servidores situados fuera de Chile, incluyendo Estados Unidos. Cuando se realizan dichas transferencias, se realizan conforme a los estándares de protección de datos exigidos por la ley chilena y sujetos a los términos y acuerdos de tratamiento de datos establecidos con cada proveedor de servicios.</p>
+<h2>8. Retención de datos</h2>
+<p>Los datos personales se conservan mientras la cuenta del usuario permanezca activa. Al eliminar la cuenta, los datos personales serán eliminados en un plazo de 30 días, salvo cuando la ley aplicable requiera su conservación o por motivos legítimos de seguridad.</p>
+<p>Los datos de sesión y la información de la cuenta almacenados en Firebase Cloud Firestore serán eliminados de acuerdo con el proceso de eliminación de datos iniciado al finalizar la cuenta.</p>
+<p>Al eliminar la cuenta se eliminan también el perfil de Comunidad, las publicaciones, las reacciones, las relaciones de seguimiento y bloqueo, las conversaciones (incluidos los mensajes de la otra persona en esas conversaciones), los reportes, la página de gimnasio con sus fotos y eventos, y los tokens de notificación.</p>
+<p>Los archivos de datos exportados o respaldados por el Usuario desde dentro de la Aplicación permanecen bajo el control del Usuario. RhumbLabs no es responsable del almacenamiento, el intercambio o el uso de archivos que el usuario guarda o gestiona fuera de la Aplicación.</p>
+<h2>9. Privacidad infantil</h2>
+<p>La Aplicación no está dirigida a menores de 13 años. RhumbLabs no recopila conscientemente datos personales de usuarios menores de 13 años. Si la Compañía se entera de que un usuario menor de 13 años ha creado una cuenta, la cuenta y los datos asociados serán eliminados sin previo aviso.</p>
+<h2>10. Derechos de usuario</h2>
+<p>Los usuarios pueden ejercer los siguientes derechos respecto a sus datos personales conforme a la legislación chilena vigente y a las opciones que ofrece RhumbLabs. Los derechos adicionales de la Ley nº 21.719 serán exigibles cuando entre en vigencia el 1 de diciembre de 2026:</p>
+<ul>
+<li>
+<p>Derecho de acceso: Solicitar información sobre qué datos personales se conservan y cómo se están procesando.</p>
+</li>
+<li>
+<p>Derecho de rectificación: Solicitar la corrección de datos inexactos o incompletos.</p>
+</li>
+<li>
+<p>Derecho de eliminación: Solicitar la eliminación de datos personales, sujeto a obligaciones legales de conservación.</p>
+</li>
+<li>
+<p>Derecho de oposición: Oponerse al tratamiento de datos personales en determinadas circunstancias.</p>
+</li>
+<li>
+<p>Derecho a la portabilidad de datos: Solicitar una copia de datos personales en un formato estructurado y de uso común, cuando sea técnicamente factible. Para ejercer cualquiera de estos derechos, los usuarios pueden contactar con RhumbLabs en <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a>. Las solicitudes serán atendidas dentro de los plazos establecidos por la legislación chilena aplicable.</p>
+</li>
+</ul>
+<h2>11. Seguridad de los datos</h2>
+<p>RhumbLabs implementa medidas técnicas y organizativas razonables para proteger los datos personales frente al acceso, pérdida, alteración o divulgación no autorizada. Estas medidas incluyen el uso de Firebase App Check para la seguridad de backend, la tran smisión de datos cifrados y los controles de acceso dentro de la infraestructura de la Aplicación. Sin embargo, ningún método de transmisión o almacenamiento electrónico es completamente seguro.</p>
+<p>RhumbLabs no puede garantizar la seguridad absoluta de los datos personales.</p>
+<h2>12. Incidentes de seguridad</h2>
+<p>RhumbLabs mantiene procedimientos internos para detectar, evaluar, contener y documentar incidentes de seguridad que puedan afectar a los datos personales. En caso de una brecha de seguridad que suponga un riesgo para los derechos de los Usuarios, RhumbLabs notificará a los Usuarios afectados por medios razonables dentro de los plazos requeridos por la legislación chilena aplicable. Las obligaciones de la Ley nº 21.719 se aplicarán desde su entrada en vigencia.</p>
+<h2>13. Modificaciones a esta Política</h2>
+<p>RhumbLabs puede actualizar esta Política de Privacidad en cualquier momento. Los usuarios serán notificados de cambios materiales mediante un aviso dentro de la Aplicación o por correo electrónico. El uso continuado de la Aplicación tras dicha notificación constituye aceptación de la política actualizada.</p>
+<h2>14. Contacto</h2>
+<p>Para preguntas, solicitudes o quejas relacionadas con esta Política de Privacidad o el tratamiento de datos personales, los usuarios pueden contactar con RhumbLabs en: Correo electrónico: <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a> Los usuarios también tienen derecho a presentar una queja ante la autoridad chilena correspondiente en protección de datos o ante los tribunales competentes cuando corresponda.</p></article><article lang="en"><h1>PRIVACY POLICY</h1>
+<p>Last update: November 17, 2026</p>
+<p>This Privacy Policy describes how RhumbLabs, RUT 19.524.712-9 (the &quot;Company&quot;), collects, uses, stores, and protects the personal data of users of the Pogo (the &quot;Application&quot;). This Privacy Policy should be read in conjunction with the Terms and Conditions of Use of the Application.</p>
+<p>By using the Application, the User agrees to the practices described in this document. This policy is currently governed by Chilean Law N° 19.628 on the Protection of Privacy and Law N° 19.496 on Consumer Protection. Law N° 21.719 on the Protection and Processing of Personal Data will take effect on December 1, 2026.</p>
+<p>The Company is the data controller responsible for the personal data processed through the Application and can be contacted at: <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a> By using the Application, the User acknowledges having read and understood this Privacy Policy.</p>
+<p>This Privacy Policy forms an integral part of the Terms and Conditions of Use of the Application.</p>
+<h2>1. Data We Collect</h2>
+<p>The Application collects only the data necessary to provide its core functionalities. Depending on how the User interacts with the Application, the following categories of personal data may be collected:</p>
+<ul>
+<li>
+<p>Account Data: Email address and, where applicable, name and profile information provided through Google Sign-In or Sign in with Apple at the time of registration. With Sign in with Apple, the email may be a relay address provided by Apple.</p>
+</li>
+<li>
+<p>Profile and Preferences: Display name, avatar, skill level, personal goals, session type preferences, language, theme, and dashboard configuration set by the User within the Application. Certain profile information, including display name, avatar, skill level, statistics, achievements, and rankings, may be visible to other users of the Application when the User shares their profile via QR code.</p>
+</li>
+<li>
+<p>Gym Data: Name, location, coordinates, type, and difficulty levels of climbing gyms associated with the User&#x27;s account.</p>
+</li>
+<li>
+<p>Support Data: Email address and content of messages sent voluntarily by the User to RhumbLabs support.</p>
+</li>
+<li>
+<p>Legal Acceptances: Record of the version of the Terms and Privacy Policy accepted by the User, including date and time of acceptance.</p>
+</li>
+<li>
+<p>Session Data: Climbing session records entered by the User, including routes, difficulty levels, gym visited, dates, and personal notes.</p>
+</li>
+<li>
+<p>Shared Session Data: When a User voluntarily creates or joins a Shared Session, their display name, avatar, logged route levels, fall count, score, and activity timestamps are temporarily shared with the other participants in that room. The complete session is saved only in each participant&#x27;s individual history. Temporary rooms expire after 12 hours and are automatically removed from Firebase&#x27;s active systems.</p>
+</li>
+<li>
+<p>Location Data: Geographic coordinates of the device collected solely when the User enables the gym proximity feature. This data is used exclusively to identify nearby climbing gyms within a 200-meter radius and is not stored permanently.</p>
+</li>
+<li>
+<p>Community Data (optional): If the User turns on Community, the Application processes their alias, Instagram username, bio, city, gym, roles (climber, setter or gym), private-account setting, the people they follow and who follow them, blocks, the session and achievement posts they choose to share, reactions, and the reports they send or receive. The Community profile, posts and follower counts are visible to other users according to the User&#x27;s privacy settings. Blocks and reports are not visible to the people involved.</p>
+</li>
+<li>
+<p>Direct Messages: The content of the messages the User sends and receives, their participants and read status. Messages are visible only to the two participants. RhumbLabs may review a message when it has been reported, solely for moderation.</p>
+</li>
+<li>
+<p>Gym Pages: Gym accounts may publish an address, opening hours, website, events, setter team, and cover and logo photos. This information is public to users of the Application.</p>
+</li>
+<li>
+<p>Push Notifications: A device identifier for notifications (Firebase Cloud Messaging token), platform, language, time zone and notification preferences, including muted gyms. They are used only to send alerts that the User can turn off in Settings or in the operating system.</p>
+</li>
+<li>
+<p>Images: The Application accesses the photo library only when a gym account picks a cover or logo photo. The chosen image is uploaded to Cloud Storage and is public within the Application.</p>
+</li>
+<li>
+<p>Camera Data: The device camera is accessed solely for QR code scanning, to allow the User to view profiles or voluntarily join Shared Sessions. Camera images used to scan QR codes are not stored or transmitted.</p>
+</li>
+<li>
+<p>Usage and Technical Data: Information about how the User interacts with the Application, crash reports, and technical diagnostics, collected through Firebase Analytics and Firebase Crashlytics.</p>
+</li>
+<li>
+<p>Advertising Data: If the User is on the free version of the Application, Google AdMob may collect data related to ad interactions and device identifiers in accordance with Google&#x27;s advertising policies.</p>
+</li>
+</ul>
+<h2>2. How We Collect Data</h2>
+<p>Data is collected through the following means:</p>
+<ul>
+<li>
+<p>Directly from the User, when registering an account, logging climbing sessions, or interacting with Application features.</p>
+</li>
+<li>
+<p>Automatically, through Firebase services integrated into the Application, which collect technical and usage data during normal use.</p>
+</li>
+<li>
+<p>Through third-party authentication, when the User chooses to sign in via Google or Apple.</p>
+</li>
+</ul>
+<h2>3. Purpose of Data Processing</h2>
+<p>The personal data collected is used exclusively for the following purposes:</p>
+<ul>
+<li>
+<p>To create and manage the User&#x27;s account.</p>
+</li>
+<li>
+<p>To enable the core features of the Application, including session logging, real-time Shared Sessions, gym proximity detection, and profile sharing via QR code.</p>
+</li>
+<li>
+<p>To synchronize, back up, and protect User data stored in the Application.</p>
+</li>
+<li>
+<p>To analyze usage patterns and improve Application performance and user experience.</p>
+</li>
+<li>
+<p>To detect and resolve technical errors and crashes.</p>
+</li>
+<li>
+<p>To display personalized or contextual advertising in the free version of the Application.</p>
+</li>
+<li>
+<p>To process and validate the one-time in-app purchase for the ad-free version.</p>
+</li>
+<li>
+<p>To enable the optional social features: Community profile, posts, messages, gym pages and events.</p>
+</li>
+<li>
+<p>To send push notifications that the User can turn off.</p>
+</li>
+<li>
+<p>To moderate content and handle reports in order to keep the community safe.</p>
+</li>
+<li>
+<p>To respond to User support requests and inquiries.</p>
+</li>
+</ul>
+<h2>4. Legal Basis for Processing</h2>
+<p>Personal data is processed for the following purposes under the applicable grounds provided by current Chilean law. Law N° 21.719 will expand the applicable framework from December 1, 2026:</p>
+<ul>
+<li>
+<p>Consent: The User actively accepts these terms upon first use of the Application. Location and camera access require explicit permission granted by the User through the device&#x27;s operating system.</p>
+</li>
+<li>
+<p>Contractual necessity: Processing is necessary to provide the services described in the Terms and Conditions of Use.</p>
+</li>
+<li>
+<p>Legitimate interest: Technical data and crash reports are processed to maintain the security and proper functioning of the Application.</p>
+</li>
+<li>
+<p>Legal obligation: Where required by applicable Chilean law. Users may withdraw their consent at any time by contacting RhumbLabs at <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a> or by revoking the relevant device permissions through their device settings. Withdrawal of consent does not affect the lawfulness of processing carried out prior to its withdrawal. Withdrawal of consent for optional features, such as location access, usage analytics, crash reporting, or personalized advertising, will not prevent the User from accessing the core functionalities of the Application. Only those features that strictly depend on the revoked permission will be affected.</p>
+</li>
+</ul>
+<h2>5. Third-Party Services and Data Processors</h2>
+<p>The Application uses the following third-party services, which may process personal data on behalf of RhumbLabs. Each service operates under its own privacy policy:</p>
+<ul>
+<li>
+<p>Firebase Authentication (Google LLC): Manages user login and identity verification.</p>
+</li>
+<li>
+<p>Firebase Cloud Firestore (Google LLC): Stores User session data and Application content in the cloud.</p>
+</li>
+<li>
+<p>Firebase Analytics (Google LLC): Collects usage and behavioral data, which may include pseudonymous identifiers, to help improve the Application.</p>
+</li>
+<li>
+<p>Firebase Crashlytics (Google LLC): Collects crash and error reports to detect and fix technical issues.</p>
+</li>
+<li>
+<p>Firebase App Check (Google LLC): Verifies the authenticity of requests made to the Application&#x27;s backend.</p>
+</li>
+<li>
+<p>Firebase Remote Config (Google LLC): Allows remote configuration of Application features without requiring an update.</p>
+</li>
+<li>
+<p>Cloud Functions for Firebase (Google LLC): Processes Community actions (follows, posts, messages and reports) and account deletion on the server.</p>
+</li>
+<li>
+<p>Cloud Storage for Firebase (Google LLC): Stores gym page photos.</p>
+</li>
+<li>
+<p>Firebase Cloud Messaging (Google LLC): Delivers push notifications.</p>
+</li>
+<li>
+<p>Sign in with Apple (Apple Inc.): Authenticates users who choose to sign in with Apple.</p>
+</li>
+<li>
+<p>Google AdMob (Google LLC): Manages advertising in the free version of the Application. All Firebase services are operated by Google LLC, headquartered in the United States. Users may consult Google&#x27;s Privacy Policy at: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+</li>
+</ul>
+<h2>6. Advertising and Personalization</h2>
+<p>The free version of the Application may display personalized or non-personalized advertisements through Google AdMob. Personalized ads may be based on the User&#x27;s previous behavior and interests. Non-personalized ads do not use behavioral history but may still use contextual information, approximate location, device identifiers, and technical data for purposes such as frequency capping, aggregate measurement, and fraud prevention.</p>
+<p>Users may manage their advertising preferences through their device settings (iOS: Settings &gt; Privacy &amp; Security &gt; Tracking; Android: Settings &gt; Google &gt; Ads). RhumbLabs does not sell personal data.</p>
+<p>If new advertising partners or advanced personalization features are incorporated, this Privacy Policy will be updated accordingly.</p>
+<h2>7. International Data Transfers</h2>
+<p>Some of the third-party services listed above may process personal data on servers located outside of Chile, including in the United States. Where such transfers occur, they are carried out in accordance with the data protection standards required by Chilean law and subject to the terms and data processing agreements established with each service provider.</p>
+<h2>8. Data Retention</h2>
+<p>Personal data is retained for as long as the User&#x27;s account remains active. Upon account deletion, personal data will be deleted within 30 days, except where retention is required by applicable law or for legitimate security purposes.</p>
+<p>Session data and account information stored through Firebase Cloud Firestore will be deleted in accordance with the data deletion process initiated upon account termination. Deleting the account also deletes the Community profile, posts, reactions, follow and block relationships, conversations (including the other person&#x27;s messages in those conversations), reports, the gym page with its photos and events, and notification tokens. Data files exported or backed up by the User from within the Application remain under the User&#x27;s own control.</p>
+<p>RhumbLabs is not responsible for the storage, sharing, or use of files that the User saves or manages outside of the Application.</p>
+<h2>9. Children’s Privacy</h2>
+<p>The Application is not directed at children under the age of 13. RhumbLabs does not knowingly collect personal data from users under 13 years of age. If the Company becomes aware that a user under 13 has created an account, the account and associated data will be deleted without prior notice.</p>
+<h2>10. User Rights</h2>
+<p>Users may exercise the following rights regarding their personal data under current Chilean law and the options offered by RhumbLabs. Additional rights under Law N° 21.719 will become enforceable when it takes effect on December 1, 2026:</p>
+<ul>
+<li>
+<p>Right of access: To request information about what personal data is held and how it is being processed.</p>
+</li>
+<li>
+<p>Right of rectification: To request correction of inaccurate or incomplete data.</p>
+</li>
+<li>
+<p>Right of deletion: To request the deletion of personal data, subject to legal retention obligations.</p>
+</li>
+<li>
+<p>Right of opposition: To object to the processing of personal data in certain circumstances.</p>
+</li>
+<li>
+<p>Right to data portability: To request a copy of personal data in a structured and commonly used format, where technically feasible. To exercise any of these rights, Users may contact RhumbLabs at <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a>. Requests will be addressed within the timeframes established by applicable Chilean law.</p>
+</li>
+</ul>
+<h2>11. Data Security</h2>
+<p>RhumbLabs implements reasonable technical and organizational measures to protect personal data against unauthorized access, loss, alteration, or disclosure. These measures include the use of Firebase App Check for backend security, encrypted data transmiss ion, and access controls within the Application&#x27;s infrastructure. However, no method of electronic transmission or storage is completely secure.</p>
+<p>RhumbLabs cannot guarantee absolute security of personal data.</p>
+<h2>12. Security Incidents</h2>
+<p>RhumbLabs maintains internal procedures to detect, evaluate, contain, and document security incidents that may affect personal data. In the event of a security breach that poses a risk to Users&#x27; rights, RhumbLabs will notify affected Users through reasonable means within the timeframes required by applicable Chilean law. Obligations under Law N° 21.719 will apply from its effective date.</p>
+<h2>13. Modifications to this Policy</h2>
+<p>RhumbLabs may update this Privacy Policy at any time. Users will be notified of material changes through an in-app notice or by email. Continued use of the Application following such notification constitutes acceptance of the updated policy.</p>
+<h2>14. Contact</h2>
+<p>For questions, requests, or complaints regarding this Privacy Policy or the processing of personal data, Users may contact RhumbLabs at: Email: <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a> Users also have the right to file a complaint before the relevant Chilean data protection authority or competent courts where applicable.</p></article></main>
+  <script>
+    document.getElementById('language-toggle').addEventListener('click', function () {
+      var next = document.documentElement.dataset.language === 'es' ? 'en' : 'es';
+      document.documentElement.dataset.language = next;
+      document.documentElement.lang = next;
+      this.setAttribute('aria-label', next === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish');
+      try { localStorage.setItem('language', next); } catch {}
+    });
+  </script>
 </body>
 </html>

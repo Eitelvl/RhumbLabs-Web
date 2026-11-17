@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useBrandTheme } from '../context/BrandThemeContext';
 import { SafeImage } from './SafeImage';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function TopBar() {
   const location = useLocation();
@@ -29,6 +30,7 @@ export default function TopBar() {
   
   const basename = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/\/$/, '') : '';
   const { brandSmokeEnabled, toggleBrandSmoke } = useBrandTheme();
+  const { language, toggleLanguage } = useLanguage();
   
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -110,13 +112,13 @@ export default function TopBar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-bg-primary/80 backdrop-blur-xl border-b border-border-subtle py-3' : 'bg-transparent py-5'}`}>
-      <div className="flex justify-between items-center px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="flex justify-between items-center px-4 md:px-12 max-w-7xl mx-auto">
         <div className="flex items-center">
-          <Link to="/" onClick={(e) => scrollToSection(e, 'home')} className="logo-container flex items-center group relative h-12 w-48 md:w-64 -ml-4 md:-ml-6">
+          <Link to="/" onClick={(e) => scrollToSection(e, 'home')} className="logo-container flex items-center group relative h-12 w-28 sm:w-48 md:w-64 -ml-3 md:-ml-6">
             <SafeImage 
               src="/images/rhumb-labs-logo.png" 
               alt="Rhumb Labs" 
-              className="w-[150px] md:w-[200px] h-auto object-contain scale-[1.1] md:scale-[1.2] origin-left translate-y-0.5" 
+              className="w-[115px] sm:w-[150px] md:w-[200px] h-auto object-contain scale-[1.1] md:scale-[1.2] origin-left translate-y-0.5"
             />
           </Link>
         </div>
@@ -157,6 +159,13 @@ export default function TopBar() {
              </button>
            )}
 
+           <button type="button" onClick={toggleLanguage}
+             className="min-w-10 h-9 px-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors text-xs font-bold tracking-wide"
+             aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a español'}
+             title={language === 'es' ? 'English' : 'Español'} data-i18n-ignore>
+             {language.toUpperCase()}
+           </button>
+
            <button onClick={toggleTheme} className="p-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors" aria-label="Toggle Theme" title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}>
              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
            </button>
@@ -170,7 +179,7 @@ export default function TopBar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-1.5">
           {isFxRoute && (
             <button 
               onClick={toggleBrandSmoke} 
@@ -185,6 +194,12 @@ export default function TopBar() {
               <Wand2 className={`w-4 h-4 ${brandSmokeEnabled ? 'text-cyan-400' : ''}`} />
             </button>
           )}
+          <button type="button" onClick={toggleLanguage}
+            className="min-w-10 h-9 px-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors text-xs font-bold tracking-wide"
+            aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a español'}
+            title={language === 'es' ? 'English' : 'Español'} data-i18n-ignore>
+            {language.toUpperCase()}
+          </button>
           <button onClick={toggleTheme} className="p-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors" aria-label="Toggle Theme">
             {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>

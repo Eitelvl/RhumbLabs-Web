@@ -19,6 +19,7 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import ScrollToTop from './components/ScrollToTop';
 import { BrandThemeProvider } from './context/BrandThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { BrandSmokeCanvas } from './components/BrandSmokeCanvas';
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
   return (
     <BrandThemeProvider>
       <BrowserRouter basename={basename === '/' ? undefined : basename}>
+        <LanguageProvider>
         <ScrollToTop />
         <BrandSmokeCanvas />
         <Routes>
@@ -57,6 +59,7 @@ export default function App() {
           <Route path="/delete-account" element={<DeleteAccountPage />} />
           <Route path="/data-deletion" element={<DeleteAccountPage />} />
         </Routes>
+        </LanguageProvider>
       </BrowserRouter>
     </BrandThemeProvider>
   );

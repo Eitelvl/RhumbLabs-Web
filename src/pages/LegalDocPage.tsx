@@ -6,11 +6,13 @@ import Footer from '../components/Footer';
 import { ArrowLeft, FileText, ChevronRight } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useLanguage } from '../context/LanguageContext';
 
 // Load all markdown files from /src/data/legal
 const docs = import.meta.glob('/src/data/legal/*.md', { query: '?raw', import: 'default', eager: true });
 
 export default function LegalDocPage() {
+  const { language } = useLanguage();
   const location = useLocation();
   const pathParts = location.pathname.split('/').filter(Boolean);
   
@@ -59,6 +61,9 @@ export default function LegalDocPage() {
   
   let content: string | null = null;
   const pathCandidates = [
+    ...(isPogo && (cleanTitle === 'privacy-policy' || cleanTitle === 'terms-of-use')
+      ? [`/src/data/legal/pogo-${cleanTitle}-${language}.md`]
+      : []),
     `/src/data/legal/${filenamePrefix}${cleanTitle}.md`,
     `/src/data/legal/${rawTitle}.md`,
     `/src/data/legal/${cleanTitle}.md`,
@@ -121,7 +126,7 @@ export default function LegalDocPage() {
           </div>
         ) : content ? (
           <>
-            <div className="markdown-body prose dark:prose-invert prose-slate max-w-none 
+            <div data-i18n-ignore={isPogo ? true : undefined} className="markdown-body prose dark:prose-invert prose-slate max-w-none
                             prose-headings:text-text-primary prose-p:text-text-secondary prose-li:text-text-secondary
                             prose-a:text-[#11A8FD] hover:prose-a:text-[#11A8FD]/80
                             prose-strong:text-text-primary prose-strong:font-medium">

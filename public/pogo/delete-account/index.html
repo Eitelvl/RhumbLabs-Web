@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" data-language="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,11 +48,15 @@
           // Default to dark mode to match RhumbLabs standard
           document.documentElement.classList.add('dark');
         }
+        var language = localStorage.getItem('language') === 'en' ? 'en' : 'es';
+        document.documentElement.dataset.language = language;
+        document.documentElement.lang = language;
       } catch (e) {}
     })();
   </script>
 
   <style>
+    [data-language="es"] #en, [data-language="en"] #es, [data-language="es"] [lang="en"], [data-language="en"] [lang="es"] { display: none !important; }
     /* Custom page variables for theme integrity */
     :root {
       --bg-primary: #f6f4ee;
@@ -120,8 +124,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
         </button>
-        <a href="#es" class="text-xs font-semibold px-2.5 py-1 rounded bg-[color:var(--card-element)] text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] border border-[color:var(--card-border)]">ES</a>
-        <a href="#en" class="text-xs font-semibold px-2.5 py-1 rounded bg-[color:var(--card-element)] text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] border border-[color:var(--card-border)]">EN</a>
+        <button id="language-toggle" type="button" onclick="toggleLanguage()" class="text-xs font-semibold px-2.5 py-1 rounded bg-[color:var(--card-element)] text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] border border-[color:var(--card-border)]" aria-label="Cambiar idioma">ES</button>
       </div>
     </div>
   </header>
@@ -132,21 +135,22 @@
     <!-- Top badge/intro -->
     <div class="text-center max-w-2xl mx-auto mb-16">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/5 text-purple-500 text-[10px] uppercase font-bold tracking-widest mb-6">
-        <span>Google Play / App Store Compliant</span>
+        <span lang="es">Compatible con Google Play y App Store</span><span lang="en">Google Play / App Store Compliant</span>
       </div>
       <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-[color:var(--text-primary)]">
-        Pogo Account Deletion <span class="text-[color:var(--text-secondary)] font-normal">/</span> Eliminación de Cuenta
+        <span lang="es">Eliminación de cuenta de Pogo</span><span lang="en">Pogo Account Deletion</span>
       </h1>
       <p class="text-lg text-[color:var(--text-secondary)] font-light leading-relaxed">
-        We respect your privacy. Here you can easily request the permanent deletion of your Pogo climbing app account and all associated personal data.
+        <span lang="es">Respetamos tu privacidad. Aquí puedes solicitar la eliminación permanente de tu cuenta de Pogo y de los datos personales asociados.</span>
+        <span lang="en">We respect your privacy. Here you can easily request the permanent deletion of your Pogo climbing app account and all associated personal data.</span>
       </p>
     </div>
 
     <!-- Main Grid containing both Spanish & English blocks side by side -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-6">
+    <div class="grid grid-cols-1 gap-10 mt-6 max-w-3xl mx-auto">
       
       <!-- SECTION IN SPANISH (Español - ID: es) -->
-      <section id="es" class="linear-card-gradient p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between scroll-mt-24">
+      <section id="es" lang="es" class="linear-card-gradient p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between scroll-mt-24">
         <div>
           <div class="flex items-center justify-between mb-8 border-b border-[color:var(--card-border)] pb-6">
             <h2 class="text-2xl font-bold text-[color:var(--text-primary)] tracking-tight">Español</h2>
@@ -238,7 +242,7 @@
       </section>
 
       <!-- SECTION IN ENGLISH (ID: en) -->
-      <section id="en" class="linear-card-gradient p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between scroll-mt-24">
+      <section id="en" lang="en" class="linear-card-gradient p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between scroll-mt-24">
         <div>
           <div class="flex items-center justify-between mb-8 border-b border-[color:var(--card-border)] pb-6">
             <h2 class="text-2xl font-bold text-[color:var(--text-primary)] tracking-tight">English</h2>
@@ -350,16 +354,24 @@
   <!-- Footer -->
   <footer class="border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] py-12 px-6 transition-colors duration-300 mt-auto">
     <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-[color:var(--text-secondary)]">
-      <span>© 2026 RhumbLabs. All rights reserved. Todos los derechos reservados.</span>
+      <span lang="es">© 2026 RhumbLabs. Todos los derechos reservados.</span><span lang="en">© 2026 RhumbLabs. All rights reserved.</span>
       <div class="flex gap-6">
-        <span>Google Play Verified compliant</span>
-        <span>Developer Support: support@rhumblabs.com</span>
+        <span lang="es">Soporte: support@rhumblabs.com</span><span lang="en">Developer Support: support@rhumblabs.com</span>
       </div>
     </div>
   </footer>
 
   <!-- Theme toggle actions -->
   <script>
+    function toggleLanguage() {
+      var next = document.documentElement.dataset.language === 'en' ? 'es' : 'en';
+      document.documentElement.dataset.language = next;
+      document.documentElement.lang = next;
+      document.getElementById('language-toggle').textContent = next.toUpperCase();
+      document.getElementById('language-toggle').setAttribute('aria-label', next === 'es' ? 'Switch to English' : 'Cambiar a español');
+      try { localStorage.setItem('language', next); } catch (e) {}
+    }
+    document.getElementById('language-toggle').textContent = document.documentElement.dataset.language?.toUpperCase() || 'ES';
     function toggleTheme() {
       if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');
