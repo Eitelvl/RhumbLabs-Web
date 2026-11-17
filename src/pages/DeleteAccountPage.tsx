@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
-import { Mail, ArrowLeft, Trash2, Smartphone, ShieldCheck, ArrowRight, Navigation } from 'lucide-react';
+import { Mail, ArrowLeft, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export default function DeleteAccountPage() {
   useEffect(() => {
@@ -49,8 +49,8 @@ export default function DeleteAccountPage() {
               className="linear-card p-8 rounded-3xl bg-bg-primary border border-card-border flex flex-col justify-between shadow-[0_10px_30px_var(--shadow-subtle)] hover:border-sky-500/40 transition-colors group"
             >
               <div>
-                <div className="p-3.5 bg-sky-500/10 rounded-2xl border border-sky-500/20 w-fit mb-6">
-                  <Navigation className="w-6 h-6 text-sky-400" />
+                <div className="w-12 h-12 rounded-xl bg-[#11A8FD]/10 border border-[#11A8FD]/20 overflow-hidden mb-6">
+                  <img src="/images/rhumbnav-app-icon.png" alt="RhumbNav app icon" className="w-full h-full object-cover" />
                 </div>
                 <h2 className="text-2xl font-bold text-text-primary mb-3">RhumbNav</h2>
                 <p className="text-sm text-text-secondary font-light leading-relaxed mb-6">
@@ -77,11 +77,11 @@ export default function DeleteAccountPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="linear-card p-8 rounded-3xl bg-bg-primary border border-card-border flex flex-col justify-between shadow-[0_10px_30px_var(--shadow-subtle)] hover:border-red-500/40 transition-colors group"
+              className="linear-card p-8 rounded-3xl bg-bg-primary border border-card-border flex flex-col justify-between shadow-[0_10px_30px_var(--shadow-subtle)] hover:border-purple-500/40 transition-colors group"
             >
               <div>
-                <div className="p-3.5 bg-red-500/10 rounded-2xl border border-red-500/20 w-fit mb-6">
-                  <Smartphone className="w-6 h-6 text-red-400" />
+                <div className="w-12 h-12 rounded-xl bg-[#7C3AED]/10 border border-[#7C3AED]/20 overflow-hidden mb-6">
+                  <img src="/images/pogo-app-icon.png" alt="Pogo app icon" className="w-full h-full object-cover" />
                 </div>
                 <h2 className="text-2xl font-bold text-text-primary mb-3">Pogo</h2>
                 <p className="text-sm text-text-secondary font-light leading-relaxed mb-6">
