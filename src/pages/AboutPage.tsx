@@ -264,10 +264,7 @@ export default function AboutPage() {
               {/* Pillar 1: PRODUCTS */}
               <div className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 relative overflow-hidden group">
                 <div>
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="text-xs font-mono font-bold tracking-widest text-cyan-400 uppercase px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/60">
-                      PRODUCTS
-                    </span>
+                  <div className="flex justify-end mb-8">
                     <Boxes className="w-5 h-5 text-cyan-400/80" />
                   </div>
 
@@ -317,10 +314,7 @@ export default function AboutPage() {
               {/* Pillar 2: CUSTOM */}
               <div className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-purple-500/40 transition-all duration-300 relative overflow-hidden group">
                 <div>
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="text-xs font-mono font-bold tracking-widest text-purple-400 uppercase px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60">
-                      CUSTOM
-                    </span>
+                  <div className="flex justify-end mb-8">
                     <Code2 className="w-5 h-5 text-purple-400/80" />
                   </div>
 
@@ -361,10 +355,7 @@ export default function AboutPage() {
               {/* Pillar 3: EXPERIMENTS */}
               <div className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-cyan-400/40 transition-all duration-300 relative overflow-hidden group">
                 <div>
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="text-xs font-mono font-bold tracking-widest text-text-secondary uppercase px-3 py-1 rounded-full bg-card-element border border-card-border">
-                      EXPERIMENTS
-                    </span>
+                  <div className="flex justify-end mb-8">
                     <Sparkles className="w-5 h-5 text-text-secondary" />
                   </div>
 
