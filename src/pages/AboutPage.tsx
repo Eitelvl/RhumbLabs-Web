@@ -228,9 +228,6 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
               
               <div className="md:col-span-4">
-                <span className="text-xs font-mono font-semibold tracking-widest text-text-secondary uppercase block mb-3">
-                  02 / IDENTITY
-                </span>
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary leading-snug">
                   A small lab <br className="hidden md:block"/> for big ideas.
                 </h2>
@@ -257,9 +254,6 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto">
             
             <div className="mb-16 md:mb-20">
-              <span className="text-xs font-mono font-semibold tracking-widest text-text-secondary uppercase block mb-3">
-                03 / CAPABILITIES
-              </span>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-text-primary">
                 What we do.
               </h2>
@@ -407,9 +401,6 @@ export default function AboutPage() {
             
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-20">
               <div>
-                <span className="text-xs font-mono font-semibold tracking-widest text-text-secondary uppercase block mb-3">
-                  04 / ECOSYSTEM
-                </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary">
                   Built here.
                 </h2>
@@ -537,10 +528,6 @@ export default function AboutPage() {
             <div className="linear-card backdrop-blur-xl rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden">
               
               <div className="max-w-3xl relative z-10">
-                <span className="text-xs font-mono font-semibold tracking-widest text-cyan-400 uppercase block mb-4">
-                  05 / CUSTOM DEVELOPMENT
-                </span>
-                
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-4 leading-tight">
                   Have something in mind?
                 </h2>
@@ -574,9 +561,6 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto">
             
             <div className="mb-16 md:mb-20">
-              <span className="text-xs font-mono font-semibold tracking-widest text-text-secondary uppercase block mb-3">
-                06 / METHODOLOGY
-              </span>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-text-primary">
                 How we work.
               </h2>
@@ -617,10 +601,6 @@ export default function AboutPage() {
             ========================================================================= */}
         <section className="py-32 md:py-48 px-6 lg:px-12 border-t border-border-subtle text-center flex flex-col items-center justify-center relative">
           <div className="max-w-4xl mx-auto">
-            <span className="text-xs font-mono font-semibold tracking-widest text-text-secondary uppercase block mb-8">
-              07 / CORE PHILOSOPHY
-            </span>
-            
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-text-primary mb-12 leading-[1.1]">
               Good software is invisible. <br />
               <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400 bg-clip-text text-transparent">
@@ -643,9 +623,6 @@ export default function AboutPage() {
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
               <div className="lg:col-span-5">
-                <span className="text-xs font-mono font-semibold tracking-widest text-text-secondary uppercase block mb-3">
-                  08 / RESEARCH & EXPERIMENTATION
-                </span>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-6">
                   The lab is <br className="hidden lg:block"/> always open.
                 </h2>
