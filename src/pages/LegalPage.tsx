@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
-import { ChevronRight, Building2 } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 export default function LegalPage() {
   return (
@@ -32,8 +32,12 @@ export default function LegalPage() {
             className="linear-card legal-company-card p-8 rounded-3xl shadow-[0_20px_60px_var(--shadow-medium)] flex flex-col h-full"
           >
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-card-border">
-              <div className="p-3 bg-card-element rounded-xl border border-card-border">
-                <Building2 className="w-6 h-6 text-text-primary" />
+              <div className="w-12 h-12 shrink-0 bg-black rounded-xl border border-card-border overflow-hidden">
+                <img
+                  src="/images/rhumb-labs-card-icon.png"
+                  alt="Rhumb Labs logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h2 className="text-2xl font-bold text-text-primary">Rhumb Labs</h2>
             </div>
