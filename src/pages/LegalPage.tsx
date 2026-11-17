@@ -29,7 +29,7 @@ export default function LegalPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="linear-card legal-company-card p-8 rounded-3xl shadow-[0_20px_60px_var(--shadow-medium)] flex flex-col h-full"
+            className="linear-card p-8 rounded-3xl bg-bg-primary border border-card-border flex flex-col h-full relative overflow-hidden"
           >
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-card-border">
               <div className="w-12 h-12 shrink-0 bg-black rounded-xl border border-card-border overflow-hidden">
