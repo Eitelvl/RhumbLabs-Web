@@ -1,6 +1,6 @@
 # PRIVACY POLICY
 
-Last update: November 17, 2026
+Last update: November 18, 2026
 
 This Privacy Policy describes how RhumbLabs, RUT 19.524.712-9 (the "Company"), collects, uses, stores, and protects the personal data of users of the Pogo (the "Application"). This Privacy Policy should be read in conjunction with the Terms and Conditions of Use of the Application.
 
@@ -32,15 +32,15 @@ The Application collects only the data necessary to provide its core functionali
 
 - Community Data (optional): If the User turns on Community, the Application processes their alias, Instagram username, bio, city, gym, roles (climber, setter or gym), private-account setting, the people they follow and who follow them, blocks, the session and achievement posts they choose to share, reactions, and the reports they send or receive. The Community profile, posts and follower counts are visible to other users according to the User's privacy settings. Blocks and reports are not visible to the people involved.
 
-- Direct Messages: The content of the messages the User sends and receives, their participants and read status. Messages are visible only to the two participants. RhumbLabs may review a message when it has been reported, solely for moderation.
+- Direct Messages: The content of the messages the User sends and receives, their participants and read status. Messages may include photos, which are stored in Cloud Storage and can be seen only by the two participants. Messages are visible only to the two participants. RhumbLabs may review a message, including its photo, when it has been reported, solely for moderation.
 
 - Gym Pages: Gym accounts may publish an address, opening hours, website, events, setter team, and cover and logo photos. This information is public to users of the Application.
 
 - Push Notifications: A device identifier for notifications (Firebase Cloud Messaging token), platform, language, time zone and notification preferences, including muted gyms. They are used only to send alerts that the User can turn off in Settings or in the operating system.
 
-- Images: The Application accesses the photo library only when a gym account picks a cover or logo photo. The chosen image is uploaded to Cloud Storage and is public within the Application.
+- Images: The Application accesses the photo library only when a gym account picks a cover or logo photo, or when the User picks a photo to send in a chat. A cover or logo photo is uploaded to Cloud Storage and is public within the Application; a chat photo is visible only to the two participants.
 
-- Camera Data: The device camera is accessed solely for QR code scanning, to allow the User to view profiles or voluntarily join Shared Sessions. Camera images used to scan QR codes are not stored or transmitted.
+- Camera Data: The device camera is accessed to scan QR codes, to allow the User to view profiles or voluntarily join Shared Sessions, and to take a photo when the User chooses to send one in a chat. Camera images used to scan QR codes are not stored or transmitted; a photo taken for a chat is sent only if the User confirms it.
 
 - Usage and Technical Data: Information about how the User interacts with the Application, crash reports, and technical diagnostics, collected through Firebase Analytics and Firebase Crashlytics.
 
@@ -112,7 +112,7 @@ The Application uses the following third-party services, which may process perso
 
 - Cloud Functions for Firebase (Google LLC): Processes Community actions (follows, posts, messages and reports) and account deletion on the server.
 
-- Cloud Storage for Firebase (Google LLC): Stores gym page photos.
+- Cloud Storage for Firebase (Google LLC): Stores gym page photos and photos sent in chats.
 
 - Firebase Cloud Messaging (Google LLC): Delivers push notifications.
 
@@ -136,7 +136,7 @@ Some of the third-party services listed above may process personal data on serve
 
 Personal data is retained for as long as the User's account remains active. Upon account deletion, personal data will be deleted within 30 days, except where retention is required by applicable law or for legitimate security purposes.
 
-Session data and account information stored through Firebase Cloud Firestore will be deleted in accordance with the data deletion process initiated upon account termination. Deleting the account also deletes the Community profile, posts, reactions, follow and block relationships, conversations (including the other person's messages in those conversations), reports, the gym page with its photos and events, and notification tokens. Data files exported or backed up by the User from within the Application remain under the User's own control.
+Session data and account information stored through Firebase Cloud Firestore will be deleted in accordance with the data deletion process initiated upon account termination. Deleting the account also deletes the Community profile, posts, reactions, follow and block relationships, conversations (including the other person's messages and photos in those conversations), reports, the gym page with its photos and events, and notification tokens. Data files exported or backed up by the User from within the Application remain under the User's own control.
 
 RhumbLabs is not responsible for the storage, sharing, or use of files that the User saves or manages outside of the Application.
 

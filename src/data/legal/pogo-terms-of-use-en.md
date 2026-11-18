@@ -1,6 +1,6 @@
 # TERMS OF USE
 
-Last Update: November 17, 2026
+Last Update: November 18, 2026
 
 These Terms and Conditions of Use ("Terms") govern the access to and use of the Pogo (the "Application"), operated under the trade name RhumbLabs, RUT 19.524.712-9 (the "Company"). By accessing and using the Application, the user (“User”) agrees to be bound by these Terms.
 
@@ -18,7 +18,7 @@ The Application also allows users to scan QR codes using the device camera to ac
 
 The Application also allows Users to create temporary Shared Sessions. Each participant remains responsible for logging and saving their own individual session; the host controls the shared start and finish, and summarized progress is shown to room participants in real time.
 
-Pogo also includes optional social features (the "Community") that let users create a public profile, follow other users, post sessions and achievements, react, send direct messages and, for gym accounts, publish a page with information, photos and events.
+Pogo also includes optional social features (the "Community") that let users create a public profile, follow other users, post sessions and achievements, react, send direct messages with text and photos and, for gym accounts, publish a page with information, photos and events.
 
 The Application may send push notifications about activity from gyms the User follows. The User can turn them off in Settings or in the operating system.
 
@@ -58,7 +58,7 @@ The Application allows users to export their sessions as images and share them e
 
 RhumbLabs is not responsible for how third parties use content that users choose to share voluntarily. Users may also share their climbing profile through a generated QR code, which can be scanned by other users directly within the Application using the device camera.
 
-Camera access is used solely for QR code scanning, and those images are not stored or transmitted. Photo library access is used only when a gym account picks a cover or logo photo for its page. When a User shares their profile via QR code, the following information may be visible to other users: display name, avatar, skill level, climbing statistics, achievements, and rankings recorded within the Application.
+Camera access is used to scan QR codes, and those images are not stored or transmitted, and to take photos the User chooses to send in a chat. Photo library access is used only when a gym account picks a cover or logo photo for its page, or when the User picks a photo to send in a chat. When a User shares their profile via QR code, the following information may be visible to other users: display name, avatar, skill level, climbing statistics, achievements, and rankings recorded within the Application.
 
 Users are responsible for the profile information they choose to make visible through this feature. The user is responsible for the accuracy of the data entered. Metrics, summaries, personal rankings, calculations, or visualizations may be inaccurate if the original data is incomplete, incorrect, or outdated.
 
@@ -94,7 +94,7 @@ The Application relies on the following third-party services to operate. Each se
 
 - Cloud Functions for Firebase (Google LLC) – Server-side processing for the Community and account deletion.
 
-- Cloud Storage for Firebase (Google LLC) – Storage of gym page photos.
+- Cloud Storage for Firebase (Google LLC) – Storage of gym page photos and photos sent in chats.
 
 - Firebase Cloud Messaging (Google LLC) – Push notification delivery.
 

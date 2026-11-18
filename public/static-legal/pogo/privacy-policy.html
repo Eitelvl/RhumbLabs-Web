@@ -23,7 +23,7 @@
 <body>
   <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Cambiar idioma">ES / EN</button></header>
   <main><article lang="es"><h1>POLÍTICA DE PRIVACIDAD</h1>
-<p>Última actualización: 17/11/2026</p>
+<p>Última actualización: 18/11/2026</p>
 <p>Esta Política de Privacidad describe cómo RhumbLabs, RUT 19.524.712-9 (&quot;la Empresa&quot;), recopila, utiliza, almacena y protege los datos personales de los usuarios de Pogo (&quot;la Aplicación&quot;).</p>
 <p>Esta Política de Privacidad debe leerse junto con los Términos y Condiciones de Uso de la Aplicación. Al utilizar la Aplicación, el Usuario acepta las prácticas descritas en este documento.</p>
 <p>Esta política se rige actualmente por las leyes chilenas nº 19.628 sobre protección de la vida privada y nº 19.496 sobre protección del consumidor. La Ley nº 21.719, sobre protección y tratamiento de datos personales, entrará en vigencia el 1 de diciembre de 2026.</p>
@@ -57,7 +57,7 @@
 <p>Datos de Comunidad (opcional): Si el Usuario activa la Comunidad, se tratan su alias, usuario de Instagram, biografía, ciudad, gimnasio, roles (escalador, setter o gimnasio), la configuración de cuenta privada, las personas que sigue y que lo siguen, los bloqueos, las publicaciones de sesiones y logros que decide compartir, las reacciones y los reportes que envía o recibe. El perfil de Comunidad, las publicaciones y los contadores de seguidores son visibles para otros usuarios según la configuración de privacidad del Usuario. Los bloqueos y los reportes no son visibles para las personas involucradas.</p>
 </li>
 <li>
-<p>Mensajes directos: Contenido de los mensajes que el Usuario envía y recibe, sus participantes y su estado de lectura. Los mensajes solo son visibles para los dos participantes. RhumbLabs puede revisar un mensaje cuando ha sido reportado, con el único fin de moderar.</p>
+<p>Mensajes directos: Contenido de los mensajes que el Usuario envía y recibe, sus participantes y su estado de lectura. Los mensajes pueden incluir fotos, que se guardan en Cloud Storage y solo pueden ver los dos participantes. Los mensajes solo son visibles para los dos participantes. RhumbLabs puede revisar un mensaje, incluida su foto, cuando ha sido reportado, con el único fin de moderar.</p>
 </li>
 <li>
 <p>Páginas de gimnasio: Las cuentas de gimnasio pueden publicar dirección, horario, sitio web, eventos, equipo de setters y fotos de portada y logo. Esta información es pública para los usuarios de la Aplicación.</p>
@@ -66,13 +66,13 @@
 <p>Notificaciones push: Identificador del dispositivo para notificaciones (token de Firebase Cloud Messaging), plataforma, idioma, zona horaria y preferencias de notificación, incluidos los gimnasios silenciados. Se usan solo para enviar avisos que el Usuario puede desactivar en Configuración o en el sistema operativo.</p>
 </li>
 <li>
-<p>Imágenes: La Aplicación accede a la galería solo cuando una cuenta de gimnasio elige una foto de portada o logo. La imagen elegida se sube a Cloud Storage y es pública dentro de la Aplicación.</p>
+<p>Imágenes: La Aplicación accede a la galería solo cuando una cuenta de gimnasio elige una foto de portada o logo, o cuando el Usuario elige una foto para enviarla en un chat. La foto de portada o logo se sube a Cloud Storage y es pública dentro de la Aplicación; la foto de un chat solo es visible para los dos participantes.</p>
 </li>
 <li>
 <p>Datos de localización: Coordenadas geográficas del dispositivo recogidas únicamente cuando el usuario activa la función de proximidad al gimnasio. Estos datos se utilizan exclusivamente para identificar gimnasios cercanos en un radio de 200 metros y no se almacenan de forma permanente.</p>
 </li>
 <li>
-<p>Datos de la cámara: La cámara del dispositivo se accede únicamente para escanear códigos QR, para permitir al usuario ver perfiles o unirse voluntariamente a Sesiones Compartidas. Las imágenes de la cámara usadas para escanear códigos QR no se almacenan ni se transmiten.</p>
+<p>Datos de la cámara: La cámara del dispositivo se accede para escanear códigos QR, para permitir al usuario ver perfiles o unirse voluntariamente a Sesiones Compartidas, y para tomar una foto cuando el usuario decide enviarla en un chat. Las imágenes de la cámara usadas para escanear códigos QR no se almacenan ni se transmiten; una foto tomada para un chat solo se envía si el usuario la confirma.</p>
 </li>
 <li>
 <p>Datos de uso y técnicos: Información sobre cómo el usuario interactúa con la aplicación, informes de fallos y diagnósticos técnicos, recopilados a través de Firebase Analytics y Firebase Crashlytics.</p>
@@ -172,7 +172,7 @@
 <p>Cloud Functions for Firebase (Google LLC): Procesa en el servidor las acciones de la Comunidad (seguir, publicar, mensajes y reportes) y la eliminación de cuentas.</p>
 </li>
 <li>
-<p>Cloud Storage for Firebase (Google LLC): Almacena las fotos de las páginas de gimnasio.</p>
+<p>Cloud Storage for Firebase (Google LLC): Almacena las fotos de las páginas de gimnasio y las fotos enviadas en los chats.</p>
 </li>
 <li>
 <p>Firebase Cloud Messaging (Google LLC): Entrega las notificaciones push.</p>
@@ -194,7 +194,7 @@
 <h2>8. Retención de datos</h2>
 <p>Los datos personales se conservan mientras la cuenta del usuario permanezca activa. Al eliminar la cuenta, los datos personales serán eliminados en un plazo de 30 días, salvo cuando la ley aplicable requiera su conservación o por motivos legítimos de seguridad.</p>
 <p>Los datos de sesión y la información de la cuenta almacenados en Firebase Cloud Firestore serán eliminados de acuerdo con el proceso de eliminación de datos iniciado al finalizar la cuenta.</p>
-<p>Al eliminar la cuenta se eliminan también el perfil de Comunidad, las publicaciones, las reacciones, las relaciones de seguimiento y bloqueo, las conversaciones (incluidos los mensajes de la otra persona en esas conversaciones), los reportes, la página de gimnasio con sus fotos y eventos, y los tokens de notificación.</p>
+<p>Al eliminar la cuenta se eliminan también el perfil de Comunidad, las publicaciones, las reacciones, las relaciones de seguimiento y bloqueo, las conversaciones (incluidos los mensajes y fotos de la otra persona en esas conversaciones), los reportes, la página de gimnasio con sus fotos y eventos, y los tokens de notificación.</p>
 <p>Los archivos de datos exportados o respaldados por el Usuario desde dentro de la Aplicación permanecen bajo el control del Usuario. RhumbLabs no es responsable del almacenamiento, el intercambio o el uso de archivos que el usuario guarda o gestiona fuera de la Aplicación.</p>
 <h2>9. Privacidad infantil</h2>
 <p>La Aplicación no está dirigida a menores de 13 años. RhumbLabs no recopila conscientemente datos personales de usuarios menores de 13 años. Si la Compañía se entera de que un usuario menor de 13 años ha creado una cuenta, la cuenta y los datos asociados serán eliminados sin previo aviso.</p>
@@ -226,7 +226,7 @@
 <p>RhumbLabs puede actualizar esta Política de Privacidad en cualquier momento. Los usuarios serán notificados de cambios materiales mediante un aviso dentro de la Aplicación o por correo electrónico. El uso continuado de la Aplicación tras dicha notificación constituye aceptación de la política actualizada.</p>
 <h2>14. Contacto</h2>
 <p>Para preguntas, solicitudes o quejas relacionadas con esta Política de Privacidad o el tratamiento de datos personales, los usuarios pueden contactar con RhumbLabs en: Correo electrónico: <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a> Los usuarios también tienen derecho a presentar una queja ante la autoridad chilena correspondiente en protección de datos o ante los tribunales competentes cuando corresponda.</p></article><article lang="en"><h1>PRIVACY POLICY</h1>
-<p>Last update: November 17, 2026</p>
+<p>Last update: November 18, 2026</p>
 <p>This Privacy Policy describes how RhumbLabs, RUT 19.524.712-9 (the &quot;Company&quot;), collects, uses, stores, and protects the personal data of users of the Pogo (the &quot;Application&quot;). This Privacy Policy should be read in conjunction with the Terms and Conditions of Use of the Application.</p>
 <p>By using the Application, the User agrees to the practices described in this document. This policy is currently governed by Chilean Law N° 19.628 on the Protection of Privacy and Law N° 19.496 on Consumer Protection. Law N° 21.719 on the Protection and Processing of Personal Data will take effect on December 1, 2026.</p>
 <p>The Company is the data controller responsible for the personal data processed through the Application and can be contacted at: <a href="mailto:support@rhumblabs.com">support@rhumblabs.com</a> By using the Application, the User acknowledges having read and understood this Privacy Policy.</p>
@@ -262,7 +262,7 @@
 <p>Community Data (optional): If the User turns on Community, the Application processes their alias, Instagram username, bio, city, gym, roles (climber, setter or gym), private-account setting, the people they follow and who follow them, blocks, the session and achievement posts they choose to share, reactions, and the reports they send or receive. The Community profile, posts and follower counts are visible to other users according to the User&#x27;s privacy settings. Blocks and reports are not visible to the people involved.</p>
 </li>
 <li>
-<p>Direct Messages: The content of the messages the User sends and receives, their participants and read status. Messages are visible only to the two participants. RhumbLabs may review a message when it has been reported, solely for moderation.</p>
+<p>Direct Messages: The content of the messages the User sends and receives, their participants and read status. Messages may include photos, which are stored in Cloud Storage and can be seen only by the two participants. Messages are visible only to the two participants. RhumbLabs may review a message, including its photo, when it has been reported, solely for moderation.</p>
 </li>
 <li>
 <p>Gym Pages: Gym accounts may publish an address, opening hours, website, events, setter team, and cover and logo photos. This information is public to users of the Application.</p>
@@ -271,10 +271,10 @@
 <p>Push Notifications: A device identifier for notifications (Firebase Cloud Messaging token), platform, language, time zone and notification preferences, including muted gyms. They are used only to send alerts that the User can turn off in Settings or in the operating system.</p>
 </li>
 <li>
-<p>Images: The Application accesses the photo library only when a gym account picks a cover or logo photo. The chosen image is uploaded to Cloud Storage and is public within the Application.</p>
+<p>Images: The Application accesses the photo library only when a gym account picks a cover or logo photo, or when the User picks a photo to send in a chat. A cover or logo photo is uploaded to Cloud Storage and is public within the Application; a chat photo is visible only to the two participants.</p>
 </li>
 <li>
-<p>Camera Data: The device camera is accessed solely for QR code scanning, to allow the User to view profiles or voluntarily join Shared Sessions. Camera images used to scan QR codes are not stored or transmitted.</p>
+<p>Camera Data: The device camera is accessed to scan QR codes, to allow the User to view profiles or voluntarily join Shared Sessions, and to take a photo when the User chooses to send one in a chat. Camera images used to scan QR codes are not stored or transmitted; a photo taken for a chat is sent only if the User confirms it.</p>
 </li>
 <li>
 <p>Usage and Technical Data: Information about how the User interacts with the Application, crash reports, and technical diagnostics, collected through Firebase Analytics and Firebase Crashlytics.</p>
@@ -374,7 +374,7 @@
 <p>Cloud Functions for Firebase (Google LLC): Processes Community actions (follows, posts, messages and reports) and account deletion on the server.</p>
 </li>
 <li>
-<p>Cloud Storage for Firebase (Google LLC): Stores gym page photos.</p>
+<p>Cloud Storage for Firebase (Google LLC): Stores gym page photos and photos sent in chats.</p>
 </li>
 <li>
 <p>Firebase Cloud Messaging (Google LLC): Delivers push notifications.</p>
@@ -394,7 +394,7 @@
 <p>Some of the third-party services listed above may process personal data on servers located outside of Chile, including in the United States. Where such transfers occur, they are carried out in accordance with the data protection standards required by Chilean law and subject to the terms and data processing agreements established with each service provider.</p>
 <h2>8. Data Retention</h2>
 <p>Personal data is retained for as long as the User&#x27;s account remains active. Upon account deletion, personal data will be deleted within 30 days, except where retention is required by applicable law or for legitimate security purposes.</p>
-<p>Session data and account information stored through Firebase Cloud Firestore will be deleted in accordance with the data deletion process initiated upon account termination. Deleting the account also deletes the Community profile, posts, reactions, follow and block relationships, conversations (including the other person&#x27;s messages in those conversations), reports, the gym page with its photos and events, and notification tokens. Data files exported or backed up by the User from within the Application remain under the User&#x27;s own control.</p>
+<p>Session data and account information stored through Firebase Cloud Firestore will be deleted in accordance with the data deletion process initiated upon account termination. Deleting the account also deletes the Community profile, posts, reactions, follow and block relationships, conversations (including the other person&#x27;s messages and photos in those conversations), reports, the gym page with its photos and events, and notification tokens. Data files exported or backed up by the User from within the Application remain under the User&#x27;s own control.</p>
 <p>RhumbLabs is not responsible for the storage, sharing, or use of files that the User saves or manages outside of the Application.</p>
 <h2>9. Children’s Privacy</h2>
 <p>The Application is not directed at children under the age of 13. RhumbLabs does not knowingly collect personal data from users under 13 years of age. If the Company becomes aware that a user under 13 has created an account, the account and associated data will be deleted without prior notice.</p>

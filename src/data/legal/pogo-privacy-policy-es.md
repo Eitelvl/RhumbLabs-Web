@@ -1,6 +1,6 @@
 # POLÍTICA DE PRIVACIDAD
 
-Última actualización: 17/11/2026
+Última actualización: 18/11/2026
 
 Esta Política de Privacidad describe cómo RhumbLabs, RUT 19.524.712-9 ("la Empresa"), recopila, utiliza, almacena y protege los datos personales de los usuarios de Pogo ("la Aplicación").
 
@@ -32,17 +32,17 @@ La Aplicación recopila solo los datos necesarios para proporcionar sus funciona
 
 - Datos de Comunidad (opcional): Si el Usuario activa la Comunidad, se tratan su alias, usuario de Instagram, biografía, ciudad, gimnasio, roles (escalador, setter o gimnasio), la configuración de cuenta privada, las personas que sigue y que lo siguen, los bloqueos, las publicaciones de sesiones y logros que decide compartir, las reacciones y los reportes que envía o recibe. El perfil de Comunidad, las publicaciones y los contadores de seguidores son visibles para otros usuarios según la configuración de privacidad del Usuario. Los bloqueos y los reportes no son visibles para las personas involucradas.
 
-- Mensajes directos: Contenido de los mensajes que el Usuario envía y recibe, sus participantes y su estado de lectura. Los mensajes solo son visibles para los dos participantes. RhumbLabs puede revisar un mensaje cuando ha sido reportado, con el único fin de moderar.
+- Mensajes directos: Contenido de los mensajes que el Usuario envía y recibe, sus participantes y su estado de lectura. Los mensajes pueden incluir fotos, que se guardan en Cloud Storage y solo pueden ver los dos participantes. Los mensajes solo son visibles para los dos participantes. RhumbLabs puede revisar un mensaje, incluida su foto, cuando ha sido reportado, con el único fin de moderar.
 
 - Páginas de gimnasio: Las cuentas de gimnasio pueden publicar dirección, horario, sitio web, eventos, equipo de setters y fotos de portada y logo. Esta información es pública para los usuarios de la Aplicación.
 
 - Notificaciones push: Identificador del dispositivo para notificaciones (token de Firebase Cloud Messaging), plataforma, idioma, zona horaria y preferencias de notificación, incluidos los gimnasios silenciados. Se usan solo para enviar avisos que el Usuario puede desactivar en Configuración o en el sistema operativo.
 
-- Imágenes: La Aplicación accede a la galería solo cuando una cuenta de gimnasio elige una foto de portada o logo. La imagen elegida se sube a Cloud Storage y es pública dentro de la Aplicación.
+- Imágenes: La Aplicación accede a la galería solo cuando una cuenta de gimnasio elige una foto de portada o logo, o cuando el Usuario elige una foto para enviarla en un chat. La foto de portada o logo se sube a Cloud Storage y es pública dentro de la Aplicación; la foto de un chat solo es visible para los dos participantes.
 
 - Datos de localización: Coordenadas geográficas del dispositivo recogidas únicamente cuando el usuario activa la función de proximidad al gimnasio. Estos datos se utilizan exclusivamente para identificar gimnasios cercanos en un radio de 200 metros y no se almacenan de forma permanente.
 
-- Datos de la cámara: La cámara del dispositivo se accede únicamente para escanear códigos QR, para permitir al usuario ver perfiles o unirse voluntariamente a Sesiones Compartidas. Las imágenes de la cámara usadas para escanear códigos QR no se almacenan ni se transmiten.
+- Datos de la cámara: La cámara del dispositivo se accede para escanear códigos QR, para permitir al usuario ver perfiles o unirse voluntariamente a Sesiones Compartidas, y para tomar una foto cuando el usuario decide enviarla en un chat. Las imágenes de la cámara usadas para escanear códigos QR no se almacenan ni se transmiten; una foto tomada para un chat solo se envía si el usuario la confirma.
 
 - Datos de uso y técnicos: Información sobre cómo el usuario interactúa con la aplicación, informes de fallos y diagnósticos técnicos, recopilados a través de Firebase Analytics y Firebase Crashlytics.
 
@@ -114,7 +114,7 @@ La aplicación utiliza los siguientes servicios de terceros, que pueden procesar
 
 - Cloud Functions for Firebase (Google LLC): Procesa en el servidor las acciones de la Comunidad (seguir, publicar, mensajes y reportes) y la eliminación de cuentas.
 
-- Cloud Storage for Firebase (Google LLC): Almacena las fotos de las páginas de gimnasio.
+- Cloud Storage for Firebase (Google LLC): Almacena las fotos de las páginas de gimnasio y las fotos enviadas en los chats.
 
 - Firebase Cloud Messaging (Google LLC): Entrega las notificaciones push.
 
@@ -142,7 +142,7 @@ Los datos personales se conservan mientras la cuenta del usuario permanezca acti
 
 Los datos de sesión y la información de la cuenta almacenados en Firebase Cloud Firestore serán eliminados de acuerdo con el proceso de eliminación de datos iniciado al finalizar la cuenta.
 
-Al eliminar la cuenta se eliminan también el perfil de Comunidad, las publicaciones, las reacciones, las relaciones de seguimiento y bloqueo, las conversaciones (incluidos los mensajes de la otra persona en esas conversaciones), los reportes, la página de gimnasio con sus fotos y eventos, y los tokens de notificación.
+Al eliminar la cuenta se eliminan también el perfil de Comunidad, las publicaciones, las reacciones, las relaciones de seguimiento y bloqueo, las conversaciones (incluidos los mensajes y fotos de la otra persona en esas conversaciones), los reportes, la página de gimnasio con sus fotos y eventos, y los tokens de notificación.
 
 Los archivos de datos exportados o respaldados por el Usuario desde dentro de la Aplicación permanecen bajo el control del Usuario. RhumbLabs no es responsable del almacenamiento, el intercambio o el uso de archivos que el usuario guarda o gestiona fuera de la Aplicación.
 

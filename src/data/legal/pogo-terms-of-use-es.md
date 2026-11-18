@@ -1,6 +1,6 @@
 # TÉRMINOS DE USO
 
-Última actualización: 17/11/2026
+Última actualización: 18/11/2026
 
 Estos Términos y Condiciones de Uso ("Términos") rigen el acceso y uso de Pogo (la "Aplicación"), operada bajo el nombre comercial RhumbLabs, RUT 19.524.712-9 (la "Empresa"). Al acceder y utilizar la Aplicación, el usuario ("Usuario") acepta estar obligado por estos Términos.
 
@@ -18,7 +18,7 @@ La aplicación también permite a los usuarios escanear códigos QR usando la c�
 
 La aplicación permite además crear Sesiones Compartidas temporales. Cada participante continúa siendo responsable de registrar y guardar su propia sesión individual; el anfitrión controla el inicio y la finalización compartidos, y el progreso resumido se muestra a los integrantes de la sala en tiempo real.
 
-Pogo incluye además funciones sociales opcionales (la "Comunidad") que permiten crear un perfil público, seguir a otros usuarios, publicar sesiones y logros, reaccionar, enviar mensajes directos y, para cuentas de gimnasio, publicar una página con información, fotos y eventos.
+Pogo incluye además funciones sociales opcionales (la "Comunidad") que permiten crear un perfil público, seguir a otros usuarios, publicar sesiones y logros, reaccionar, enviar mensajes directos con texto y fotos y, para cuentas de gimnasio, publicar una página con información, fotos y eventos.
 
 La Aplicación puede enviar notificaciones push sobre la actividad de los gimnasios que el Usuario sigue. El Usuario puede desactivarlas en Configuración o en el sistema operativo.
 
@@ -60,7 +60,7 @@ La aplicación permite a los usuarios exportar sus sesiones como imágenes y com
 
 RhumbLabs no es responsable de cómo terceros utilizan el contenido que los usuarios deciden compartir voluntariamente. Los usuarios también pueden compartir su perfil de escalada mediante un código QR generado, que otros usuarios pueden escanear directamente dentro de la aplicación usando la cámara del dispositivo.
 
-El acceso a la cámara se utiliza únicamente para escanear códigos QR, y esas imágenes no se almacenan ni se transmiten. El acceso a la galería se utiliza solo cuando una cuenta de gimnasio elige una foto de portada o logo para su página. Cuando un usuario comparte su perfil mediante código QR, la siguiente información puede ser visible para otros usuarios: nombre visible, avatar, nivel de habilidad, estadísticas de escalada, logros y rankings registrados en la aplicación.
+El acceso a la cámara se utiliza para escanear códigos QR, y esas imágenes no se almacenan ni se transmiten, y para tomar fotos que el usuario decide enviar en un chat. El acceso a la galería se utiliza solo cuando una cuenta de gimnasio elige una foto de portada o logo para su página, o cuando el usuario elige una foto para enviarla en un chat. Cuando un usuario comparte su perfil mediante código QR, la siguiente información puede ser visible para otros usuarios: nombre visible, avatar, nivel de habilidad, estadísticas de escalada, logros y rankings registrados en la aplicación.
 
 El usuario es responsable de la información de perfil que decide hacer visible a través de esta función. El usuario es responsable de la exactitud de los datos introducidos. Las métricas, resúmenes, clasificaciones personales, cálculos o visualizaciones pueden ser inexactos si los datos originales son incompletos, incorrectos o están desactualizados.
 
@@ -96,7 +96,7 @@ La Aplicación se basa en los siguientes servicios de terceros para operar. Cada
 
 - Cloud Functions for Firebase (Google LLC) – Procesamiento en el servidor de la Comunidad y de la eliminación de cuentas.
 
-- Cloud Storage for Firebase (Google LLC) – Almacenamiento de fotos de páginas de gimnasio.
+- Cloud Storage for Firebase (Google LLC) – Almacenamiento de fotos de páginas de gimnasio y de fotos enviadas en chats.
 
 - Firebase Cloud Messaging (Google LLC) – Envío de notificaciones push.
 
