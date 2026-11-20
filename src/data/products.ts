@@ -2,7 +2,7 @@ import { Award, BookOpen, Calculator, ChartNoAxesCombined, ClipboardList, IdCard
 
 export type Screenshot = { light: string; dark?: string; alt: string };
 export type ScreenshotGallery = [Screenshot, Screenshot, ...Screenshot[]];
-type Feature = { icon: LucideIcon; title: string; description: string; screen?: Screenshot };
+type Feature = { icon: LucideIcon; title: string; description: string };
 
 export type Product = {
   name: string;
@@ -19,12 +19,24 @@ export type Product = {
   preview: [Screenshot, Screenshot];
   heroPreview?: [Screenshot, Screenshot, Screenshot];
   features: Feature[];
-  gallery?: ScreenshotGallery;
+  gallery: ScreenshotGallery;
 };
 
-const rhumbNavNavigation: Screenshot = { light: '/images/rhumbnav-nav-active.jpeg', alt: 'RhumbNav Active Navigation' };
-const rhumbNavFlightPlan: Screenshot = { light: '/images/rhumbnav-fpl.jpeg', alt: 'RhumbNav Flight Plan' };
-const rhumbNavLogbook: Screenshot = { light: '/images/rhumbnav-all-flights.jpeg', alt: 'RhumbNav Logbook' };
+const rhumbNavScreenshots: ScreenshotGallery = [
+  { light: '/images/rhumbnav/screenshots/01-santiago-aeronautical-map.webp', alt: 'Santiago aeronautical map' },
+  { light: '/images/rhumbnav/screenshots/02-scel-weather.webp', alt: 'SCEL airport weather' },
+  { light: '/images/rhumbnav/screenshots/03-scel-airport-info.webp', alt: 'SCEL airport information' },
+  { light: '/images/rhumbnav/screenshots/04-aircraft-checklists.webp', alt: 'Aircraft checklists' },
+  { light: '/images/rhumbnav/screenshots/05-sctb-navigation-log.webp', alt: 'SCTB navigation log' },
+  { light: '/images/rhumbnav/screenshots/06-valparaiso-santiago-route.webp', alt: 'Valparaíso–Santiago route map' },
+  { light: '/images/rhumbnav/screenshots/07-e6b-flight-computer.webp', alt: 'E6B flight computer' },
+  { light: '/images/rhumbnav/screenshots/08-holding-pattern.webp', alt: 'Holding pattern' },
+  { light: '/images/rhumbnav/screenshots/09-licenses-and-ratings.webp', alt: 'Licenses and ratings' },
+  { light: '/images/rhumbnav/screenshots/10-flight-logbook.webp', alt: 'Flight logbook' },
+  { light: '/images/rhumbnav/screenshots/11-flight-list.webp', alt: 'Flight list' },
+  { light: '/images/rhumbnav/screenshots/12-weight-and-balance-load.webp', alt: 'Weight and balance load details' },
+  { light: '/images/rhumbnav/screenshots/13-weight-and-balance-cg-envelope.webp', alt: 'Weight and balance CG envelope' },
+];
 
 export const rhumbNav: Product = {
   name: 'RhumbNav',
@@ -38,32 +50,29 @@ export const rhumbNav: Product = {
   action: 'Discover RhumbNav',
   headline: 'Plan and navigate with clarity.',
   description: 'RhumbNav is a new light EFB shaped by real flight experience, bringing flight planning, navigation, and in-flight awareness into one seamless experience.',
-  preview: [rhumbNavNavigation, rhumbNavFlightPlan],
-  heroPreview: [rhumbNavNavigation, rhumbNavFlightPlan, rhumbNavLogbook],
+  preview: [rhumbNavScreenshots[0], rhumbNavScreenshots[5]],
+  heroPreview: [rhumbNavScreenshots[0], rhumbNavScreenshots[5], rhumbNavScreenshots[9]],
+  gallery: rhumbNavScreenshots,
   features: [
     {
       icon: Map,
       title: 'Built for confident flying',
       description: 'Purpose-built VFR navigation for pilots who value clarity in the cockpit. Plan smarter, stay oriented, and fly with greater confidence. All your credentials and documents seamlessly integrated.',
-      screen: rhumbNavNavigation,
     },
     {
       icon: BookOpen,
       title: 'A better logbook',
       description: 'A smarter way to track your flying life. Keep flight time, landings, approaches, and records organized in a logbook built for modern aviation.',
-      screen: rhumbNavLogbook,
     },
     {
       icon: Calculator,
       title: 'Precision calculation',
       description: 'Flight calculations made faster, cleaner, and easier. From wind correction to fuel planning, RhumbNav gives you the numbers that matter—without the clutter.',
-      screen: { light: '/images/rhumbnav-computer.jpeg', alt: 'Precision Calculation' },
     },
     {
       icon: IdCard,
       title: 'Licenses and certificates, simplified',
       description: 'Carry your pilot licenses, medical certificates, and official documents directly on your device. Easily track expiration dates and always stay compliant, wherever you fly.',
-      screen: { light: '/images/rhumbnav-license.jpeg', alt: 'Licenses Interface' },
     },
   ],
 };

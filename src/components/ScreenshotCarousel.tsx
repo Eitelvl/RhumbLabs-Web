@@ -9,11 +9,16 @@ function slideDistance(track: HTMLUListElement) {
   return (second as HTMLElement).offsetLeft - (first as HTMLElement).offsetLeft;
 }
 
-export function ScreenshotCarousel({ screenshots }: { screenshots: ScreenshotGallery }) {
+export function ScreenshotCarousel({ productName, screenshots }: {
+  productName: string;
+  screenshots: ScreenshotGallery;
+}) {
+  const trackId = `${productName.toLowerCase()}-screenshot-track`;
   const track = useRef<HTMLUListElement>(null);
   const buttonScroll = useRef<number | null>(null);
   const [active, setActive] = useState(0);
   const [dark, setDark] = useState(false);
+  const hasDarkCaptures = screenshots.every(({ dark: darkImage }) => Boolean(darkImage));
   const last = screenshots.length - 1;
 
   function moveTo(index: number) {
@@ -48,21 +53,23 @@ export function ScreenshotCarousel({ screenshots }: { screenshots: ScreenshotGal
     <>
       <div className="screenshot-carousel-header">
         <h2 className="marketing-section-title">App Screenshots</h2>
-        <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls="pogo-screenshot-track" />
+        {hasDarkCaptures && (
+          <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls={trackId} />
+        )}
         <div className="screenshot-carousel-arrows">
-          <button type="button" aria-label="Previous screenshot" aria-controls="pogo-screenshot-track"
+          <button type="button" aria-label="Previous screenshot" aria-controls={trackId}
             disabled={active === 0} onClick={() => moveTo(active - 1)}>
             <ChevronLeft size={20} aria-hidden />
           </button>
           <span role="status" aria-live="polite">{active + 1} / {screenshots.length}</span>
-          <button type="button" aria-label="Next screenshot" aria-controls="pogo-screenshot-track"
+          <button type="button" aria-label="Next screenshot" aria-controls={trackId}
             disabled={active === last} onClick={() => moveTo(active + 1)}>
             <ChevronRight size={20} aria-hidden />
           </button>
         </div>
       </div>
-      <ul className="screenshot-carousel-track" id="pogo-screenshot-track" ref={track} tabIndex={0}
-        aria-label="Pogo app screenshots" onScroll={onScroll} onKeyDown={onKeyDown}>
+      <ul className="screenshot-carousel-track" id={trackId} ref={track} tabIndex={0}
+        aria-label={`${productName} app screenshots`} onScroll={onScroll} onKeyDown={onKeyDown}>
         {screenshots.map(({ light, dark: darkImage, alt }, index) => (
           <li key={light} className="screenshot-carousel-slide" aria-current={active === index ? 'true' : undefined}>
             <figure>

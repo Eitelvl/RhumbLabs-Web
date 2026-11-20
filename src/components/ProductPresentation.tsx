@@ -117,26 +117,7 @@ export function ProductPage({ product, heroActions, children }: {
           </div>
         </section>
         <section className="marketing-band app-gallery">
-          {product.gallery ? (
-            <ScreenshotCarousel screenshots={product.gallery} />
-          ) : (
-            <>
-              <h2 className="marketing-section-title">App Screenshots</h2>
-              <div className="app-gallery-grid">
-                {product.features.map(({ title, screen }) => screen && (
-                  <figure key={title}>
-                    <DeviceMockup
-                      type="phone"
-                      imageSrc={screen.light}
-                      alt={screen.alt}
-                      loading="lazy"
-                    />
-                    <figcaption>{title}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            </>
-          )}
+          <ScreenshotCarousel productName={product.name} screenshots={product.gallery} />
         </section>
         {children}
         <SiteCallout title="Support and privacy" description="Find help and read the app’s privacy policy.">
