@@ -1,8 +1,7 @@
 @import url("./2000-ui-tokens.css");
 
 html.standalone-legal {
-  color-scheme: light dark;
-  background: light-dark(#d6d2c4, #090b0f);
+  background: var(--page-background);
 }
 
 .standalone-legal body {
@@ -10,9 +9,9 @@ html.standalone-legal {
   width: min(calc(100% - 24px), 800px);
   margin: 16px auto 30px;
   padding: clamp(16px, 4vw, 40px);
-  background: light-dark(#fdfcf0, #101319);
-  color: light-dark(#1a1a1a, #f4f2ed);
-  border: 2px solid light-dark(#1a1a1a, #535d70);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--card-border);
   box-shadow: 6px 6px rgb(0 0 0 / 20%);
   overflow-wrap: anywhere;
 }
@@ -23,7 +22,7 @@ html.standalone-legal {
 .standalone-legal h2 {
   margin-top: 1.5em;
   padding-top: .75em;
-  border-top: 1px dashed light-dark(#aaa798, #667183);
+  border-top: 1px dashed var(--border-subtle);
 }
 
 .standalone-legal header {
@@ -40,7 +39,7 @@ html.standalone-legal {
 
 .standalone-legal :focus-visible,
 .standalone-deletion :focus-visible {
-  outline: 2px solid light-dark(#2563eb, #83a3ff);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 

@@ -1,8 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Wand2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useBrandTheme } from '../context/BrandThemeContext';
 import { SafeImage } from './SafeImage';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -26,35 +25,13 @@ export default function TopBar() {
   const isRhumbNavRoute = cleanPath === '/rhumbnav';
   const isPogoRoute = cleanPath === '/pogo';
 
-  const isFxRoute = true;
-  
   const basename = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/\/$/, '') : '';
-  const { brandSmokeEnabled, toggleBrandSmoke } = useBrandTheme();
   const { language, toggleLanguage } = useLanguage();
   
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'light' || saved === 'dark') return saved;
-    }
-    return 'dark'; // Defaulting to dark as requested to keep current look initially
-  });
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -141,66 +118,25 @@ export default function TopBar() {
 
         {/* Action Buttons */}
         <div className="site-tools hidden md:flex items-center gap-2.5">
-           {isFxRoute && (
-             <button 
-               onClick={toggleBrandSmoke} 
-               className={`p-2 rounded-full border transition-all duration-300 ${
-                 brandSmokeEnabled 
-                   ? 'bg-gradient-to-r from-purple-950/80 to-cyan-950/80 border-cyan-500/50 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.25)]' 
-                   : 'bg-card-element border-card-border text-text-secondary hover:text-text-primary hover:bg-bg-secondary'
-               }`}
-               aria-label="Toggle FX"
-               aria-pressed={brandSmokeEnabled}
-               title={brandSmokeEnabled ? 'Efecto FX: ACTIVADO' : 'Efecto FX: DESACTIVADO'}
-             >
-               <Wand2 className={`w-4 h-4 ${brandSmokeEnabled ? 'text-cyan-400 animate-pulse' : ''}`} />
-             </button>
-           )}
-
-           <button type="button" onClick={toggleLanguage}
-             className="min-w-10 h-9 px-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors text-xs font-bold tracking-wide"
-             aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a español'}
-             title={language === 'es' ? 'English' : 'Español'} data-i18n-ignore>
-             {language.toUpperCase()}
-           </button>
-
-           <button onClick={toggleTheme} className="p-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors" aria-label="Toggle Theme" title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}>
-             {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-           </button>
-           <Link to="/contact" className={`site-contact-link px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
-             brandSmokeEnabled
-               ? 'brand-btn-primary'
-               : 'bg-accent text-accent-foreground hover:opacity-80 shadow-[0_0_20px_var(--shadow-btn)]'
-           }`}>
-             Get in Touch
-           </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="site-tools-mobile md:hidden flex items-center gap-1.5">
-          {isFxRoute && (
-            <button 
-              onClick={toggleBrandSmoke} 
-              className={`p-2 rounded-full border transition-all duration-300 ${
-                brandSmokeEnabled 
-                  ? 'bg-purple-950/50 border-cyan-500/50 text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.2)]' 
-                  : 'bg-card-element border-card-border text-text-secondary hover:bg-bg-secondary'
-              }`}
-              aria-label="Toggle FX"
-              aria-pressed={brandSmokeEnabled}
-              title={brandSmokeEnabled ? 'Efecto FX: ACTIVADO' : 'Efecto FX: DESACTIVADO'}
-            >
-              <Wand2 className={`w-4 h-4 ${brandSmokeEnabled ? 'text-cyan-400' : ''}`} />
-            </button>
-          )}
           <button type="button" onClick={toggleLanguage}
             className="min-w-10 h-9 px-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors text-xs font-bold tracking-wide"
             aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a español'}
             title={language === 'es' ? 'English' : 'Español'} data-i18n-ignore>
             {language.toUpperCase()}
           </button>
-          <button onClick={toggleTheme} className="p-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors" aria-label="Toggle Theme">
-            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+
+          <Link to="/contact" className="site-contact-link px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-accent text-accent-foreground hover:opacity-80">
+            Get in Touch
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="site-tools-mobile md:hidden flex items-center gap-1.5">
+          <button type="button" onClick={toggleLanguage}
+            className="min-w-10 h-9 px-2 rounded-full border border-card-border bg-card-element text-text-primary hover:bg-bg-secondary transition-colors text-xs font-bold tracking-wide"
+            aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a español'}
+            title={language === 'es' ? 'English' : 'Español'} data-i18n-ignore>
+            {language.toUpperCase()}
           </button>
           <button 
             className="text-text-primary bg-card-element border border-card-border rounded-full p-2 hover:bg-bg-secondary transition-colors" 

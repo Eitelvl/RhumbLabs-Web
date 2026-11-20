@@ -20,7 +20,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -37,17 +36,10 @@
     }
   </script>
 
-  <!-- Theme Sync Script -->
+  <!-- Language sync -->
   <script>
     (function() {
       try {
-        var savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-          document.documentElement.classList.remove('dark');
-        } else {
-          // Default to dark mode to match RhumbLabs standard
-          document.documentElement.classList.add('dark');
-        }
         var language = localStorage.getItem('language') === 'en' ? 'en' : 'es';
         document.documentElement.dataset.language = language;
         document.documentElement.lang = language;
@@ -57,7 +49,6 @@
 
   <style>
     [data-language="es"] #en, [data-language="en"] #es, [data-language="es"] [lang="en"], [data-language="en"] [lang="es"] { display: none !important; }
-    /* Custom page variables for theme integrity */
     :root {
       --bg-primary: #f6f4ee;
       --bg-secondary: #ede9e0;
@@ -70,18 +61,6 @@
       --accent-foreground: #ffffff;
     }
     
-    .dark {
-      --bg-primary: #000000;
-      --bg-secondary: #0a0b0d;
-      --text-primary: #ffffff;
-      --text-secondary: #8a8f98;
-      --card-element: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --border-subtle: rgba(255, 255, 255, 0.04);
-      --accent: #ffffff;
-      --accent-foreground: #000000;
-    }
-
     body {
       background-color: var(--bg-primary);
       color: var(--text-primary);
@@ -103,7 +82,7 @@
 <body class="min-h-screen flex flex-col antialiased">
 
   <!-- Header / Navigation -->
-  <header class="w-full fixed top-0 left-0 z-50 backdrop-blur-xl border-b border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] bg-[rgba(246,244,238,0.8)] dark:bg-[rgba(0,0,0,0.8)] transition-colors duration-300">
+  <header class="w-full fixed top-0 left-0 z-50 backdrop-blur-xl border-b border-[rgba(0,0,0,0.06)] bg-[rgba(246,244,238,0.8)] transition-colors duration-300">
     <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 group">
         <!-- Back Arrow + Logo -->
@@ -115,16 +94,6 @@
       
       <!-- Language switcher helper -->
       <div class="flex items-center gap-4">
-        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-[color:var(--card-element)] transition-colors text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)]" aria-label="Toggle theme">
-          <!-- Sun Icon (visible in dark) -->
-          <svg class="hidden dark:block w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-          </svg>
-          <!-- Moon Icon (visible in light) -->
-          <svg class="block dark:hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        </button>
         <button id="language-toggle" type="button" onclick="toggleLanguage()" class="text-xs font-semibold px-2.5 py-1 rounded bg-[color:var(--card-element)] text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] border border-[color:var(--card-border)]" aria-label="Cambiar idioma">ES</button>
       </div>
     </div>
@@ -223,7 +192,7 @@
                   </tr>
                   <tr>
                     <td class="py-3 font-medium text-[color:var(--text-primary)]">Registros de Seguridad / Facturación</td>
-                    <td class="py-3 text-right text-amber-500 dark:text-amber-400">Anonimizado por motivos regulatorios</td>
+                    <td class="py-3 text-right text-amber-500">Anonimizado por motivos regulatorios</td>
                   </tr>
                 </tbody>
               </table>
@@ -315,7 +284,7 @@
                   </tr>
                   <tr>
                     <td class="py-3 font-medium text-[color:var(--text-primary)]">Access logs & Billing metadata</td>
-                    <td class="py-3 text-right text-amber-500 dark:text-amber-400">Anonymized for security audits</td>
+                    <td class="py-3 text-right text-amber-500">Anonymized for security audits</td>
                   </tr>
                 </tbody>
               </table>
@@ -353,7 +322,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] bg-[rgba(0,0,0,0.02)] dark:bg-[rgba(255,255,255,0.02)] py-12 px-6 transition-colors duration-300 mt-auto">
+  <footer class="border-t border-[rgba(0,0,0,0.06)] bg-[rgba(0,0,0,0.02)] py-12 px-6 transition-colors duration-300 mt-auto">
     <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-[color:var(--text-secondary)]">
       <span lang="es">© 2026 RhumbLabs. Todos los derechos reservados.</span><span lang="en">© 2026 RhumbLabs. All rights reserved.</span>
       <div class="flex gap-6">
@@ -362,7 +331,7 @@
     </div>
   </footer>
 
-  <!-- Theme toggle actions -->
+  <!-- Language toggle -->
   <script>
     function toggleLanguage() {
       var next = document.documentElement.dataset.language === 'en' ? 'es' : 'en';
@@ -373,15 +342,6 @@
       try { localStorage.setItem('language', next); } catch (e) {}
     }
     document.getElementById('language-toggle').textContent = document.documentElement.dataset.language?.toUpperCase() || 'ES';
-    function toggleTheme() {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    }
   </script>
 </body>
 </html>

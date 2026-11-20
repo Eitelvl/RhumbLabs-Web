@@ -17,6 +17,7 @@ export type Product = {
   headline: string;
   description: string;
   preview: [Screenshot, Screenshot];
+  heroPreview?: [Screenshot, Screenshot, Screenshot];
   features: Feature[];
   gallery?: ScreenshotGallery;
 };
@@ -91,6 +92,7 @@ export const pogo: Product = {
   headline: 'Every session counts.',
   description: 'Designed exclusively for the climbing community. Log your sessions, analyze your progress, and stay motivated with a digital companion built for the wall.',
   preview: [pogoScreenshots[0], pogoScreenshots[6]],
+  heroPreview: [pogoScreenshots[0], pogoScreenshots[6], pogoScreenshots[1]],
   gallery: pogoScreenshots,
   features: [
     {

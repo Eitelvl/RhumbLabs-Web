@@ -7,19 +7,6 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>RhumbLabs</title>
     <link rel="stylesheet" href="/styles/2000-ui-tokens.css" />
-    <script>
-      (function() {
-        try {
-          var savedTheme = localStorage.getItem('theme');
-          if (savedTheme === 'light') {
-            document.documentElement.classList.remove('dark');
-          } else {
-            // Defaulting to dark
-            document.documentElement.classList.add('dark');
-          }
-        } catch (e) {}
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,22 +1,13 @@
-import { useSyncExternalStore, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { ArrowLeft, Check } from 'lucide-react';
-import { products, type Product } from '../data/products';
+import { products, type Product, type Screenshot } from '../data/products';
 import { DeviceMockup } from './DeviceMockup';
 import { ScreenshotCarousel } from './ScreenshotCarousel';
+import { ScreenshotThemeToggle } from './ScreenshotThemeToggle';
 import { ActionLink, SiteCallout } from './MarketingElements';
 import { SafeImage } from './SafeImage';
 import TopBar from './TopBar';
 import Footer from './Footer';
-
-function subscribeToTheme(onChange: () => void) {
-  const observer = new MutationObserver(onChange);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-  return () => observer.disconnect();
-}
-
-function darkTheme() {
-  return document.documentElement.classList.contains('dark');
-}
 
 function ProductName({ product, heading: Heading }: { product: Product; heading: 'h2' | 'h3' | 'p' }) {
   return (
@@ -30,12 +21,26 @@ function ProductName({ product, heading: Heading }: { product: Product; heading:
   );
 }
 
-function ProductPreview({ product, dark }: { product: Product; dark: boolean }) {
+function ProductPreview({ product }: { product: Product }) {
   return (
     <div className="product-preview">
-      {product.preview.map(({ light, dark: darkImage, alt }) => (
-        <DeviceMockup key={light} type="phone" imageSrc={dark && darkImage ? darkImage : light} alt={alt} />
+      {product.preview.map(({ light, alt }) => (
+        <DeviceMockup key={light} type="phone" imageSrc={light} alt={alt} />
       ))}
+    </div>
+  );
+}
+
+function ThemedProductPreview({ screenshots }: { screenshots: Screenshot[] }) {
+  const [dark, setDark] = useState(true);
+  return (
+    <div className="product-preview product-preview-three">
+      <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls="app-hero-phones" />
+      <div className="product-preview-phones" id="app-hero-phones">
+        {screenshots.map(({ light, dark: darkImage, alt }) => (
+          <DeviceMockup key={light} type="phone" imageSrc={dark ? darkImage ?? light : light} alt={alt} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -51,7 +56,6 @@ function Highlights({ product }: { product: Product }) {
 }
 
 export function ProductGrid({ catalog = false }: { catalog?: boolean }) {
-  const dark = useSyncExternalStore(subscribeToTheme, darkTheme);
   return (
     <div className={`product-grid${catalog ? ' product-grid-catalog' : ''}`}>
       {products.map(product => (
@@ -62,7 +66,7 @@ export function ProductGrid({ catalog = false }: { catalog?: boolean }) {
             {catalog && <Highlights product={product} />}
             <ActionLink to={product.route}>{product.action}</ActionLink>
           </div>
-          <ProductPreview product={product} dark={dark} />
+          <ProductPreview product={product} />
           {!catalog && (
             <details className="product-card-details">
               <summary>Product highlights</summary>
@@ -82,7 +86,6 @@ export function ProductPage({ product, heroActions, children }: {
   heroActions: ReactNode;
   children: ReactNode;
 }) {
-  const dark = useSyncExternalStore(subscribeToTheme, darkTheme);
   return (
     <div>
       <TopBar />
@@ -95,7 +98,9 @@ export function ProductPage({ product, heroActions, children }: {
             <p>{product.description}</p>
             <div className="marketing-actions">{heroActions}</div>
           </div>
-          <ProductPreview product={product} dark={dark} />
+          {product.heroPreview
+            ? <ThemedProductPreview screenshots={product.heroPreview} />
+            : <ProductPreview product={product} />}
         </section>
         <section className="marketing-band app-features">
           <h2 className="marketing-section-title">What you can do</h2>
@@ -110,16 +115,16 @@ export function ProductPage({ product, heroActions, children }: {
         </section>
         <section className="marketing-band app-gallery">
           {product.gallery ? (
-            <ScreenshotCarousel screenshots={product.gallery} dark={dark} />
+            <ScreenshotCarousel screenshots={product.gallery} />
           ) : (
             <>
-              <h2 className="marketing-section-title">App screenshots</h2>
+              <h2 className="marketing-section-title">App Screenshots</h2>
               <div className="app-gallery-grid">
                 {product.features.map(({ title, screen }) => screen && (
                   <figure key={title} className={screen.landscape ? 'app-gallery-wide' : undefined}>
                     <DeviceMockup
                       type={screen.landscape ? 'tablet' : 'phone'}
-                      imageSrc={dark && screen.dark ? screen.dark : screen.light}
+                      imageSrc={screen.light}
                       alt={screen.alt}
                       loading="lazy"
                     />

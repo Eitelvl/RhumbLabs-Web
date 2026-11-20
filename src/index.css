@@ -289,7 +289,6 @@ a.linear-card:hover { border-color: var(--focus); }
 }
 .site-footer li { padding-bottom: 6px; border-bottom: 1px dashed var(--border-subtle); }
 .site-footer :is(a, .site-footer-details span) { font-family: "JetBrains Mono", monospace; font-size: .73rem; }
-.site-brand-effect { opacity: .28; }
 
 @media (max-width: 980px) {
   .site-header-inner { padding-inline: 18px; }
@@ -305,8 +304,4 @@ a.linear-card:hover { border-color: var(--focus); }
   .site-header-inner { padding-inline: 10px; gap: 5px; }
   .site-tools-mobile { gap: 4px; }
   .site-tools-mobile button { min-width: 34px; height: 38px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .site-brand-effect { visibility: hidden; }
 }
