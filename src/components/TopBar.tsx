@@ -80,7 +80,7 @@ export default function TopBar() {
 
   const getLinkClasses = (section: string) => {
     const isActive = activeSection === section;
-    return `text-sm font-medium transition-all duration-300 ${
+    return `text-sm font-medium ${
       isActive 
         ? 'text-text-primary drop-shadow-md site-nav-active'
         : 'text-text-secondary hover:text-text-primary'

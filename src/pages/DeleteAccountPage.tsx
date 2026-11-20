@@ -112,7 +112,7 @@ export default function DeleteAccountPage() {
             </p>
             <a 
               href="mailto:support@rhumblabs.com?subject=Account%20and%20Data%20Deletion%20Request&body=Hello%20RhumbLabs%20Support%2C%0A%0AI%20would%20like%20to%20request%20the%20deletion%20of%20my%20account%20and%20data.%0A%0AApp%20Name%3A%20%0AAccount%20Email%3A%20%0A%0AThank%20you."
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-card-element border border-card-border hover:bg-card-border text-sm font-medium text-text-primary transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-card-element border border-card-border text-sm font-medium text-text-primary hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground"
             >
               <Mail className="w-4 h-4" />
               Email support@rhumblabs.com
