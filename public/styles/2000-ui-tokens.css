@@ -1,0 +1,57 @@
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/Inter.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url('/fonts/JetBrainsMono.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --page-background: #d6d2c4;
+  --bg-primary: #fdfcf0;
+  --bg-secondary: #ebe9db;
+  --card-element: #f1f0e6;
+  --text-primary: #1a1a1a;
+  --text-secondary: #45433d;
+  --card-border: #1a1a1a;
+  --border-subtle: #aaa798;
+  --accent: #1a1a1a;
+  --accent-foreground: #fdfcf0;
+  --focus: #2563eb;
+  --surface-blur: var(--bg-primary);
+  --shadow-heavy: rgb(0 0 0 / 25%);
+  --shadow-medium: rgb(0 0 0 / 18%);
+  --shadow-subtle: rgb(0 0 0 / 14%);
+  --shadow-btn: var(--shadow-subtle);
+  --mockup-frame: #464c5c;
+  --mockup-screen: #0a0f16;
+  --site-gutter: clamp(8px, 3.2vw, 46px);
+  --site-width: min(calc(100% - 2 * var(--site-gutter)), 1348px);
+}
+
+.dark {
+  color-scheme: dark;
+  --page-background: #090b0f;
+  --bg-primary: #101319;
+  --bg-secondary: #151922;
+  --card-element: #1a1f29;
+  --text-primary: #f4f2ed;
+  --text-secondary: #c4c7cd;
+  --card-border: #535d70;
+  --border-subtle: #667183;
+  --accent: #f4f2ed;
+  --accent-foreground: #101319;
+  --focus: #83a3ff;
+  --shadow-heavy: rgb(0 0 0 / 76%);
+  --shadow-medium: rgb(0 0 0 / 70%);
+  --shadow-subtle: rgb(0 0 0 / 65%);
+}

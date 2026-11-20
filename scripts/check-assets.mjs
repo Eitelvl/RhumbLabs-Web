@@ -12,8 +12,6 @@ const textExtensions = new Set([
 const imageExtensions = new Set([
   '.avif', '.bmp', '.gif', '.ico', '.jpeg', '.jpg', '.png', '.svg', '.tif', '.tiff', '.webp',
 ]);
-// Keep the previous wordmark URLs available to external links.
-const publishedWordmarks = new Set(['/images/rhumbnav-logo.png', '/images/pogo-logo.png']);
 const rootImageExceptions = new Set(['public/apple-touch-icon.png', 'public/favicon.ico']);
 
 async function walk(directory) {
@@ -117,7 +115,7 @@ for (const image of repositoryImages) {
 const publicImages = repositoryImages.filter((file) => file.startsWith(`${canonicalImagesDir}${path.sep}`));
 for (const image of publicImages) {
   const route = `/${path.relative(publicDir, image).split(path.sep).join('/')}`;
-  if (!referencedRoutes.has(route) && !publishedWordmarks.has(route)) {
+  if (!referencedRoutes.has(route)) {
     errors.push(`Imagen sin uso en public/images: ${route}`);
   }
 }

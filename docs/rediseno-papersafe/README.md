@@ -1,6 +1,6 @@
 # 2000 UI · Rediseño de Rhumb Labs
 
-Maquetas de escritorio para revisar el rediseño del sitio. Inicio da prioridad a los productos y el tema oscuro usa un fondo casi negro con un matiz azul. El catálogo y las fichas de RhumbNav y Pogo muestran capturas reales dentro de marcos de teléfono.
+Maquetas de escritorio que sirvieron como referencia visual. La implementación de 2000 UI usa las páginas, el contenido y la navegación de `main`. Inicio da prioridad a los productos y el tema oscuro usa un fondo casi negro con un matiz azul. El catálogo y las fichas de RhumbNav y Pogo muestran capturas reales dentro de marcos de teléfono.
 
 La [guía original del sistema visual de PaperSafe](PAPERSAFE_FLUTTER_DESIGN_SYSTEM.md) se incluye como referencia. Las rutas de código y recursos que menciona la guía corresponden al proyecto PaperSafe. Las maquetas adaptan ese sistema visual a la web de Rhumb Labs.
 

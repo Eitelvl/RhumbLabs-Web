@@ -1,0 +1,66 @@
+@import url("./2000-ui-tokens.css");
+
+html.standalone-legal {
+  color-scheme: light dark;
+  background: light-dark(#d6d2c4, #090b0f);
+}
+
+.standalone-legal body {
+  box-sizing: border-box;
+  width: min(calc(100% - 24px), 800px);
+  margin: 16px auto 30px;
+  padding: clamp(16px, 4vw, 40px);
+  background: light-dark(#fdfcf0, #101319);
+  color: light-dark(#1a1a1a, #f4f2ed);
+  border: 2px solid light-dark(#1a1a1a, #535d70);
+  box-shadow: 6px 6px rgb(0 0 0 / 20%);
+  overflow-wrap: anywhere;
+}
+
+.standalone-legal body,
+.standalone-deletion body { font-family: Inter, sans-serif; }
+.standalone-legal :is(h1, h2, h3, a) { color: inherit; }
+.standalone-legal h2 {
+  margin-top: 1.5em;
+  padding-top: .75em;
+  border-top: 1px dashed light-dark(#aaa798, #667183);
+}
+
+.standalone-legal header {
+  flex-wrap: wrap;
+  border-bottom: 2px solid currentColor;
+}
+
+.standalone-legal button,
+.standalone-deletion :is(header button, main a[class*="rounded-"]) {
+  border: 2px solid currentColor;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.standalone-legal :focus-visible,
+.standalone-deletion :focus-visible {
+  outline: 2px solid light-dark(#2563eb, #83a3ff);
+  outline-offset: 3px;
+}
+
+.standalone-deletion > body > header {
+  background: var(--bg-primary);
+  border-bottom: 2px solid var(--card-border);
+  backdrop-filter: none;
+}
+
+.standalone-deletion .linear-card-gradient {
+  background: var(--bg-secondary);
+  border: 2px solid var(--card-border);
+  border-radius: 0;
+  box-shadow: 5px 5px var(--shadow-subtle);
+}
+
+.standalone-deletion main a[class*="bg-purple-600"] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border-color: var(--accent);
+}
+.standalone-deletion main a[class*="bg-purple-600"]:hover { opacity: .85; }
+.standalone-deletion footer { border-top: 2px solid var(--card-border); }

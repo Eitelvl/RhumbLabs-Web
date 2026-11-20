@@ -18,21 +18,20 @@ import DeleteAccountPage from './pages/DeleteAccountPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import ScrollToTop from './components/ScrollToTop';
-import { SiteThemeProvider } from './context/SiteTheme';
+import { BrandThemeProvider } from './context/BrandThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
-import TopBar from './components/TopBar';
-import Footer from './components/Footer';
+import { BrandSmokeCanvas } from './components/BrandSmokeCanvas';
 
 export default function App() {
   const basename = import.meta.env.BASE_URL || '/';
 
   return (
-    <SiteThemeProvider>
+    <BrandThemeProvider>
       <BrowserRouter basename={basename === '/' ? undefined : basename}>
         <LanguageProvider>
           <ScrollToTop />
+          <BrandSmokeCanvas />
           <div className="site-frame">
-            <TopBar />
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/about" element={<AboutPage />} />
@@ -61,10 +60,9 @@ export default function App() {
               <Route path="/delete-account" element={<DeleteAccountPage />} />
               <Route path="/data-deletion" element={<DeleteAccountPage />} />
             </Routes>
-            <Footer />
           </div>
         </LanguageProvider>
       </BrowserRouter>
-    </SiteThemeProvider>
+    </BrandThemeProvider>
   );
 }

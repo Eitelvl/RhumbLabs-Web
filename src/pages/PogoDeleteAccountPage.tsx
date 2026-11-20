@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import TopBar from '../components/TopBar';
+import Footer from '../components/Footer';
 import { Mail, ArrowLeft, Trash2, Smartphone, ShieldCheck, Clock, FileText, CheckCircle2 } from 'lucide-react';
 
 export default function PogoDeleteAccountPage() {
@@ -18,9 +20,10 @@ export default function PogoDeleteAccountPage() {
   }, []);
 
   return (
-    <div className="bg-surface text-on-surface flex flex-col">
+    <div className="bg-surface text-on-surface min-h-screen flex flex-col">
+      <TopBar />
       
-      <main id="contenido" tabIndex={-1} className="flex-1 pt-12 pb-16 px-6">
+      <main className="flex-1 pt-32 pb-32 px-6">
         <div className="max-w-4xl mx-auto">
           {/* Back link */}
           <Link to="/contact" className="inline-flex items-center text-text-secondary hover:text-text-primary transition-colors text-sm font-medium mb-10 group">
@@ -215,6 +218,7 @@ export default function PogoDeleteAccountPage() {
         </div>
       </main>
 
+      <Footer />
     </div>
   );
 }

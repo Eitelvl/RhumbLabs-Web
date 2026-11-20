@@ -15,7 +15,7 @@ for (const document of ['privacy-policy', 'terms-of-use']) {
 
   const title = document === 'privacy-policy' ? 'Política de privacidad / Privacy Policy' : 'Términos de uso / Terms of Use';
   const html = `<!doctype html>
-<html lang="es" data-language="es">
+<html lang="es" data-language="es" class="standalone-legal">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,6 +35,7 @@ for (const document of ['privacy-policy', 'terms-of-use']) {
   <script>
     try { document.documentElement.dataset.language = localStorage.getItem('language') === 'en' ? 'en' : 'es'; document.documentElement.lang = document.documentElement.dataset.language; } catch {}
   </script>
+  <link rel="stylesheet" href="/styles/standalone-2000.css">
 </head>
 <body>
   <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Cambiar idioma">ES / EN</button></header>
