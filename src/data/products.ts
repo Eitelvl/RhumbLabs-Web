@@ -51,7 +51,7 @@ export const rhumbNav: Product = {
   headline: 'Plan and navigate with clarity.',
   description: 'RhumbNav is a new light EFB shaped by real flight experience, bringing flight planning, navigation, and in-flight awareness into one seamless experience.',
   preview: [rhumbNavScreenshots[0], rhumbNavScreenshots[5]],
-  heroPreview: [rhumbNavScreenshots[0], rhumbNavScreenshots[5], rhumbNavScreenshots[9]],
+  heroPreview: [rhumbNavScreenshots[0], rhumbNavScreenshots[6], rhumbNavScreenshots[8]],
   gallery: rhumbNavScreenshots,
   features: [
     {
