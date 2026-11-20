@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
-import { Mail, ArrowLeft, Trash2, Smartphone, ShieldCheck, Clock, FileText, CheckCircle2, Navigation } from 'lucide-react';
+import { Mail, ArrowLeft, Trash2, Smartphone, ShieldCheck, Clock, FileText, CheckCircle2 } from 'lucide-react';
 
 export default function RhumbNavDeleteAccountPage() {
   useEffect(() => {
@@ -37,11 +37,6 @@ export default function RhumbNavDeleteAccountPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-sky-500/20 bg-sky-500/10 text-[11px] font-bold text-sky-400 mb-6 tracking-wide">
-              <Navigation className="w-3.5 h-3.5" />
-              <span>Google Play Data Safety & Privacy Policy</span>
-            </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-6 text-text-primary">
               Account & Data Deletion for <span className="text-text-secondary">RhumbNav</span>
             </h1>
@@ -67,13 +62,8 @@ export default function RhumbNavDeleteAccountPage() {
                 {/* Option 1: In-App */}
                 <div className="linear-card p-6 md:p-8 rounded-3xl bg-bg-primary border border-card-border flex flex-col justify-between h-full shadow-[0_10px_30px_var(--shadow-subtle)]">
                   <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="p-3 bg-sky-500/10 rounded-2xl border border-sky-500/20">
-                        <Smartphone className="w-6 h-6 text-sky-400" />
-                      </div>
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        Fastest Method
-                      </span>
+                    <div className="inline-flex p-3 mb-6 bg-card-element border-2 border-card-border text-text-primary">
+                      <Smartphone className="w-6 h-6" aria-hidden="true" />
                     </div>
 
                     <h3 className="text-xl font-bold text-text-primary mb-3">Option 1: In-App Deletion</h3>
@@ -83,21 +73,21 @@ export default function RhumbNavDeleteAccountPage() {
 
                     <ol className="space-y-3 text-sm text-text-secondary font-light mb-6">
                       <li className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">1</span>
+                        <span className="flex items-center justify-center w-5 h-5 border border-card-border bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">1</span>
                         <span>Open the <strong>RhumbNav</strong> app on your device and log in.</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">2</span>
+                        <span className="flex items-center justify-center w-5 h-5 border border-card-border bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">2</span>
                         <span>Navigate to <strong>Settings</strong> &gt; <strong>Account &amp; Security</strong>.</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">3</span>
+                        <span className="flex items-center justify-center w-5 h-5 border border-card-border bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">3</span>
                         <span>Tap <strong className="text-red-400">Delete Account</strong> and confirm your choice.</span>
                       </li>
                     </ol>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-card-element border border-card-border text-xs text-text-secondary">
+                  <div className="p-3 bg-card-element border border-card-border text-xs text-text-secondary">
                     ⚡ In-app deletion takes effect immediately.
                   </div>
                 </div>
@@ -105,13 +95,8 @@ export default function RhumbNavDeleteAccountPage() {
                 {/* Option 2: Email Deletion Request */}
                 <div className="linear-card p-6 md:p-8 rounded-3xl bg-bg-primary border border-card-border flex flex-col justify-between h-full shadow-[0_10px_30px_var(--shadow-subtle)]">
                   <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="p-3 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">
-                        <Mail className="w-6 h-6 text-emerald-400" />
-                      </div>
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-card-element text-text-secondary border border-card-border">
-                        Web / Support
-                      </span>
+                    <div className="inline-flex p-3 mb-6 bg-card-element border-2 border-card-border text-text-primary">
+                      <Mail className="w-6 h-6" aria-hidden="true" />
                     </div>
 
                     <h3 className="text-xl font-bold text-text-primary mb-3">Option 2: Email Deletion Request</h3>
@@ -121,15 +106,15 @@ export default function RhumbNavDeleteAccountPage() {
 
                     <ol className="space-y-3 text-sm text-text-secondary font-light mb-6">
                       <li className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">1</span>
+                        <span className="flex items-center justify-center w-5 h-5 border border-card-border bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">1</span>
                         <span>Send an email to <strong className="text-text-primary">support@rhumblabs.com</strong>.</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">2</span>
+                        <span className="flex items-center justify-center w-5 h-5 border border-card-border bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">2</span>
                         <span>Use the subject line: <strong className="text-text-primary">"RhumbNav Account Deletion Request"</strong>.</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">3</span>
+                        <span className="flex items-center justify-center w-5 h-5 border border-card-border bg-card-element text-text-primary font-mono text-xs shrink-0 mt-0.5">3</span>
                         <span>Include the email address or pilot account ID registered with your RhumbNav account.</span>
                       </li>
                     </ol>

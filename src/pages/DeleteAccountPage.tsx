@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
-import { Mail, ArrowLeft, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Mail, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function DeleteAccountPage() {
   useEffect(() => {
@@ -27,11 +27,6 @@ export default function DeleteAccountPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-12 text-center max-w-2xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-red-500/20 bg-red-500/10 text-[11px] font-bold text-red-400 mb-6 tracking-wide">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Google Play Developer Data Safety & Privacy</span>
-            </div>
-            
             <h1 className="text-4xl md:text-5xl font-medium tracking-tight mb-6 text-text-primary">
               Account &amp; Data Deletion Requests
             </h1>
