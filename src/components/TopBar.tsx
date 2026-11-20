@@ -114,12 +114,9 @@ export default function TopBar() {
     <nav className={`site-header fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'site-header-scrolled bg-bg-primary/80 backdrop-blur-xl border-b border-border-subtle py-3' : 'bg-transparent py-5'}`}>
       <div className="site-header-inner flex justify-between items-center px-4 md:px-12 max-w-7xl mx-auto">
         <div className="flex items-center">
-          <Link to="/" onClick={(e) => scrollToSection(e, 'home')} className="logo-container flex items-center group relative h-12 w-28 sm:w-48 md:w-64 -ml-3 md:-ml-6">
-            <SafeImage 
-              src="/images/rhumb-labs-logo.png" 
-              alt="Rhumb Labs" 
-              className="w-[115px] sm:w-[150px] md:w-[200px] h-auto object-contain scale-[1.1] md:scale-[1.2] origin-left translate-y-0.5"
-            />
+          <Link to="/" onClick={(e) => scrollToSection(e, 'home')} className="site-brand" aria-label="Rhumb Labs">
+            <span className="site-brand-mark"><SafeImage src="/images/rhumb-labs-card-icon.png" alt="" /></span>
+            <span>Rhumb<span className="site-brand-light">Labs</span></span>
           </Link>
         </div>
 

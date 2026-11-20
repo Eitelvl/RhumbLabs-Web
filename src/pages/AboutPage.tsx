@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'motion/react';
+import { ActionLink } from '../components/MarketingElements';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
 import { SafeImage } from '../components/SafeImage';
@@ -170,87 +171,27 @@ export default function AboutPage() {
     <div className="bg-bg-primary text-text-primary min-h-screen selection:bg-card-border selection:text-text-primary">
       <TopBar />
 
-      <main className="relative z-10">
+      <main className="marketing-page about-layout">
         
         {/* =========================================================================
-            01 — HERO SECTION
+            HERO SECTION
             ========================================================================= */}
-        <section className="min-h-[85vh] md:min-h-[88vh] pt-28 md:pt-36 pb-16 md:pb-24 px-6 lg:px-12 max-w-6xl mx-auto text-center flex flex-col justify-center items-center">
-          
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-text-primary mb-8 leading-[1.06] max-w-5xl"
-          >
-            We build things <br className="hidden sm:block" /> that should exist.
-          </motion.h1>
-
-          {/* Supporting Text */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-lg sm:text-xl md:text-2xl text-text-secondary max-w-3xl leading-relaxed font-light mb-12"
-          >
-            Rhumb Labs is a technology company building products, software, and custom digital experiences — from our own ideas to solutions built around yours.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-4"
-          >
-            <Link
-              to="/products"
-              className="px-8 py-4 rounded-full bg-card-element hover:bg-bg-secondary border border-card-border text-text-primary text-sm font-semibold transition-all duration-300 flex items-center gap-2 shadow-sm"
-            >
-              Our Products
-              <ArrowRight className="w-4 h-4 text-cyan-400" />
-            </Link>
-            <Link
-              to="/contact"
-              className="px-8 py-4 rounded-full brand-btn-primary text-sm font-semibold transition-all duration-300 flex items-center gap-2"
-            >
-              Start a Project
-            </Link>
-          </motion.div>
-        </section>
-
-
-        {/* =========================================================================
-            02 — WHAT IS RHUMB LABS? (Editorial Statement)
-            ========================================================================= */}
-        <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
-              
-              <div className="md:col-span-4">
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary leading-snug">
-                  A small lab <br className="hidden md:block"/> for big ideas.
-                </h2>
-              </div>
-
-              <div className="md:col-span-8 flex flex-col gap-6 text-text-secondary text-lg md:text-xl font-light leading-relaxed">
-                <p>
-                  Rhumb Labs is where ideas become software. We design and build our own products, explore new technologies, and work on custom projects that demand something beyond the ordinary.
-                </p>
-                <p className="text-text-primary font-normal">
-                  Some things we build for ourselves. Some we build with others. The common thread is simple: start with a problem, understand it deeply, and build the right thing.
-                </p>
-              </div>
-
+        <section className="marketing-band about-intro">
+          <h1>About Us</h1>
+          <div>
+            <h2>We build things <span>that should exist.</span></h2>
+            <p>Rhumb Labs is a technology company building products, software, and custom digital experiences — from our own ideas to solutions built around yours.</p>
+            <div className="marketing-actions">
+              <ActionLink to="/products" icon={ArrowRight}>Our Products</ActionLink>
+              <ActionLink to="/contact" variant="primary">Start a Project</ActionLink>
             </div>
           </div>
         </section>
 
-
         {/* =========================================================================
-            03 — WHAT WE DO (3 Visual Pillar Cards)
+            WHAT WE DO (3 Visual Pillar Cards)
             ========================================================================= */}
-        <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
+        <section className="about-work py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
           <div className="max-w-6xl mx-auto">
             
             <div className="mb-16 md:mb-20">
@@ -383,9 +324,76 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* =========================================================================
+            HOW WE WORK (4-Step Sequential Process)
+            ========================================================================= */}
+        <section className="about-process py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
+          <div className="max-w-6xl mx-auto">
+
+            <div className="mb-16 md:mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-text-primary">
+                How we work.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {workSteps.map((step) => (
+                <div
+                  key={step.num}
+                  className="linear-card rounded-3xl p-7 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 group"
+                >
+                  <div>
+                    <span className="text-2xl md:text-3xl font-mono font-bold text-text-secondary/40 group-hover:text-cyan-400 transition-colors block mb-6">
+                      {step.num}
+                    </span>
+                    <h3 className="text-xl font-bold text-text-primary mb-3 tracking-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-text-secondary text-sm leading-relaxed font-light">
+                      {step.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-6 mt-6 border-t border-border-subtle flex items-center gap-2 text-xs font-mono text-text-secondary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/60"></span>
+                    STAGE {step.num}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
 
         {/* =========================================================================
-            04 — OUR PRODUCTS (Built Here)
+            WHAT IS RHUMB LABS? (Editorial Statement)
+            ========================================================================= */}
+        <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-6 md:gap-10 items-start">
+
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary leading-snug">
+                  A small lab <br className="hidden md:block"/> for big ideas.
+                </h2>
+              </div>
+
+              <div className="flex flex-col gap-6 text-text-secondary text-lg md:text-xl font-light leading-relaxed">
+                <p>
+                  Rhumb Labs is where ideas become software. We design and build our own products, explore new technologies, and work on custom projects that demand something beyond the ordinary.
+                </p>
+                <p className="text-text-primary font-normal">
+                  Some things we build for ourselves. Some we build with others. The common thread is simple: start with a problem, understand it deeply, and build the right thing.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+
+        {/* =========================================================================
+OUR PRODUCTS (Built Here)
             ========================================================================= */}
         <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
           <div className="max-w-6xl mx-auto">
@@ -512,7 +520,7 @@ export default function AboutPage() {
 
 
         {/* =========================================================================
-            05 — CUSTOM DEVELOPMENT (Conversion-Oriented & Direct)
+            CUSTOM DEVELOPMENT (Conversion-Oriented & Direct)
             ========================================================================= */}
         <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
           <div className="max-w-5xl mx-auto">
@@ -545,50 +553,11 @@ export default function AboutPage() {
         </section>
 
 
-        {/* =========================================================================
-            06 — HOW WE WORK (4-Step Sequential Process)
-            ========================================================================= */}
-        <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
-          <div className="max-w-6xl mx-auto">
-            
-            <div className="mb-16 md:mb-20">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-text-primary">
-                How we work.
-              </h2>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {workSteps.map((step) => (
-                <div 
-                  key={step.num}
-                  className="linear-card rounded-3xl p-7 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 group"
-                >
-                  <div>
-                    <span className="text-2xl md:text-3xl font-mono font-bold text-text-secondary/40 group-hover:text-cyan-400 transition-colors block mb-6">
-                      {step.num}
-                    </span>
-                    <h3 className="text-xl font-bold text-text-primary mb-3 tracking-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-text-secondary text-sm leading-relaxed font-light">
-                      {step.desc}
-                    </p>
-                  </div>
-                  
-                  <div className="pt-6 mt-6 border-t border-border-subtle flex items-center gap-2 text-xs font-mono text-text-secondary">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/60"></span>
-                    STAGE {step.num}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
 
 
         {/* =========================================================================
-            07 — PHILOSOPHY (Large Typographic Statement)
+            PHILOSOPHY (Large Typographic Statement)
             ========================================================================= */}
         <section className="py-32 md:py-48 px-6 lg:px-12 border-t border-border-subtle text-center flex flex-col items-center justify-center relative">
           <div className="max-w-4xl mx-auto">
@@ -607,7 +576,7 @@ export default function AboutPage() {
 
 
         {/* =========================================================================
-            08 — THE LAB (Experimental Focus & Domains)
+            THE LAB (Experimental Focus & Domains)
             ========================================================================= */}
         <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
           <div className="max-w-6xl mx-auto">
@@ -650,7 +619,7 @@ export default function AboutPage() {
 
 
         {/* =========================================================================
-            09 — FINAL CTA (Clean, Confident & Direct)
+            FINAL CTA (Clean, Confident & Direct)
             ========================================================================= */}
         <section className="py-28 md:py-40 px-6 lg:px-12 border-t border-border-subtle text-center flex flex-col items-center">
           <div className="max-w-3xl mx-auto">

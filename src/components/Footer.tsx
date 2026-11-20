@@ -19,13 +19,12 @@ export default function Footer() {
   return (
     <footer className="site-footer bg-transparent relative z-10 border-t border-border-subtle w-full py-16 px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+        <div className="site-footer-main flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           <div className="max-w-xs flex justify-center md:justify-start">
-            <a href={`${basename}/`} onClick={(e) => scrollToSection(e, 'home')} className="flex items-center group relative h-16 md:h-20 w-56 md:w-72 -ml-6 md:-ml-8">
+            <a href={`${basename}/`} onClick={(e) => scrollToSection(e, 'home')} className="site-footer-brand">
               <SafeImage 
                 src="/images/rhumb-labs-logo.png" 
                 alt="Rhumb Labs" 
-                className="w-[200px] md:w-[280px] h-auto object-contain scale-[1.3] md:scale-[1.5] origin-left" 
               />
             </a>
           </div>

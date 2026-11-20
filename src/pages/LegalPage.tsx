@@ -1,119 +1,68 @@
-import React from 'react';
+import { ArrowRight, ChevronRight, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
-import { ChevronRight } from 'lucide-react';
+import { ActionLink, PageIntro, SiteCallout } from '../components/MarketingElements';
+import { SafeImage } from '../components/SafeImage';
+
+const groups = [
+  {
+    name: 'Rhumb Labs', icon: '/images/rhumb-labs-card-icon.png',
+    documents: [
+      ['Company Legal', '/legal/company-legal'],
+      ['Company Privacy', '/legal/company-privacy'],
+    ],
+  },
+  {
+    name: 'RhumbNav', icon: '/images/rhumbnav-app-icon.png',
+    documents: [
+      ['Privacy Policy', '/legal/rhumbnav/privacy-policy'],
+      ['Terms of Use', '/legal/rhumbnav/terms-of-use'],
+      ['Subscription & Refund Policy', '/legal/rhumbnav/subscription-refund-policy'],
+      ['Aviation Disclaimer', '/legal/rhumbnav/aviation-disclaimer'],
+      ['Third Party Notices', '/legal/rhumbnav/third-party-notices'],
+    ],
+  },
+  {
+    name: 'Pogo', icon: '/images/pogo-app-icon.png',
+    documents: [
+      ['Privacy Policy', '/legal/pogo/privacy-policy'],
+      ['Terms of Use', '/legal/pogo/terms-of-use'],
+    ],
+  },
+];
 
 export default function LegalPage() {
   return (
-    <div className="bg-surface text-on-surface min-h-screen flex flex-col">
+    <div>
       <TopBar />
-      
-      <main className="flex-1 pt-28 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
-        {/* Header */}
-        <header className="mb-14 md:mb-20 max-w-3xl">
-          <h1 className="text-4xl md:text-[3.5rem] font-bold tracking-tight mb-6 leading-tight text-text-primary">
-            Legal Center
-          </h1>
-          <p className="text-lg md:text-xl text-text-secondary font-light leading-relaxed">
-            Find legal documents, privacy policies, terms, disclaimers, and notices for Rhumb Labs and its products.
-          </p>
-        </header>
-
-        {/* Categories */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          {/* Rhumb Labs */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="linear-card p-8 rounded-3xl bg-bg-primary border border-card-border flex flex-col h-full relative overflow-hidden"
-          >
-            <div className="flex items-center gap-4 mb-8 pb-8 border-b border-card-border">
-              <div className="w-12 h-12 shrink-0 bg-black rounded-xl border border-card-border overflow-hidden">
-                <img
-                  src="/images/rhumb-labs-card-icon.png"
-                  alt="Rhumb Labs logo"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-2xl font-bold text-text-primary">Rhumb Labs</h2>
-            </div>
-            <div className="space-y-2 flex-grow">
-              <LegalLink to="/legal/company-legal" title="Company Legal" />
-              <LegalLink to="/legal/company-privacy" title="Company Privacy" />
-            </div>
-          </motion.div>
-
-          {/* RhumbNav */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="linear-card p-8 rounded-3xl bg-bg-primary border border-[#11A8FD]/20 shadow-[0_20px_60px_rgba(17,168,253,0.05)] flex flex-col h-full relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#11A8FD]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-            <div className="flex items-center gap-4 mb-8 pb-8 border-b border-card-border relative z-10">
-              <div className="w-12 h-12 bg-[#11A8FD]/10 rounded-xl border border-[#11A8FD]/20 overflow-hidden">
-                <img
-                  src="/images/rhumbnav-app-icon.png"
-                  alt="RhumbNav app icon"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-2xl font-bold text-text-primary">RhumbNav</h2>
-            </div>
-            <div className="space-y-2 flex-grow relative z-10">
-              <LegalLink to="/legal/rhumbnav/privacy-policy" title="Privacy Policy" />
-              <LegalLink to="/legal/rhumbnav/terms-of-use" title="Terms of Use" />
-              <LegalLink to="/legal/rhumbnav/subscription-refund-policy" title="Subscription & Refund Policy" />
-              <LegalLink to="/legal/rhumbnav/aviation-disclaimer" title="Aviation Disclaimer" />
-              <LegalLink to="/legal/rhumbnav/third-party-notices" title="Third Party Notices" />
-            </div>
-          </motion.div>
-
-          {/* Pogo */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="linear-card p-8 rounded-3xl bg-bg-primary border border-[#7C3AED]/20 shadow-[0_20px_60px_rgba(124,58,237,0.05)] flex flex-col h-full relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-            <div className="flex items-center gap-4 mb-8 pb-8 border-b border-card-border relative z-10">
-              <div className="w-12 h-12 bg-[#7C3AED]/10 rounded-xl border border-[#7C3AED]/20 overflow-hidden">
-                <img
-                  src="/images/pogo-app-icon.png"
-                  alt="Pogo app icon"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-2xl font-bold text-text-primary">Pogo</h2>
-            </div>
-            <div className="space-y-2 flex-grow relative z-10">
-              <LegalLink to="/legal/pogo/privacy-policy" title="Privacy Policy" />
-              <LegalLink to="/legal/pogo/terms-of-use" title="Terms of Use" />
-            </div>
-          </motion.div>
-
+      <main className="marketing-page">
+        <PageIntro
+          title="Legal Center"
+          description="Find legal documents, privacy policies, terms, disclaimers, and notices for Rhumb Labs and its products."
+        />
+        <div className="marketing-band legal-groups">
+          {groups.map(({ name, icon, documents }) => (
+            <section className="linear-card legal-group" key={name}>
+              <header>
+                <SafeImage src={icon} alt="" width={41} height={41} />
+                <h2>{name}</h2>
+              </header>
+              <ul>
+                {documents.map(([title, to]) => (
+                  <li key={to}>
+                    <Link to={to}><FileText size={17} aria-hidden /><span>{title}</span><ChevronRight size={17} aria-hidden /></Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
+        <SiteCallout title="Account and data deletion" description="Find the instructions for RhumbNav and Pogo.">
+          <ActionLink to="/delete-account" icon={ArrowRight}>View instructions</ActionLink>
+        </SiteCallout>
       </main>
-
       <Footer />
     </div>
-  );
-}
-
-function LegalLink({ to, title }: { to: string; title: string }) {
-  return (
-    <Link 
-      to={to} 
-      className="flex items-center justify-between p-4 rounded-xl border border-transparent hover:border-card-border bg-transparent hover:bg-card-element transition-colors group"
-    >
-      <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">{title}</span>
-      <ChevronRight className="w-4 h-4 text-text-secondary group-hover:text-text-secondary transition-colors" />
-    </Link>
   );
 }
