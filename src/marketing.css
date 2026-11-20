@@ -422,3 +422,74 @@
   .marketing-page .app-feature-grid { grid-template-columns: minmax(0, 1fr); }
   .about-intro h1, .page-intro h1 { font-size: 37px; }
 }
+
+.screenshot-carousel-header,
+.screenshot-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.screenshot-carousel-header {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.screenshot-carousel-controls { font: 500 12px/1.3 "JetBrains Mono", monospace; }
+.screenshot-carousel-controls span { min-width: 7ch; text-align: center; }
+.screenshot-carousel-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--card-border);
+  background: var(--bg-primary);
+  cursor: pointer;
+}
+.screenshot-carousel-controls button:enabled:hover { background: var(--card-element); }
+.screenshot-carousel-controls button:disabled { opacity: .44; cursor: default; }
+
+.screenshot-carousel-track {
+  --screenshot-width: min(72vw, 280px);
+  --screenshot-gap: 14px;
+  display: flex;
+  position: relative;
+  gap: var(--screenshot-gap);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) var(--bg-secondary);
+  background: var(--bg-primary);
+  border: 2px solid var(--card-border);
+  padding-block: 15px;
+}
+
+.screenshot-carousel-track::before,
+.screenshot-carousel-track::after {
+  content: '';
+  flex: 0 0 max(0px, calc((100% - var(--screenshot-width)) / 2 - var(--screenshot-gap)));
+}
+
+.screenshot-carousel-slide {
+  flex: 0 0 var(--screenshot-width);
+  scroll-snap-align: center;
+  border: 2px solid var(--card-border);
+  background: var(--card-element);
+}
+
+.screenshot-carousel-slide figure {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 14px 13px 11px;
+}
+
+.screenshot-carousel-slide .device-mockup { width: min(100%, 205px); }
+.screenshot-carousel-slide figcaption { font: 500 12px/1.45 "JetBrains Mono", monospace; text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .screenshot-carousel-track { scroll-behavior: auto; }
+}

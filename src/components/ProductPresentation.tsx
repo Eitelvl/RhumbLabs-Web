@@ -2,6 +2,7 @@ import { useSyncExternalStore, type ReactNode } from 'react';
 import { ArrowLeft, Check } from 'lucide-react';
 import { products, type Product } from '../data/products';
 import { DeviceMockup } from './DeviceMockup';
+import { ScreenshotCarousel } from './ScreenshotCarousel';
 import { ActionLink, SiteCallout } from './MarketingElements';
 import { SafeImage } from './SafeImage';
 import TopBar from './TopBar';
@@ -108,20 +109,26 @@ export function ProductPage({ product, heroActions, children }: {
           </div>
         </section>
         <section className="marketing-band app-gallery">
-          <h2 className="marketing-section-title">App screenshots</h2>
-          <div className="app-gallery-grid">
-            {product.features.map(({ title, screen }) => screen && (
-              <figure key={title} className={screen.landscape ? 'app-gallery-wide' : undefined}>
-                <DeviceMockup
-                  type={screen.landscape ? 'tablet' : 'phone'}
-                  imageSrc={dark && screen.dark ? screen.dark : screen.light}
-                  alt={screen.alt}
-                  loading="lazy"
-                />
-                <figcaption>{title}</figcaption>
-              </figure>
-            ))}
-          </div>
+          {product.gallery ? (
+            <ScreenshotCarousel screenshots={product.gallery} dark={dark} />
+          ) : (
+            <>
+              <h2 className="marketing-section-title">App screenshots</h2>
+              <div className="app-gallery-grid">
+                {product.features.map(({ title, screen }) => screen && (
+                  <figure key={title} className={screen.landscape ? 'app-gallery-wide' : undefined}>
+                    <DeviceMockup
+                      type={screen.landscape ? 'tablet' : 'phone'}
+                      imageSrc={dark && screen.dark ? screen.dark : screen.light}
+                      alt={screen.alt}
+                      loading="lazy"
+                    />
+                    <figcaption>{title}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </>
+          )}
         </section>
         {children}
         <SiteCallout title="Support and privacy" description="Find help and read the app’s privacy policy.">

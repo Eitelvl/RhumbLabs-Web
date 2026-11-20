@@ -1,6 +1,7 @@
 import { Award, BookOpen, Calculator, ChartNoAxesCombined, ClipboardList, IdCard, Map, type LucideIcon } from 'lucide-react';
 
-type Screenshot = { light: string; dark?: string; alt: string; landscape?: boolean };
+export type Screenshot = { light: string; dark?: string; alt: string; landscape?: boolean };
+export type ScreenshotGallery = [Screenshot, Screenshot, ...Screenshot[]];
 type Feature = { icon: LucideIcon; title: string; description: string; screen?: Screenshot };
 
 export type Product = {
@@ -17,6 +18,7 @@ export type Product = {
   description: string;
   preview: [Screenshot, Screenshot];
   features: Feature[];
+  gallery?: ScreenshotGallery;
 };
 
 export const rhumbNav: Product = {
@@ -63,6 +65,19 @@ export const rhumbNav: Product = {
   ],
 };
 
+const pogoScreenshots: ScreenshotGallery = [
+  { light: '/images/pogo/screenshots/01-summary-light.webp', dark: '/images/pogo/screenshots/01-summary-dark.webp', alt: 'Summary' },
+  { light: '/images/pogo/screenshots/02-history-light.webp', dark: '/images/pogo/screenshots/02-history-dark.webp', alt: 'Session history' },
+  { light: '/images/pogo/screenshots/03-activity-week-light.webp', dark: '/images/pogo/screenshots/03-activity-week-dark.webp', alt: 'Weekly activity' },
+  { light: '/images/pogo/screenshots/04-activity-month-light.webp', dark: '/images/pogo/screenshots/04-activity-month-dark.webp', alt: 'Monthly activity' },
+  { light: '/images/pogo/screenshots/05-gyms-light.webp', dark: '/images/pogo/screenshots/05-gyms-dark.webp', alt: 'Gyms' },
+  { light: '/images/pogo/screenshots/06-gym-detail-light.webp', dark: '/images/pogo/screenshots/06-gym-detail-dark.webp', alt: 'Gym details' },
+  { light: '/images/pogo/screenshots/07-session-detail-light.webp', dark: '/images/pogo/screenshots/07-session-detail-dark.webp', alt: 'Session details' },
+  { light: '/images/pogo/screenshots/08-profile-light.webp', dark: '/images/pogo/screenshots/08-profile-dark.webp', alt: 'Profile' },
+  { light: '/images/pogo/screenshots/09-profile-progress-light.webp', dark: '/images/pogo/screenshots/09-profile-progress-dark.webp', alt: 'Profile progress' },
+  { light: '/images/pogo/screenshots/10-achievements-light.webp', dark: '/images/pogo/screenshots/10-achievements-dark.webp', alt: 'Achievements' },
+];
+
 export const pogo: Product = {
   name: 'Pogo',
   route: '/pogo',
@@ -75,16 +90,13 @@ export const pogo: Product = {
   action: 'Explore Pogo',
   headline: 'Every session counts.',
   description: 'Designed exclusively for the climbing community. Log your sessions, analyze your progress, and stay motivated with a digital companion built for the wall.',
-  preview: [
-    { light: '/images/pogo-summary-light.jpg', dark: '/images/pogo-summary-dark.jpg', alt: 'Pogo progress summary' },
-    { light: '/images/pogo-session-detail-light.jpg', dark: '/images/pogo-session-detail-dark.jpg', alt: 'Pogo session details' },
-  ],
+  preview: [pogoScreenshots[0], pogoScreenshots[6]],
+  gallery: pogoScreenshots,
   features: [
     {
       icon: ClipboardList,
       title: 'Log every session',
       description: 'Log your bouldering sessions, attempts, completed problems, grades, climbing time, and personal notes. Pogo keeps your history organized to make your progression tangible.',
-      screen: { light: '/images/pogo-active-session-light.jpg', dark: '/images/pogo-active-session-dark.jpg', alt: 'Pogo active climbing session' },
     },
     {
       icon: ChartNoAxesCombined,
@@ -95,13 +107,11 @@ export const pogo: Product = {
       icon: BookOpen,
       title: 'Complete History',
       description: 'Navigate and review your climbing records. Explore previous logs and see how you have excelled over sessions.',
-      screen: { light: '/images/pogo-history-light.jpg', dark: '/images/pogo-history-dark.jpg', alt: 'Pogo session history' },
     },
     {
       icon: Award,
       title: 'Unlock Achievements',
       description: 'Push your limits and unlock achievements. Log boulder, route, or mixed sessions with a scale adapted to where you climb and earn milestone badges.',
-      screen: { light: '/images/pogo-achievements-light.jpg', dark: '/images/pogo-achievements-dark.jpg', alt: 'Pogo achievements' },
     },
   ],
 };
