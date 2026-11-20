@@ -1,6 +1,6 @@
 import { Award, BookOpen, Calculator, ChartNoAxesCombined, ClipboardList, IdCard, Map, type LucideIcon } from 'lucide-react';
 
-export type Screenshot = { light: string; dark?: string; alt: string; landscape?: boolean };
+export type Screenshot = { light: string; dark?: string; alt: string };
 export type ScreenshotGallery = [Screenshot, Screenshot, ...Screenshot[]];
 type Feature = { icon: LucideIcon; title: string; description: string; screen?: Screenshot };
 
@@ -22,6 +22,10 @@ export type Product = {
   gallery?: ScreenshotGallery;
 };
 
+const rhumbNavNavigation: Screenshot = { light: '/images/rhumbnav-nav-active.jpeg', alt: 'RhumbNav Active Navigation' };
+const rhumbNavFlightPlan: Screenshot = { light: '/images/rhumbnav-fpl.jpeg', alt: 'RhumbNav Flight Plan' };
+const rhumbNavLogbook: Screenshot = { light: '/images/rhumbnav-all-flights.jpeg', alt: 'RhumbNav Logbook' };
+
 export const rhumbNav: Product = {
   name: 'RhumbNav',
   route: '/rhumbnav',
@@ -34,22 +38,20 @@ export const rhumbNav: Product = {
   action: 'Discover RhumbNav',
   headline: 'Plan and navigate with clarity.',
   description: 'RhumbNav is a new light EFB shaped by real flight experience, bringing flight planning, navigation, and in-flight awareness into one seamless experience.',
-  preview: [
-    { light: '/images/rhumbnav-nav-active.jpeg', alt: 'RhumbNav Active Navigation' },
-    { light: '/images/rhumbnav-fpl.jpeg', alt: 'RhumbNav Flight Plan' },
-  ],
+  preview: [rhumbNavNavigation, rhumbNavFlightPlan],
+  heroPreview: [rhumbNavNavigation, rhumbNavFlightPlan, rhumbNavLogbook],
   features: [
     {
       icon: Map,
       title: 'Built for confident flying',
       description: 'Purpose-built VFR navigation for pilots who value clarity in the cockpit. Plan smarter, stay oriented, and fly with greater confidence. All your credentials and documents seamlessly integrated.',
-      screen: { light: '/images/rhumbnav-nav.jpeg', alt: 'Confident Flying Interface', landscape: true },
+      screen: rhumbNavNavigation,
     },
     {
       icon: BookOpen,
       title: 'A better logbook',
       description: 'A smarter way to track your flying life. Keep flight time, landings, approaches, and records organized in a logbook built for modern aviation.',
-      screen: { light: '/images/rhumbnav-all-flights.jpeg', alt: 'Logbook Phone' },
+      screen: rhumbNavLogbook,
     },
     {
       icon: Calculator,

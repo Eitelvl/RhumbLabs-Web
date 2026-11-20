@@ -17,14 +17,15 @@
 }
 .site-brand-light { font-weight: 450; }
 .site-brand-mark {
+  --brand-mark-size: 46px;
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: var(--brand-mark-size);
+  height: var(--brand-mark-size);
   border: 2px solid var(--card-border);
   background: var(--bg-secondary);
 }
-.site-brand-mark img { width: 29px; height: 29px; object-fit: contain; }
+.site-brand-mark img { width: 100%; height: 100%; object-fit: contain; }
 .site-footer { padding: 24px clamp(16px, 3.3vw, 48px) 16px; }
 .site-footer-main { margin-bottom: 18px; gap: 18px; }
 .site-footer-main > .grid { gap: 12px clamp(14px, 3vw, 45px); }
@@ -238,7 +239,6 @@
 }
 .app-gallery-grid figcaption { font: 500 11px/1.4 "JetBrains Mono", monospace; text-align: center; }
 .app-gallery-grid .device-mockup-phone { width: min(100%, 145px); }
-.app-gallery-grid .device-mockup-tablet { width: min(100%, 280px); margin-block: auto; }
 .app-attribution { padding-block: 12px; font-size: 11px; }
 .app-attribution a { text-decoration: underline; text-underline-offset: 2px; }
 
@@ -246,13 +246,63 @@
 .about-intro h2 { font-size: 23px; }
 .about-intro p { margin-top: 8px; }
 .about-layout > section:not(.about-intro) { padding-block: clamp(32px, 5vw, 72px); }
-.about-layout > :is(.about-work, .about-process) { padding: 29px var(--band-padding) 34px; }
-.about-work > div, .about-process > div { max-width: none; }
-.about-work .mb-16, .about-process .mb-16 { margin-bottom: 22px; }
-.about-work h2, .about-process h2 { font-size: clamp(25px, 3vw, 35px); }
-.about-work .linear-card, .about-process .linear-card { padding: 19px; }
-.about-process .linear-card { box-shadow: none; }
-.about-process .linear-card > div:last-child { margin-top: 15px; padding-top: 12px; }
+.about-layout > section:is(.about-work, .about-process) { padding-block: 29px 34px; }
+.about-process > div { max-width: none; }
+.about-process .mb-16 { margin-bottom: 22px; }
+.about-process h2 { font-size: clamp(25px, 3vw, 35px); }
+.about-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.about-work .about-work-card { display: flex; flex-direction: column; padding: 20px; }
+.about-work-card h3, .about-built-card h3 { font-size: clamp(21px, 2.1vw, 28px); }
+.about-work-card > p { margin-top: 8px; font-size: 15px; line-height: 1.55; }
+.about-work-card > .marketing-action { margin-top: auto; padding-block-start: 13px; }
+.about-product-list, .about-capability-list, .about-experiment-list { margin-block: 16px 4px; }
+.about-product-list { display: grid; gap: 8px; }
+.about-product-link {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 1px solid var(--card-border);
+  background: var(--bg-primary);
+}
+.about-product-link:hover, a.about-built-card:hover { background: var(--bg-secondary); }
+.about-product-link img, .about-built-product img { border: 1px solid var(--card-border); }
+.about-product-link p { margin-top: 2px; font-size: 13px; line-height: 1.4; }
+.about-capability-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.about-experiment-list { border-bottom: 1px dashed var(--border-subtle); }
+.about-experiment-list li {
+  padding-block: 8px;
+  border-top: 1px dashed var(--border-subtle);
+  font-size: 13px;
+  font-weight: 600;
+}
+.about-tag {
+  display: inline-block;
+  padding: 5px 8px;
+  border: 2px solid var(--card-border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 10px;
+}
+.about-process .about-step { padding: 19px; box-shadow: none; }
+.about-step-number {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  font: 650 24px/1.2 "JetBrains Mono", monospace;
+}
+.about-built-card { display: grid; align-content: start; gap: 12px; padding: clamp(16px, 2.4vw, 30px); }
+.about-built-header, .about-built-product { display: flex; align-items: center; gap: 10px; }
+.about-built-header { justify-content: space-between; min-height: 29px; }
+.about-built-card p { font-size: 14px; line-height: 1.55; }
+.about-philosophy-emphasis { color: #4338a6; }
+#the-lab { scroll-margin-top: 70px; }
 
 .contact-layout {
   display: grid;
@@ -364,10 +414,13 @@
   .product-name :is(h2, h3, p) { font-size: 25px; }
 }
 
+@media (max-width: 860px) {
+  .about-work-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 700px) {
   .site-brand { gap: 7px; font-size: 22px; }
-  .site-brand-mark { width: 33px; height: 33px; }
-  .site-brand-mark img { width: 24px; height: 24px; }
+  .site-brand-mark { --brand-mark-size: 40px; }
   .site-footer-main { gap: 9px; }
   .site-footer-main > .grid { display: flex; flex-wrap: wrap; column-gap: 18px; }
   .site-footer-brand { width: 110px; }
@@ -408,7 +461,6 @@
   .app-feature { padding: 12px; }
   .app-feature-grid { gap: 10px; }
   .app-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .app-gallery-grid .app-gallery-wide { grid-column: 1 / -1; }
   .legal-document-index { position: static; max-height: none; }
   .contact-layout { padding-top: 90px; padding-bottom: 28px; }
   .contact-panel { padding-inline: 12px; }
@@ -416,8 +468,7 @@
 @media (max-width: 410px) {
   .site-header-inner { padding-inline: 10px; }
   .site-brand { font-size: 18px; }
-  .site-brand-mark { width: 29px; height: 29px; }
-  .site-brand-mark img { width: 20px; height: 20px; }
+  .site-brand-mark { --brand-mark-size: 36px; }
   .marketing-page .app-feature-grid { grid-template-columns: minmax(0, 1fr); }
   .about-intro h1, .page-intro h1 { font-size: 37px; }
 }

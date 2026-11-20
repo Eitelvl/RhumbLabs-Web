@@ -1,25 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView } from 'motion/react';
 import { ActionLink } from '../components/MarketingElements';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
 import { SafeImage } from '../components/SafeImage';
-import { 
-  ArrowRight, 
-  Sparkles, 
-  Terminal, 
-  Layers, 
-  Cpu, 
-  Compass, 
-  Flame, 
-  Boxes,
-  Code2, 
-  CheckCircle2, 
-  Workflow, 
-  Microscope,
-  Zap
-} from 'lucide-react';
+import { ArrowRight, Cpu, Layers, Microscope, Sparkles, Terminal, Zap } from 'lucide-react';
+import { pogo, rhumbNav } from '../data/products';
+
+const studioProducts = [
+  { product: rhumbNav, status: 'IN DEVELOPMENT', description: rhumbNav.summary },
+  { product: pogo, status: 'AVAILABLE', description: 'Track your climbing sessions, grades, and progress.' },
+];
 
 export default function AboutPage() {
   const customCapabilities = [
@@ -64,109 +54,6 @@ export default function AboutPage() {
     }
   ];
 
-  // Interactive Lab Oscilloscope / Visualizer Component
-  const LabOscilloscope = () => {
-    const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-    useEffect(() => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      let animationId: number;
-      let phase = 0;
-
-      const render = () => {
-        const width = canvas.width;
-        const height = canvas.height;
-        ctx.clearRect(0, 0, width, height);
-
-        // Draw subtle grid
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
-        ctx.lineWidth = 1;
-        const gridSize = 24;
-        for (let x = 0; x < width; x += gridSize) {
-          ctx.beginPath();
-          ctx.moveTo(x, 0);
-          ctx.lineTo(x, height);
-          ctx.stroke();
-        }
-        for (let y = 0; y < height; y += gridSize) {
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(width, y);
-          ctx.stroke();
-        }
-
-        // Draw sine wave 1 (Cyan)
-        ctx.beginPath();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = 'rgba(6, 182, 212, 0.75)';
-        for (let x = 0; x < width; x++) {
-          const y = height / 2 + Math.sin((x * 0.02) + phase) * 22 + Math.sin((x * 0.04) - phase * 0.5) * 10;
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-
-        // Draw sine wave 2 (Magenta / Violet)
-        ctx.beginPath();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = 'rgba(168, 85, 247, 0.65)';
-        for (let x = 0; x < width; x++) {
-          const y = height / 2 + Math.cos((x * 0.018) - phase * 0.8) * 18 + Math.cos((x * 0.035) + phase * 0.4) * 8;
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-
-        // Active node pulse
-        const nodeX = (width * 0.65 + Math.sin(phase) * 60);
-        const nodeY = height / 2 + Math.sin((nodeX * 0.02) + phase) * 22 + Math.sin((nodeX * 0.04) - phase * 0.5) * 10;
-        
-        ctx.beginPath();
-        ctx.arc(nodeX, nodeY, 4, 0, Math.PI * 2);
-        ctx.fillStyle = '#00F2FE';
-        ctx.shadowColor = '#00F2FE';
-        ctx.shadowBlur = 10;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-
-        phase += 0.025;
-        animationId = requestAnimationFrame(render);
-      };
-
-      render();
-
-      return () => {
-        cancelAnimationFrame(animationId);
-      };
-    }, []);
-
-    return (
-      <div className="w-full h-44 rounded-2xl bg-bg-primary border border-card-border overflow-hidden relative flex flex-col justify-between p-4 shadow-sm">
-        <div className="flex items-center justify-between text-[11px] text-text-secondary font-mono tracking-wider z-10">
-          <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            SYS.EXP // LIVE TELEMETRY
-          </span>
-          <span className="opacity-70">240Hz · ACTIVE RUNTIME</span>
-        </div>
-        <canvas 
-          ref={canvasRef} 
-          width={480} 
-          height={160} 
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        />
-        <div className="flex items-center justify-between text-[11px] text-text-secondary font-mono z-10 pt-2 border-t border-card-border">
-          <span>PROTO: STATE_SYNC</span>
-          <span className="text-cyan-400">READY</span>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className="bg-bg-primary text-text-primary min-h-screen selection:bg-card-border selection:text-text-primary">
       <TopBar />
@@ -188,146 +75,58 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* =========================================================================
-            WHAT WE DO (3 Visual Pillar Cards)
-            ========================================================================= */}
-        <section className="about-work py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
-          <div className="max-w-6xl mx-auto">
-            
-            <div className="mb-16 md:mb-20">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-text-primary">
-                What we do.
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-              
-              {/* Pillar 1: PRODUCTS */}
-              <div className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 relative overflow-hidden group">
-                <div>
-                  <div className="flex justify-end mb-8">
-                    <Boxes className="w-5 h-5 text-cyan-400/80" />
-                  </div>
-
-                  <h3 className="text-2xl md:text-3xl font-bold text-text-primary tracking-tight mb-3">
-                    We build our own.
-                  </h3>
-                  <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-8 font-light">
-                    We create and operate software products under the Rhumb Labs umbrella.
-                  </p>
-
-                  <div className="space-y-4 pt-6 border-t border-border-subtle">
-                    <Link to="/rhumbnav" className="block p-4 rounded-2xl linear-card hover:border-cyan-500/50 transition-colors">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-semibold text-text-primary text-sm flex items-center gap-1.5">
-                          <Compass className="w-4 h-4 text-cyan-400" />
-                          RhumbNav
-                        </span>
-                        <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded-full border border-cyan-800/60">EFB</span>
+        <section className="marketing-band about-work border-t border-border-subtle">
+          <h2 className="marketing-section-title">What we do.</h2>
+          <div className="about-work-grid">
+            <article className="linear-card about-work-card">
+              <h3>We build our own.</h3>
+              <p>We design and develop our own apps for pilots and climbers.</p>
+              <ul className="about-product-list">
+                {studioProducts.map(({ product, description }) => (
+                  <li key={product.name}>
+                    <Link to={product.route} className="about-product-link">
+                      <SafeImage src={product.icon} alt="" width={42} height={42} />
+                      <div>
+                        <strong>{product.name}</strong>
+                        <p>{description}</p>
                       </div>
-                      <p className="text-xs text-text-secondary font-light">A navigation-focused product developed by Rhumb Labs.</p>
                     </Link>
+                  </li>
+                ))}
+              </ul>
+              <ActionLink to="/products" variant="inline">Explore products</ActionLink>
+            </article>
 
-                    <Link to="/pogo" className="block p-4 rounded-2xl linear-card hover:border-fuchsia-500/50 transition-colors">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-semibold text-text-primary text-sm flex items-center gap-1.5">
-                          <Flame className="w-4 h-4 text-fuchsia-400" />
-                          Pogo
-                        </span>
-                        <span className="text-[10px] font-mono text-fuchsia-400 bg-fuchsia-950/80 px-2 py-0.5 rounded-full border border-fuchsia-800/60">BOULDERING</span>
-                      </div>
-                      <p className="text-xs text-text-secondary font-light">Another product within the Rhumb Labs ecosystem.</p>
-                    </Link>
-                  </div>
-                </div>
+            <article className="linear-card about-work-card">
+              <h3>We build yours.</h3>
+              <p>We design and build custom software around the way your team works.</p>
+              <ul className="about-capability-list">
+                {customCapabilities.map(item => (
+                  <li className="marketing-label about-tag" key={item}>{item}</li>
+                ))}
+              </ul>
+              <ActionLink to="/contact" variant="inline">Start a project</ActionLink>
+            </article>
 
-                <div className="pt-8 mt-6">
-                  <Link 
-                    to="/products"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-text-primary hover:text-cyan-400 transition-colors group-hover:translate-x-1 duration-300"
-                  >
-                    Explore products
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Pillar 2: CUSTOM */}
-              <div className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-purple-500/40 transition-all duration-300 relative overflow-hidden group">
-                <div>
-                  <div className="flex justify-end mb-8">
-                    <Code2 className="w-5 h-5 text-purple-400/80" />
-                  </div>
-
-                  <h3 className="text-2xl md:text-3xl font-bold text-text-primary tracking-tight mb-3">
-                    We build yours.
-                  </h3>
-                  <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-6 font-light">
-                    For ideas that need a custom solution, Rhumb Labs designs and develops software from the ground up.
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {customCapabilities.map((item) => (
-                      <span 
-                        key={item}
-                        className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-bg-primary border border-card-border text-text-secondary"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="text-xs text-text-secondary leading-relaxed font-light italic border-t border-border-subtle pt-4">
-                    Engineering and product thinking applied directly to your mission.
-                  </p>
-                </div>
-
-                <div className="pt-8 mt-6">
-                  <Link 
-                    to="/contact"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-text-primary hover:text-purple-400 transition-colors group-hover:translate-x-1 duration-300"
-                  >
-                    Start a project
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Pillar 3: EXPERIMENTS */}
-              <div className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-cyan-400/40 transition-all duration-300 relative overflow-hidden group">
-                <div>
-                  <div className="flex justify-end mb-8">
-                    <Sparkles className="w-5 h-5 text-text-secondary" />
-                  </div>
-
-                  <h3 className="text-2xl md:text-3xl font-bold text-text-primary tracking-tight mb-3">
-                    We explore what’s next.
-                  </h3>
-                  <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-6 font-light">
-                    Rhumb Labs also acts as a playground for ideas, prototypes, experiments, and technologies that may eventually become products.
-                  </p>
-
-                  {/* Visual Generative Micro Element */}
-                  <div className="my-2">
-                    <LabOscilloscope />
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-4 flex items-center justify-between text-xs text-text-secondary font-mono">
-                  <span>ACTIVE LAB INITIATIVES</span>
-                  <span className="text-cyan-400">ONGOING</span>
-                </div>
-              </div>
-
-            </div>
-
+            <article className="linear-card about-work-card">
+              <h3>We explore what’s next.</h3>
+              <p>We build small prototypes to find out which ideas are worth developing.</p>
+              <ul className="about-experiment-list">
+                <li>Developer Tooling</li>
+                <li>Automation</li>
+                <li>Applied AI</li>
+              </ul>
+              <a href="#the-lab" className="marketing-action marketing-action-inline">
+                Explore the lab <ArrowRight size={15} aria-hidden />
+              </a>
+            </article>
           </div>
         </section>
 
         {/* =========================================================================
             HOW WE WORK (4-Step Sequential Process)
             ========================================================================= */}
-        <section className="about-process py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
+        <section className="marketing-band about-process border-t border-border-subtle">
           <div className="max-w-6xl mx-auto">
 
             <div className="mb-16 md:mb-20">
@@ -338,27 +137,15 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {workSteps.map((step) => (
-                <div
-                  key={step.num}
-                  className="linear-card rounded-3xl p-7 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 group"
-                >
-                  <div>
-                    <span className="text-2xl md:text-3xl font-mono font-bold text-text-secondary/40 group-hover:text-cyan-400 transition-colors block mb-6">
-                      {step.num}
-                    </span>
-                    <h3 className="text-xl font-bold text-text-primary mb-3 tracking-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-text-secondary text-sm leading-relaxed font-light">
-                      {step.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-6 mt-6 border-t border-border-subtle flex items-center gap-2 text-xs font-mono text-text-secondary">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/60"></span>
-                    STAGE {step.num}
-                  </div>
-                </div>
+                <article key={step.num} className="linear-card about-step">
+                  <span className="about-step-number">{step.num}</span>
+                  <h3 className="text-xl font-bold text-text-primary mb-3 tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">
+                    {step.desc}
+                  </p>
+                </article>
               ))}
             </div>
 
@@ -393,7 +180,7 @@ export default function AboutPage() {
 
 
         {/* =========================================================================
-OUR PRODUCTS (Built Here)
+            OUR PRODUCTS (Built Here)
             ========================================================================= */}
         <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
           <div className="max-w-6xl mx-auto">
@@ -409,110 +196,27 @@ OUR PRODUCTS (Built Here)
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              
-              {/* Product 1: RhumbNav */}
-              <Link 
-                to="/rhumbnav"
-                className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] transition-all duration-300 group"
-              >
-                <div>
-                  {/* Card Header: Status Badge & Arrow */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold tracking-wider text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-800/60 shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                      IN DEVELOPMENT
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-text-secondary group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {studioProducts.map(({ product, status, description }) => (
+                <Link to={product.route} key={product.name} className="linear-card about-built-card">
+                  <div className="about-built-header">
+                    <span className="marketing-label about-tag">{status}</span>
+                    <ArrowRight size={16} aria-hidden />
                   </div>
-
-                  {/* Logo Area: Left-Aligned */}
-                  <div className="h-20 sm:h-24 flex items-center justify-start mb-6">
-                    <SafeImage 
-                      src="/images/rhumbnav-logo.png" 
-                      alt="RhumbNav" 
-                      className="h-10 sm:h-12 md:h-14 w-auto object-contain origin-left scale-[3] -translate-x-3"
-                    />
+                  <div className="about-built-product">
+                    <SafeImage src={product.icon} alt="" width={48} height={48} />
+                    <h3>{product.name}</h3>
                   </div>
-
-                  <p className="text-text-secondary text-sm leading-relaxed font-light mb-6">
-                    A navigation product built by Rhumb Labs. Light EFB shaping flight planning and in-flight awareness.
-                  </p>
+                  <p>{description}</p>
+                </Link>
+              ))}
+              <article className="linear-card about-built-card">
+                <div className="about-built-header">
+                  <span className="marketing-label about-tag">INCUBATING</span>
                 </div>
-
-                <div className="pt-6 border-t border-border-subtle flex items-center justify-between text-xs text-text-secondary font-medium">
-                  <span>Aviation & Navigation</span>
-                  <span className="text-text-primary group-hover:text-cyan-400 transition-colors">View product →</span>
-                </div>
-              </Link>
-
-              {/* Product 2: Pogo */}
-              <Link 
-                to="/pogo"
-                className="linear-card backdrop-blur-xl rounded-3xl p-8 flex flex-col justify-between hover:border-fuchsia-500/50 hover:shadow-[0_0_30px_rgba(192,38,211,0.12)] transition-all duration-300 group"
-              >
-                <div>
-                  {/* Card Header: Status Badge & Arrow */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold tracking-wider text-fuchsia-400 bg-fuchsia-950/80 px-3 py-1 rounded-full border border-fuchsia-800/60 shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-fuchsia-400"></span>
-                      AVAILABLE
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-text-secondary group-hover:text-fuchsia-400 group-hover:translate-x-1 transition-all" />
-                  </div>
-
-                  {/* Logo Area: Left-Aligned */}
-                  <div className="h-20 sm:h-24 flex items-center justify-start mb-6">
-                    <SafeImage 
-                      src="/images/pogo-logo.png" 
-                      alt="Pogo" 
-                      className="h-10 sm:h-12 md:h-14 w-auto object-contain origin-left scale-[3] -translate-y-3"
-                    />
-                  </div>
-
-                  <p className="text-text-secondary text-sm leading-relaxed font-light mb-6">
-                    Another idea from the lab, built into a real product. Dedicated climbing and bouldering session tracking.
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-border-subtle flex items-center justify-between text-xs text-text-secondary font-medium">
-                  <span>Fitness & Analytics</span>
-                  <span className="text-text-primary group-hover:text-fuchsia-400 transition-colors">View product →</span>
-                </div>
-              </Link>
-
-              {/* Product 3: More Experiments Card */}
-              <div className="linear-card backdrop-blur-xl border-dashed rounded-3xl p-8 flex flex-col justify-between">
-                <div>
-                  {/* Card Header: Status Badge & Sparkle */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold tracking-wider text-text-secondary bg-card-element px-3 py-1 rounded-full border border-card-border">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80"></span>
-                      INCUBATING
-                    </span>
-                    <Sparkles className="w-4 h-4 text-text-secondary" />
-                  </div>
-
-                  {/* Logo Area / Focus */}
-                  <div className="h-28 sm:h-32 md:h-36 flex flex-col justify-center mb-6">
-                    <span className="font-mono text-xs text-cyan-400 mb-1">// WHAT'S NEXT</span>
-                    <div className="text-xl font-bold text-text-primary">More experiments →</div>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-text-primary mb-2">
-                    Continuously Brewing
-                  </h3>
-                  <p className="text-text-secondary text-sm leading-relaxed font-light mb-6">
-                    Rhumb Labs will continue prototyping and releasing new standalone software and developer utilities.
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-border-subtle flex items-center justify-between text-xs text-text-secondary font-mono">
-                  <span>STATUS: ACTIVE LAB</span>
-                  <span className="text-cyan-400">RESEARCH</span>
-                </div>
-              </div>
-
+                <h3>More experiments</h3>
+                <p>Rhumb Labs will continue prototyping and releasing new standalone software and developer utilities.</p>
+              </article>
             </div>
 
           </div>
@@ -563,7 +267,7 @@ OUR PRODUCTS (Built Here)
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-text-primary mb-12 leading-[1.1]">
               Good software is invisible. <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400 bg-clip-text text-transparent">
+              <span className="about-philosophy-emphasis">
                 Good products aren't.
               </span>
             </h2>
@@ -578,7 +282,7 @@ OUR PRODUCTS (Built Here)
         {/* =========================================================================
             THE LAB (Experimental Focus & Domains)
             ========================================================================= */}
-        <section className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
+        <section id="the-lab" className="py-20 md:py-32 px-6 lg:px-12 border-t border-border-subtle">
           <div className="max-w-6xl mx-auto">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">

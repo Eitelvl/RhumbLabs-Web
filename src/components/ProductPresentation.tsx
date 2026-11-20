@@ -31,11 +31,14 @@ function ProductPreview({ product }: { product: Product }) {
   );
 }
 
-function ThemedProductPreview({ screenshots }: { screenshots: Screenshot[] }) {
-  const [dark, setDark] = useState(true);
+function HeroProductPreview({ screenshots }: { screenshots: Screenshot[] }) {
+  const hasDarkCaptures = screenshots.every(({ dark }) => Boolean(dark));
+  const [dark, setDark] = useState(hasDarkCaptures);
   return (
     <div className="product-preview product-preview-three">
-      <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls="app-hero-phones" />
+      {hasDarkCaptures && (
+        <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls="app-hero-phones" />
+      )}
       <div className="product-preview-phones" id="app-hero-phones">
         {screenshots.map(({ light, dark: darkImage, alt }) => (
           <DeviceMockup key={light} type="phone" imageSrc={dark ? darkImage ?? light : light} alt={alt} />
@@ -99,7 +102,7 @@ export function ProductPage({ product, heroActions, children }: {
             <div className="marketing-actions">{heroActions}</div>
           </div>
           {product.heroPreview
-            ? <ThemedProductPreview screenshots={product.heroPreview} />
+            ? <HeroProductPreview screenshots={product.heroPreview} />
             : <ProductPreview product={product} />}
         </section>
         <section className="marketing-band app-features">
@@ -121,9 +124,9 @@ export function ProductPage({ product, heroActions, children }: {
               <h2 className="marketing-section-title">App Screenshots</h2>
               <div className="app-gallery-grid">
                 {product.features.map(({ title, screen }) => screen && (
-                  <figure key={title} className={screen.landscape ? 'app-gallery-wide' : undefined}>
+                  <figure key={title}>
                     <DeviceMockup
-                      type={screen.landscape ? 'tablet' : 'phone'}
+                      type="phone"
                       imageSrc={screen.light}
                       alt={screen.alt}
                       loading="lazy"
