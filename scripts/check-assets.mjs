@@ -4,6 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
 const canonicalImagesDir = path.join(publicDir, 'images');
+const designMockupsDir = path.join(root, 'docs', 'rediseno-papersafe', 'maquetas');
 const ignoredDirectories = new Set(['.git', 'dist', 'node_modules']);
 const textExtensions = new Set([
   '.cjs', '.css', '.html', '.js', '.json', '.jsx', '.md', '.mjs', '.ts', '.tsx',
@@ -11,6 +12,8 @@ const textExtensions = new Set([
 const imageExtensions = new Set([
   '.avif', '.bmp', '.gif', '.ico', '.jpeg', '.jpg', '.png', '.svg', '.tif', '.tiff', '.webp',
 ]);
+// Keep the previous wordmark URLs available to external links.
+const publishedWordmarks = new Set(['/images/rhumbnav-logo.png', '/images/pogo-logo.png']);
 const rootImageExceptions = new Set(['public/apple-touch-icon.png', 'public/favicon.ico']);
 
 async function walk(directory) {
@@ -102,7 +105,8 @@ const repositoryImages = files.filter((file) => imageExtensions.has(path.extname
 for (const image of repositoryImages) {
   const relativeImage = path.relative(root, image).split(path.sep).join('/');
   const isCanonical = image.startsWith(`${canonicalImagesDir}${path.sep}`);
-  if (!isCanonical && !rootImageExceptions.has(relativeImage)) {
+  const isDesignMockup = image.startsWith(`${designMockupsDir}${path.sep}`);
+  if (!isCanonical && !isDesignMockup && !rootImageExceptions.has(relativeImage)) {
     errors.push(`Imagen fuera de la ubicación canónica: ${relativeImage}`);
   }
   if (!await hasValidSignature(image)) {
@@ -113,7 +117,7 @@ for (const image of repositoryImages) {
 const publicImages = repositoryImages.filter((file) => file.startsWith(`${canonicalImagesDir}${path.sep}`));
 for (const image of publicImages) {
   const route = `/${path.relative(publicDir, image).split(path.sep).join('/')}`;
-  if (!referencedRoutes.has(route)) {
+  if (!referencedRoutes.has(route) && !publishedWordmarks.has(route)) {
     errors.push(`Imagen sin uso en public/images: ${route}`);
   }
 }

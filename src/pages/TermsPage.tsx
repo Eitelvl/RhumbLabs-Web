@@ -1,13 +1,10 @@
-import TopBar from '../components/TopBar';
-import Footer from '../components/Footer';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function TermsPage() {
   const { language } = useLanguage();
   return (
-    <div className="bg-bg-primary text-text-primary selection:bg-card-border min-h-screen flex flex-col">
-      <TopBar />
-      <main className="flex-1 pt-32 pb-24 px-8 max-w-4xl mx-auto w-full">
+    <div className="bg-bg-primary text-text-primary selection:bg-card-border flex flex-col">
+      <main id="contenido" tabIndex={-1} className="flex-1 pt-12 pb-16 px-8 max-w-4xl mx-auto w-full">
         <h1 className="text-5xl md:text-[5.5rem] font-medium tracking-tight mb-16 leading-[0.9] text-text-primary">
           {language === 'es' ? 'Términos de ' : 'Terms of '}<span className="text-text-secondary">{language === 'es' ? 'servicio.' : 'Service.'}</span>
         </h1>
@@ -115,7 +112,6 @@ export default function TermsPage() {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

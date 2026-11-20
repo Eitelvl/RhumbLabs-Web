@@ -2,15 +2,16 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export default function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { key, hash } = useLocation();
 
   useEffect(() => {
-    // Only scroll to top if there is no hash in the URL
-    // If there is a hash (like #about), let the page handle that specific scroll
     if (!hash) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
     }
-  }, [pathname, hash]);
+
+    document.getElementById(hash.slice(1))?.scrollIntoView();
+  }, [key, hash]);
 
   return null;
 }
