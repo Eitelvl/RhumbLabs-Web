@@ -21,11 +21,11 @@ function ProductName({ product, heading: Heading }: { product: Product; heading:
   );
 }
 
-function ProductPreview({ product }: { product: Product }) {
+function PreviewPhones({ screenshots, dark, id }: { screenshots: Screenshot[]; dark: boolean; id?: string }) {
   return (
-    <div className="product-preview">
-      {product.preview.map(({ light, alt }) => (
-        <DeviceMockup key={light} type="phone" imageSrc={light} alt={alt} />
+    <div className="product-preview-phones" id={id}>
+      {screenshots.map(({ light, dark: darkImage, alt }) => (
+        <DeviceMockup key={light} type="phone" imageSrc={dark ? darkImage ?? light : light} alt={alt} />
       ))}
     </div>
   );
@@ -33,17 +33,13 @@ function ProductPreview({ product }: { product: Product }) {
 
 function HeroProductPreview({ screenshots }: { screenshots: Screenshot[] }) {
   const hasDarkCaptures = screenshots.every(({ dark }) => Boolean(dark));
-  const [dark, setDark] = useState(hasDarkCaptures);
+  const [dark, setDark] = useState(false);
   return (
-    <div className="product-preview product-preview-three">
+    <div className="product-preview">
       {hasDarkCaptures && (
         <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls="app-hero-phones" />
       )}
-      <div className="product-preview-phones" id="app-hero-phones">
-        {screenshots.map(({ light, dark: darkImage, alt }) => (
-          <DeviceMockup key={light} type="phone" imageSrc={dark ? darkImage ?? light : light} alt={alt} />
-        ))}
-      </div>
+      <PreviewPhones id="app-hero-phones" screenshots={screenshots} dark={dark} />
     </div>
   );
 }
@@ -69,7 +65,9 @@ export function ProductGrid({ catalog = false }: { catalog?: boolean }) {
             {catalog && <Highlights product={product} />}
             <ActionLink to={product.route}>{product.action}</ActionLink>
           </div>
-          <ProductPreview product={product} />
+          <div className="product-preview">
+            <PreviewPhones screenshots={product.preview} dark />
+          </div>
           {!catalog && (
             <details className="product-card-details">
               <summary>Product highlights</summary>
@@ -101,9 +99,7 @@ export function ProductPage({ product, heroActions, children }: {
             <p>{product.description}</p>
             <div className="marketing-actions">{heroActions}</div>
           </div>
-          {product.heroPreview
-            ? <HeroProductPreview screenshots={product.heroPreview} />
-            : <ProductPreview product={product} />}
+          <HeroProductPreview screenshots={product.preview} />
         </section>
         <section className="marketing-band app-features">
           <h2 className="marketing-section-title">What you can do</h2>

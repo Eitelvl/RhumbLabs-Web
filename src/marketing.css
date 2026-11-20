@@ -144,11 +144,41 @@
 .product-name :is(h2, h3, p) { font-size: 30px; color: var(--text-primary); font-weight: 700; letter-spacing: -.043em; line-height: 1; }
 
 .product-preview {
-  position: relative;
+  --preview-width: 440px;
+  --preview-phone-width: 158px;
+  display: grid;
+  align-content: center;
   isolation: isolate;
   overflow: hidden;
+  padding: 12px 8px;
   border-left: 1px dashed var(--border-subtle);
   background: radial-gradient(color-mix(in srgb, var(--text-primary) 28%, transparent) .8px, transparent 1px) center / 10px 10px var(--card-element);
+}
+.product-card .product-preview {
+  --preview-width: 248px;
+  --preview-phone-width: 92px;
+}
+.product-preview-phones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  width: min(100%, var(--preview-width));
+  margin-inline: auto;
+}
+.product-preview-phones .device-mockup { width: min(108%, calc(var(--preview-phone-width) * .85)); }
+.product-preview-phones .device-mockup:first-child {
+  grid-area: 1 / 2;
+  width: min(118%, var(--preview-phone-width));
+  z-index: 1;
+}
+.product-preview-phones .device-mockup:nth-child(2) {
+  grid-area: 1 / 3;
+  transform: translateX(-10%) rotate(8deg);
+}
+.product-preview-phones .device-mockup:nth-child(3) {
+  grid-area: 1 / 1;
+  transform: translateX(10%) rotate(-8deg);
 }
 .device-mockup {
   padding: 3px;
@@ -162,9 +192,6 @@
 .device-mockup-phone img { aspect-ratio: auto 6 / 13; object-fit: contain; }
 .device-mockup-tablet { border-radius: 10px; }
 .device-mockup-tablet img { aspect-ratio: 13 / 6; object-fit: cover; }
-.product-preview .device-mockup { position: absolute; width: 110px; }
-.product-preview .device-mockup:first-child { top: 21px; left: calc(50% - 73px); z-index: 1; }
-.product-preview .device-mockup:nth-child(2) { top: 36px; left: calc(50% - 10px); transform: rotate(10deg); }
 
 .product-card-details {
   grid-column: 1 / -1;
@@ -190,9 +217,7 @@
 .product-catalog { padding-bottom: 35px; }
 .product-grid-catalog .product-card { grid-template-columns: minmax(0, 1fr) 47%; align-self: stretch; }
 .product-grid-catalog .product-card-copy { min-height: 332px; padding: 22px; }
-.product-grid-catalog .product-preview .device-mockup { width: 128px; }
-.product-grid-catalog .product-preview .device-mockup:first-child { left: calc(50% - 85px); top: 24px; }
-.product-grid-catalog .product-preview .device-mockup:nth-child(2) { left: calc(50% - 10px); top: 46px; }
+.product-grid-catalog .product-preview { --preview-width: 278px; --preview-phone-width: 112px; }
 
 .app-hero {
   display: grid;
@@ -205,10 +230,15 @@
 .app-hero-copy h1 { margin-top: 16px; max-width: 11ch; font-size: clamp(43px, 4.7vw, 69px); }
 .app-hero-copy > p { max-width: 49ch; }
 .app-hero-copy .marketing-actions { margin-top: 18px; }
-.app-hero .product-preview { min-height: 360px; border: 2px solid var(--card-border); box-shadow: 6px 6px var(--shadow-subtle); }
-.app-hero .product-preview .device-mockup { width: 163px; padding: 4px; border-radius: 15px; }
-.app-hero .product-preview .device-mockup:first-child { left: calc(50% - 112px); top: 26px; }
-.app-hero .product-preview .device-mockup:nth-child(2) { left: calc(50% - 7px); top: 42px; }
+.app-hero .product-preview {
+  min-height: 360px;
+  gap: 8px;
+  padding: 12px clamp(10px, 3.5%, 26px) 20px;
+  border: 2px solid var(--card-border);
+  box-shadow: 6px 6px var(--shadow-subtle);
+}
+.app-hero .product-preview .screenshot-theme-toggle { justify-self: end; }
+.app-hero .product-preview .device-mockup { padding: 4px; border-radius: 15px; }
 .app-hero .product-preview img { border-radius: 11px; }
 .product-status {
   display: inline-flex;
@@ -393,8 +423,6 @@
   .home-intro h1 { font-size: clamp(38px, 6.6vw, 73px); }
   .product-card { grid-template-columns: minmax(0, 1fr) 40%; }
   .product-grid-catalog .product-card { grid-template-columns: minmax(0, 1fr) 40%; }
-  .product-grid-catalog .product-preview .device-mockup { width: 104px; }
-  .product-grid-catalog .product-preview .device-mockup:first-child { left: calc(50% - 66px); }
   .product-name :is(h2, h3, p) { font-size: 25px; }
 }
 
@@ -430,23 +458,25 @@
   .product-card-copy .marketing-action { padding-inline: 7px; font-size: 9px; }
   .product-card-details { padding-inline: 11px; }
   .product-highlights li { font-size: 11px; }
-  .product-preview .device-mockup { width: 80px; }
-  .product-preview .device-mockup:first-child { top: 13px; left: calc(50% - 52px); }
-  .product-preview .device-mockup:nth-child(2) { top: 26px; left: calc(50% - 10px); }
-  .product-grid-catalog .product-preview .device-mockup { width: 90px; }
-  .product-grid-catalog .product-preview .device-mockup:first-child { left: calc(50% - 56px); }
   .marketing-callout { flex-direction: column; align-items: flex-start; gap: 10px; padding-block: 17px; }
   .marketing-callout .marketing-actions { max-width: 100%; justify-content: flex-start; }
   .app-hero { padding-top: 16px; }
   .app-hero .product-preview { min-height: 270px; }
-  .app-hero .product-preview .device-mockup { width: 117px; }
-  .app-hero .product-preview .device-mockup:first-child { left: calc(50% - 84px); top: 17px; }
-  .app-hero .product-preview .device-mockup:nth-child(2) { left: calc(50% - 9px); top: 29px; }
   .app-feature { padding: 12px; }
   .app-feature-grid { gap: 10px; }
   .legal-document-index { position: static; max-height: none; }
   .contact-layout { padding-top: 90px; padding-bottom: 28px; }
   .contact-panel { padding-inline: 12px; }
+}
+@media (max-width: 460px) {
+  .product-grid .product-card { grid-template-columns: minmax(0, 1fr); }
+  .marketing-band .product-grid .product-card-copy { min-height: 0; padding: 14px; }
+  .product-grid .product-preview {
+    --preview-width: 206px;
+    --preview-phone-width: 76px;
+    border-top: 1px dashed var(--border-subtle);
+    border-left: 0;
+  }
 }
 @media (max-width: 410px) {
   .site-header-inner { padding-inline: 10px; }
@@ -496,39 +526,6 @@
 .screenshot-theme-toggle:hover,
 .screenshot-carousel-arrows button:enabled:hover { background: var(--bg-secondary); }
 .screenshot-carousel-arrows button:disabled { opacity: .44; cursor: default; }
-
-.app-hero .product-preview-three {
-  display: grid;
-  align-content: center;
-  gap: 8px;
-  padding: 12px clamp(10px, 3.5%, 26px) 20px;
-}
-.product-preview-three .screenshot-theme-toggle { justify-self: end; }
-.product-preview-phones {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: center;
-  justify-items: center;
-  width: min(100%, 440px);
-  margin-inline: auto;
-}
-.app-hero .product-preview-three .product-preview-phones .device-mockup {
-  position: relative;
-  inset: auto;
-  width: min(108%, 135px);
-}
-.app-hero .product-preview-three .product-preview-phones .device-mockup:first-child {
-  grid-area: 1 / 2;
-  width: min(118%, 158px);
-}
-.app-hero .product-preview-three .product-preview-phones .device-mockup:nth-child(2) {
-  grid-area: 1 / 3;
-  transform: translateX(-10%) rotate(8deg);
-}
-.app-hero .product-preview-three .product-preview-phones .device-mockup:nth-child(3) {
-  grid-area: 1 / 1;
-  transform: translateX(10%) rotate(-8deg);
-}
 
 .screenshot-carousel-track {
   --visible-screenshots: 4;

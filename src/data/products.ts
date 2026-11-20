@@ -16,8 +16,7 @@ export type Product = {
   action: string;
   headline: string;
   description: string;
-  preview: [Screenshot, Screenshot];
-  heroPreview?: [Screenshot, Screenshot, Screenshot];
+  preview: [Screenshot, Screenshot, Screenshot];
   features: Feature[];
   gallery: ScreenshotGallery;
 };
@@ -50,8 +49,7 @@ export const rhumbNav: Product = {
   action: 'Discover RhumbNav',
   headline: 'Plan and navigate with clarity.',
   description: 'RhumbNav is a new light EFB shaped by real flight experience, bringing flight planning, navigation, and in-flight awareness into one seamless experience.',
-  preview: [rhumbNavScreenshots[0], rhumbNavScreenshots[5]],
-  heroPreview: [rhumbNavScreenshots[0], rhumbNavScreenshots[6], rhumbNavScreenshots[8]],
+  preview: [rhumbNavScreenshots[0], rhumbNavScreenshots[6], rhumbNavScreenshots[8]],
   gallery: rhumbNavScreenshots,
   features: [
     {
@@ -102,8 +100,7 @@ export const pogo: Product = {
   action: 'Explore Pogo',
   headline: 'Every session counts.',
   description: 'Designed exclusively for the climbing community. Log your sessions, analyze your progress, and stay motivated with a digital companion built for the wall.',
-  preview: [pogoScreenshots[0], pogoScreenshots[6]],
-  heroPreview: [pogoScreenshots[0], pogoScreenshots[6], pogoScreenshots[1]],
+  preview: [pogoScreenshots[0], pogoScreenshots[6], pogoScreenshots[1]],
   gallery: pogoScreenshots,
   features: [
     {
