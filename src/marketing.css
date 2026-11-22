@@ -579,11 +579,16 @@
   scroll-snap-align: start;
   border: 2px solid var(--card-border);
   background: var(--card-element);
+  box-shadow: inset 0 0 0 0 var(--card-border);
+  transition: box-shadow 180ms ease;
 }
 
 .screenshot-carousel-slide[aria-current="true"] {
-  border-color: var(--focus);
-  box-shadow: inset 0 0 0 1px var(--focus);
+  box-shadow: inset 0 0 0 3px var(--card-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screenshot-carousel-slide { transition: none; }
 }
 
 .screenshot-carousel-slide figure {
