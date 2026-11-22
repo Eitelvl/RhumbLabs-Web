@@ -5,7 +5,7 @@ import { rhumbNav } from '../data/products';
 export default function RhumbNavPage() {
   return (
     <ProductPage product={rhumbNav} heroActions={
-      <span className="product-status marketing-label"><Smartphone size={16} aria-hidden />Coming Soon for Android</span>
+      <span className="product-status marketing-label"><Smartphone size={16} aria-hidden />Coming Soon on Android and iOS</span>
     }>
       <section className="marketing-band app-note">
         <h2>Aviation in your pocket.</h2>
