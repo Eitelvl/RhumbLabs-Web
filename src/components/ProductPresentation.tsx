@@ -1,5 +1,5 @@
-import { useState, type ReactNode } from 'react';
-import { ArrowLeft, Check } from 'lucide-react';
+import { useId, useState, type ReactNode } from 'react';
+import { ArrowLeft, Check, ChevronRight } from 'lucide-react';
 import { products, type Product, type Screenshot } from '../data/products';
 import { DeviceMockup } from './DeviceMockup';
 import { ScreenshotCarousel } from './ScreenshotCarousel';
@@ -54,6 +54,33 @@ function Highlights({ product }: { product: Product }) {
   );
 }
 
+function ProductDetails({ product }: { product: Product }) {
+  const panelId = useId();
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="product-card-details">
+      <button
+        type="button"
+        className="product-card-details-toggle"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => setOpen(value => !value)}
+      >
+        <ChevronRight size={14} aria-hidden />
+        Product highlights
+      </button>
+      <div id={panelId} className="product-card-details-panel" inert={!open}>
+        <div className="product-card-details-content">
+          <p>{product.tagline}</p>
+          <p>{product.overview}</p>
+          <Highlights product={product} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ProductGrid({ catalog = false }: { catalog?: boolean }) {
   return (
     <div className={`product-grid${catalog ? ' product-grid-catalog' : ''}`}>
@@ -68,14 +95,7 @@ export function ProductGrid({ catalog = false }: { catalog?: boolean }) {
           <div className="product-preview">
             <PreviewPhones screenshots={product.preview} dark />
           </div>
-          {!catalog && (
-            <details className="product-card-details">
-              <summary>Product highlights</summary>
-              <p>{product.tagline}</p>
-              <p>{product.overview}</p>
-              <Highlights product={product} />
-            </details>
-          )}
+          {!catalog && <ProductDetails product={product} />}
         </article>
       ))}
     </div>

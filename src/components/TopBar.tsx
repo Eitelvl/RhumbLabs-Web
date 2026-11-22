@@ -5,6 +5,15 @@ import { motion, AnimatePresence } from 'motion/react';
 import { SafeImage } from './SafeImage';
 import { useLanguage } from '../context/LanguageContext';
 
+const navigationSections: Record<string, string> = {
+  '/': 'home',
+  '/about': 'about',
+  '/contact': 'contact',
+  '/products': 'products',
+  '/rhumbnav': 'products',
+  '/pogo': 'products',
+};
+
 export default function TopBar() {
   const location = useLocation();
   const path = location.pathname.toLowerCase().replace(/\/$/, '') || '/';
@@ -18,53 +27,21 @@ export default function TopBar() {
     cleanPath.includes('delete-account') ||
     cleanPath.includes('data-deletion');
 
-  const isHomeRoute = cleanPath === '/' || cleanPath === '';
-  const isAboutRoute = cleanPath === '/about';
-  const isProductsRoute = cleanPath === '/products';
-  const isContactRoute = cleanPath === '/contact';
-  const isRhumbNavRoute = cleanPath === '/rhumbnav';
-  const isPogoRoute = cleanPath === '/pogo';
+  const isHomeRoute = cleanPath === '/';
+  const activeSection = isLegalRoute ? 'legal' : navigationSections[cleanPath];
 
-  const basename = import.meta.env.BASE_URL ? import.meta.env.BASE_URL.replace(/\/$/, '') : '';
   const { language, toggleLanguage } = useLanguage();
   
-  const [activeSection, setActiveSection] = useState<string>('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      
-      if (!isHomeRoute) return;
-      const sections = ['home', 'about'];
-      let current = 'home';
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-            current = section;
-          }
-        }
-      }
-      setActiveSection(current);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHomeRoute]);
-
-  useEffect(() => {
-    if (!isHomeRoute) {
-      if (isAboutRoute) setActiveSection('about');
-      else if (isContactRoute) setActiveSection('contact');
-      else if (isRhumbNavRoute || isPogoRoute || isProductsRoute) setActiveSection('products');
-      else if (isLegalRoute) setActiveSection('legal');
-      else setActiveSection('');
-    }
-  }, [isHomeRoute, isAboutRoute, isContactRoute, isRhumbNavRoute, isPogoRoute, isLegalRoute, isProductsRoute]);
+  }, []);
 
   const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
     setIsMobileMenuOpen(false);
