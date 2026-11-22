@@ -78,7 +78,7 @@ export const rhumbNav: Product = {
 const pogoScreenshots: ScreenshotGallery = [
   { light: '/images/pogo/screenshots/01-summary-light.webp', dark: '/images/pogo/screenshots/01-summary-dark.webp', alt: 'Summary' },
   { light: '/images/pogo/screenshots/02-history-light.webp', dark: '/images/pogo/screenshots/02-history-dark.webp', alt: 'Session history' },
-  { light: '/images/pogo/screenshots/03-activity-week-light.webp', dark: '/images/pogo/screenshots/03-activity-week-dark.webp', alt: 'Weekly activity' },
+  { light: '/images/pogo/screenshots/11-active-session-light.webp', dark: '/images/pogo/screenshots/11-active-session-dark.webp', alt: 'Active session' },
   { light: '/images/pogo/screenshots/04-activity-month-light.webp', dark: '/images/pogo/screenshots/04-activity-month-dark.webp', alt: 'Monthly activity' },
   { light: '/images/pogo/screenshots/05-gyms-light.webp', dark: '/images/pogo/screenshots/05-gyms-dark.webp', alt: 'Gyms' },
   { light: '/images/pogo/screenshots/06-gym-detail-light.webp', dark: '/images/pogo/screenshots/06-gym-detail-dark.webp', alt: 'Gym details' },
