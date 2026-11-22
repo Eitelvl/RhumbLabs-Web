@@ -100,7 +100,7 @@ export const pogo: Product = {
   action: 'Explore Pogo',
   headline: 'Every session counts.',
   description: 'Designed exclusively for the climbing community. Log your sessions, analyze your progress, and stay motivated with a digital companion built for the wall.',
-  preview: [pogoScreenshots[0], pogoScreenshots[6], pogoScreenshots[1]],
+  preview: [pogoScreenshots[0], pogoScreenshots[6], pogoScreenshots[2]],
   gallery: pogoScreenshots,
   features: [
     {
