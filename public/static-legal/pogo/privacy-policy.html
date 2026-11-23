@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es" data-language="es" class="standalone-legal">
+<html lang="en" data-language="en" class="standalone-legal">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Política de privacidad / Privacy Policy — Pogo | Rhumb Labs</title>
+  <title>Privacy Policy / Política de privacidad — Pogo | Rhumb Labs</title>
   <style>
     :root { font-family: system-ui, -apple-system, sans-serif; line-height: 1.65; }
     body { max-width: 800px; margin: 0 auto; padding: 24px 20px 80px; }
@@ -17,12 +17,12 @@
     [data-language="es"] [lang="en"], [data-language="en"] [lang="es"] { display: none; }
   </style>
   <script>
-    try { document.documentElement.dataset.language = localStorage.getItem('language') === 'en' ? 'en' : 'es'; document.documentElement.lang = document.documentElement.dataset.language; } catch {}
+    try { document.documentElement.dataset.language = localStorage.getItem('site-language-v2') === 'es' ? 'es' : 'en'; document.documentElement.lang = document.documentElement.dataset.language; } catch {}
   </script>
   <link rel="stylesheet" href="/styles/standalone-2000.css">
 </head>
 <body>
-  <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Cambiar idioma">ES / EN</button></header>
+  <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Switch to Spanish">EN / ES</button></header>
   <main><article lang="es"><h1>POLÍTICA DE PRIVACIDAD</h1>
 <p>Última actualización: 18/11/2026</p>
 <p>Esta Política de Privacidad describe cómo RhumbLabs, RUT 19.524.712-9 (&quot;la Empresa&quot;), recopila, utiliza, almacena y protege los datos personales de los usuarios de Pogo (&quot;la Aplicación&quot;).</p>
@@ -433,7 +433,7 @@
       document.documentElement.dataset.language = next;
       document.documentElement.lang = next;
       this.setAttribute('aria-label', next === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish');
-      try { localStorage.setItem('language', next); } catch {}
+      try { localStorage.setItem('site-language-v2', next); } catch {}
     });
   </script>
 </body>

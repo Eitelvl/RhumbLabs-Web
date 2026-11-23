@@ -10,6 +10,7 @@ type LanguageContextValue = {
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
+const LANGUAGE_STORAGE_KEY = 'site-language-v2';
 const translations: Record<string, string> = spanish;
 const translatableAttributes = ['alt', 'aria-label', 'placeholder', 'title'];
 const originalText = new WeakMap<Text, string>();
@@ -100,15 +101,15 @@ function TranslationLayer({ language }: { language: Language }) {
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(() => {
     try {
-      return localStorage.getItem('language') === 'en' ? 'en' : 'es';
+      return localStorage.getItem(LANGUAGE_STORAGE_KEY) === 'es' ? 'es' : 'en';
     } catch {
-      return 'es';
+      return 'en';
     }
   });
   const toggleLanguage = useCallback(() => {
     setLanguage(previous => {
       const next = previous === 'es' ? 'en' : 'es';
-      try { localStorage.setItem('language', next); } catch { /* Storage may be disabled. */ }
+      try { localStorage.setItem(LANGUAGE_STORAGE_KEY, next); } catch { /* Storage may be disabled. */ }
       return next;
     });
   }, []);

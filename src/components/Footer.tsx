@@ -11,8 +11,13 @@ export default function Footer() {
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     if (isHomeRoute) {
       e.preventDefault();
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, '', sectionId === 'home' ? basename + '/' : basename + `/#${sectionId}`);
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.replaceState(null, '', `${basename}/`);
+      } else {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', `${basename}/#${sectionId}`);
+      }
     }
   };
 
@@ -23,7 +28,7 @@ export default function Footer() {
           <div className="max-w-xs flex justify-center md:justify-start">
             <a href={`${basename}/`} onClick={(e) => scrollToSection(e, 'home')} className="site-footer-brand">
               <SafeImage 
-                src="/images/rhumb-labs-logo.png" 
+                src="/images/rhumb-labs-wordmark-2026.png"
                 alt="Rhumb Labs" 
               />
             </a>

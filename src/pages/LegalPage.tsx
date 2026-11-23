@@ -7,7 +7,7 @@ import { SafeImage } from '../components/SafeImage';
 
 const groups = [
   {
-    name: 'Rhumb Labs', icon: '/images/rhumb-labs-card-icon.png',
+    name: 'Rhumb Labs', icon: '/images/rhumb-labs-mark-2026.png',
     documents: [
       ['Company Legal', '/legal/company-legal'],
       ['Company Privacy', '/legal/company-privacy'],

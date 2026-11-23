@@ -13,9 +13,9 @@ for (const document of ['privacy-policy', 'terms-of-use']) {
     return [language, renderToStaticMarkup(React.createElement(ReactMarkdown, { remarkPlugins: [remarkGfm] }, markdown))];
   }));
 
-  const title = document === 'privacy-policy' ? 'Política de privacidad / Privacy Policy' : 'Términos de uso / Terms of Use';
+  const title = document === 'privacy-policy' ? 'Privacy Policy / Política de privacidad' : 'Terms of Use / Términos de uso';
   const html = `<!doctype html>
-<html lang="es" data-language="es" class="standalone-legal">
+<html lang="en" data-language="en" class="standalone-legal">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,12 +33,12 @@ for (const document of ['privacy-policy', 'terms-of-use']) {
     [data-language="es"] [lang="en"], [data-language="en"] [lang="es"] { display: none; }
   </style>
   <script>
-    try { document.documentElement.dataset.language = localStorage.getItem('language') === 'en' ? 'en' : 'es'; document.documentElement.lang = document.documentElement.dataset.language; } catch {}
+    try { document.documentElement.dataset.language = localStorage.getItem('site-language-v2') === 'es' ? 'es' : 'en'; document.documentElement.lang = document.documentElement.dataset.language; } catch {}
   </script>
   <link rel="stylesheet" href="/styles/standalone-2000.css">
 </head>
 <body>
-  <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Cambiar idioma">ES / EN</button></header>
+  <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Switch to Spanish">EN / ES</button></header>
   <main><article lang="es">${sections.es}</article><article lang="en">${sections.en}</article></main>
   <script>
     document.getElementById('language-toggle').addEventListener('click', function () {
@@ -46,7 +46,7 @@ for (const document of ['privacy-policy', 'terms-of-use']) {
       document.documentElement.dataset.language = next;
       document.documentElement.lang = next;
       this.setAttribute('aria-label', next === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish');
-      try { localStorage.setItem('language', next); } catch {}
+      try { localStorage.setItem('site-language-v2', next); } catch {}
     });
   </script>
 </body>

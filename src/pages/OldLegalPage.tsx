@@ -86,7 +86,7 @@ export default function LegalPage() {
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center">
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center h-12 md:h-16">
-              <SafeImage src="/images/rhumb-labs-logo.png" alt="Rhumb Labs" className="w-48 h-auto object-contain" />
+              <SafeImage src="/images/rhumb-labs-wordmark-2026.png" alt="Rhumb Labs" className="w-48 h-auto object-contain" />
             </Link>
           </div>
           <button onClick={() => setIsMobileMenuOpen(false)} className="text-text-secondary hover:text-text-primary">

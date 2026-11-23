@@ -8,7 +8,7 @@ interface Props {
 export default function RhumbLabsLogo({ className = '', showText = true }: Props) {
   return (
     <SafeImage
-      src={showText ? '/images/rhumb-labs-logo.png' : '/images/rhumb-labs-card-icon.png'}
+      src={showText ? '/images/rhumb-labs-wordmark-2026.png' : '/images/rhumb-labs-mark-2026.png'}
       alt="Rhumb Labs"
       className={className}
     />

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" data-language="es" class="scroll-smooth standalone-deletion">
+<html lang="en" data-language="en" class="scroll-smooth standalone-deletion">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=20261122-3" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261122-2" />
   <title>Pogo Account Deletion | Eliminación de Cuenta - RhumbLabs</title>
   
   <!-- SEO Meta Tags -->
@@ -40,7 +40,7 @@
   <script>
     (function() {
       try {
-        var language = localStorage.getItem('language') === 'en' ? 'en' : 'es';
+        var language = localStorage.getItem('site-language-v2') === 'es' ? 'es' : 'en';
         document.documentElement.dataset.language = language;
         document.documentElement.lang = language;
       } catch (e) {}
@@ -94,7 +94,7 @@
       
       <!-- Language switcher helper -->
       <div class="flex items-center gap-4">
-        <button id="language-toggle" type="button" onclick="toggleLanguage()" class="text-xs font-semibold px-2.5 py-1 rounded bg-[color:var(--card-element)] text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] border border-[color:var(--card-border)]" aria-label="Cambiar idioma">ES</button>
+        <button id="language-toggle" type="button" onclick="toggleLanguage()" class="text-xs font-semibold px-2.5 py-1 rounded bg-[color:var(--card-element)] text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] border border-[color:var(--card-border)]" aria-label="Switch to Spanish">EN</button>
       </div>
     </div>
   </header>
@@ -334,9 +334,9 @@
       document.documentElement.lang = next;
       document.getElementById('language-toggle').textContent = next.toUpperCase();
       document.getElementById('language-toggle').setAttribute('aria-label', next === 'es' ? 'Switch to English' : 'Cambiar a español');
-      try { localStorage.setItem('language', next); } catch (e) {}
+      try { localStorage.setItem('site-language-v2', next); } catch (e) {}
     }
-    document.getElementById('language-toggle').textContent = document.documentElement.dataset.language?.toUpperCase() || 'ES';
+    document.getElementById('language-toggle').textContent = document.documentElement.dataset.language?.toUpperCase() || 'EN';
   </script>
 </body>
 </html>

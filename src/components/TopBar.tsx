@@ -48,9 +48,14 @@ export default function TopBar() {
 
     if (isHomeRoute) {
       e.preventDefault();
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.replaceState(null, '', '/');
+        return;
+      }
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-        window.history.pushState(null, '', sectionId === 'home' ? '/' : `#${sectionId}`);
+        window.history.pushState(null, '', `#${sectionId}`);
       }, 50);
     }
   };
@@ -69,7 +74,7 @@ export default function TopBar() {
       <div className="site-header-inner flex justify-between items-center px-4 md:px-12 max-w-7xl mx-auto">
         <div className="flex items-center">
           <Link to="/" onClick={(e) => scrollToSection(e, 'home')} className="site-brand" aria-label="Rhumb Labs">
-            <SafeImage src="/images/rhumb-labs-logo.png" alt="" />
+            <SafeImage src="/images/rhumb-labs-wordmark-2026.png" alt="" />
           </Link>
         </div>
 
