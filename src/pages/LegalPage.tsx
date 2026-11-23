@@ -7,14 +7,14 @@ import { SafeImage } from '../components/SafeImage';
 
 const groups = [
   {
-    name: 'Rhumb Labs', icon: '/images/rhumb-labs-mark-2026.png',
+    name: 'Rhumb Labs', icon: '/images/rhumb-labs-mark-2026.png', insetIcon: true,
     documents: [
       ['Company Legal', '/legal/company-legal'],
       ['Company Privacy', '/legal/company-privacy'],
     ],
   },
   {
-    name: 'RhumbNav', icon: '/images/rhumbnav-app-icon.png',
+    name: 'RhumbNav', icon: '/images/rhumbnav-app-icon.png', insetIcon: false,
     documents: [
       ['Privacy Policy', '/legal/rhumbnav/privacy-policy'],
       ['Terms of Use', '/legal/rhumbnav/terms-of-use'],
@@ -24,7 +24,7 @@ const groups = [
     ],
   },
   {
-    name: 'Pogo', icon: '/images/pogo-app-icon.png',
+    name: 'Pogo', icon: '/images/pogo-app-icon.png', insetIcon: false,
     documents: [
       ['Privacy Policy', '/legal/pogo/privacy-policy'],
       ['Terms of Use', '/legal/pogo/terms-of-use'],
@@ -42,10 +42,10 @@ export default function LegalPage() {
           description="Find legal documents, privacy policies, terms, disclaimers, and notices for Rhumb Labs and its products."
         />
         <div className="marketing-band legal-groups">
-          {groups.map(({ name, icon, documents }) => (
+          {groups.map(({ name, icon, insetIcon, documents }) => (
             <section className="linear-card legal-group" key={name}>
               <header>
-                <SafeImage src={icon} alt="" width={41} height={41} />
+                <SafeImage className={insetIcon ? 'legal-group-icon-inset' : ''} src={icon} alt="" width={41} height={41} />
                 <h2>{name}</h2>
               </header>
               <ul>

@@ -371,6 +371,7 @@
 .legal-group { padding: 0 16px 7px; }
 .legal-group header { display: flex; align-items: center; gap: 10px; padding-block: 15px; border-bottom: 2px solid var(--card-border); }
 .legal-group header img { border: 2px solid var(--card-border); background: var(--bg-primary); }
+.legal-group header .legal-group-icon-inset { padding: 3px; object-fit: contain; }
 .legal-group h2 { font-size: 23px; }
 .marketing-page .legal-group li a {
   display: grid;
