@@ -1,6 +1,6 @@
 # TERMS OF USE
 
-Last Update: November 18, 2026
+**Last Update:** November 23, 2026
 
 These Terms and Conditions of Use ("Terms") govern the access to and use of the Pogo (the "Application"), operated under the trade name RhumbLabs, RUT 19.524.712-9 (the "Company"). By accessing and using the Application, the user (“User”) agrees to be bound by these Terms.
 
@@ -12,7 +12,11 @@ These Terms should be read in conjunction with the Privacy Policy of the Applica
 
 Pogo is a personal climbing log application that allows users to record their sessions, track routes completed, monitor difficulty levels, and review their progress over time. The Application also includes a gym proximity feature that uses the device's location to automatically detect nearby climbing gyms within a 200-meter radius.
 
-This feature is optional and does not affect the core logging functionality of the Application. Pogo is a personal tracking tool only. It does not constitute professional coaching, medical advice, or a safety guide for climbing activities.
+This feature is optional and does not affect the core logging functionality of the Application.
+
+The Application also includes News, which shows announcements about Pogo updates, climbing events in the User's country published by RhumbLabs or by gym accounts, with an optional weekly summary notification, and headlines from climbing media.
+
+Pogo is a personal tracking tool only. It does not constitute professional coaching, medical advice, or a safety guide for climbing activities.
 
 The Application also allows users to scan QR codes using the device camera to access other users' climbing profiles, and to share their own profile via a generated QR code.
 
@@ -64,7 +68,7 @@ Users are responsible for the profile information they choose to make visible th
 
 ## 5. Location Services
 
-The Application may request access to the device's geographic location solely for the purpose of identifying and automatically selecting nearby climbing gyms within a 200-meter radius.
+The Application may request access to the device's geographic location for the purpose of identifying and automatically selecting nearby climbing gyms within a 200-meter radius. The location is not used for any other purpose. The country whose climbing events are shown in News is determined on the device from the mobile network, the SIM card, the time zone or the region settings, and the User can choose it manually at any time.
 
 This feature is entirely optional. Users may deny or revoke location permissions at any time through their device settings without affecting other Application functionalities. Location data is not stored permanently and is not shared with third parties beyond what is necessary for this feature to operate, as described in the Privacy Policy.
 
@@ -113,6 +117,10 @@ These Terms do not grant the user any ownership rights over the Application. A l
 Rock climbing and indoor bouldering involve inherent physical risks. Pogo is a personal logging tool and does not replace proper technical training, appropriate safety equipment, or the safety practices required for climbing activities.
 
 RhumbLabs shall not be liable for any injuries, accidents, or physical harm sustained during climbing activities, regardless of whether such activities were logged in the Application.
+
+Events shown in News are organized by third parties (gyms, federations or other organizers). RhumbLabs does not organize, endorse or guarantee them and is not responsible for their accuracy, changes, cancellations, safety or for the terms set by their organizers. Users should confirm the details directly with the organizer. Links to external sites are governed by those sites' own terms.
+
+Headlines shown in News come from the public RSS feeds of third-party climbing media. Only the title, the name of the outlet, the date and a link are shown; the articles, their text and their images belong to their publishers and open on their websites. RhumbLabs does not write, edit or endorse them and is not responsible for their content. A publisher who does not want its headlines in Pogo can ask for their removal at support@rhumblabs.com.
 
 To the fullest extent permitted by Chilean law, RhumbLabs shall not be liable for any indirect, incidental, special, or consequential damages arising from the use or inability to use the Application, including but not limited to loss of data, service interruption, or unauthorized access to the user's account.
 
