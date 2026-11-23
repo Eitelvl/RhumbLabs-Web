@@ -69,8 +69,7 @@ export default function TopBar() {
       <div className="site-header-inner flex justify-between items-center px-4 md:px-12 max-w-7xl mx-auto">
         <div className="flex items-center">
           <Link to="/" onClick={(e) => scrollToSection(e, 'home')} className="site-brand" aria-label="Rhumb Labs">
-            <span className="site-brand-mark"><SafeImage src="/images/rhumb-labs-card-icon.png" alt="" /></span>
-            <span>Rhumb<span className="site-brand-light">Labs</span></span>
+            <SafeImage src="/images/rhumb-labs-logo.png" alt="" />
           </Link>
         </div>
 
