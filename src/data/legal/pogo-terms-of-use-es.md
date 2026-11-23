@@ -14,7 +14,7 @@ La aplicación también incluye una función de proximidad al gimnasio que utili
 
 Esta función es opcional y no afecta a la funcionalidad principal de registro de la Aplicación.
 
-La Aplicación también incluye Noticias, que muestra anuncios sobre actualizaciones de Pogo y eventos de escalada en el país del Usuario, publicados por RhumbLabs o por cuentas de gimnasio, con una notificación de resumen semanal opcional.
+La Aplicación también incluye Noticias, que muestra anuncios sobre actualizaciones de Pogo, eventos de escalada en el país del Usuario publicados por RhumbLabs o por cuentas de gimnasio, con una notificación de resumen semanal opcional, y titulares de medios de escalada.
 
 Pogo es solo una herramienta de seguimiento personal. No constituye asesoramiento profesional, asesoramiento médico ni guía de seguridad para actividades de escalada.
 
@@ -70,7 +70,7 @@ El usuario es responsable de la información de perfil que decide hacer visible 
 
 ## 5. Servicios de localización
 
-La Aplicación puede solicitar acceso a la ubicación geográfica del dispositivo con el propósito de identificar y seleccionar automáticamente los gimnasios de escalada cercanos en un radio de 200 metros. Cuando el permiso de ubicación ya fue otorgado, la Aplicación también usa la ubicación en el propio dispositivo para determinar el país cuyos eventos de escalada se muestran en Noticias; solo se guarda el código de país resultante, nunca las coordenadas. El Usuario puede elegir ese país manualmente en cualquier momento.
+La Aplicación puede solicitar acceso a la ubicación geográfica del dispositivo con el propósito de identificar y seleccionar automáticamente los gimnasios de escalada cercanos en un radio de 200 metros. La ubicación no se usa para ningún otro fin. El país cuyos eventos de escalada se muestran en Noticias se determina en el propio dispositivo a partir de la red móvil, la tarjeta SIM, la zona horaria o la región configurada, y el Usuario puede elegirlo manualmente en cualquier momento.
 
 Esta función es completamente opcional. Los usuarios pueden negar o revocar permisos de ubicación en cualquier momento a través de la configuración de su dispositivo sin afectar a otras funcionalidades de la Aplicación.
 
@@ -119,6 +119,8 @@ La escalada en roca y el Boulder Indoor conllevan riesgos físicos inherentes. P
 RhumbLabs no será responsable de ninguna lesión, accidente o daño físico sufrido durante actividades de escalada, independientemente de si dichas actividades se registraron en la Aplicación.
 
 Los eventos que se muestran en Noticias son organizados por terceros (gimnasios, federaciones u otros organizadores). RhumbLabs no los organiza, respalda ni garantiza, y no es responsable de su exactitud, cambios, cancelaciones, seguridad ni de las condiciones que fijen sus organizadores. El Usuario debe confirmar los detalles directamente con el organizador. Los enlaces a sitios externos se rigen por los términos de esos sitios.
+
+Los titulares que se muestran en Noticias provienen de las fuentes RSS públicas de medios de escalada de terceros. Solo se muestran el título, el nombre del medio, la fecha y un enlace; los artículos, sus textos y sus imágenes pertenecen a sus editores y se abren en sus sitios. RhumbLabs no los redacta, edita ni respalda y no es responsable de su contenido. Un medio que no quiera que sus titulares aparezcan en Pogo puede pedir que se retiren escribiendo a support@rhumblabs.com.
 
 En la máxima medida permitida por la ley chilena, RhumbLabs no será responsable de ningún daño indirecto, incidental, especial o consecuencial derivado del uso o incapacidad para utilizar la Aplicación incluyendo, pero no limitándose a pérdida de datos, interrupción del servicio o acceso no autorizado a la cuenta del usuario.
 

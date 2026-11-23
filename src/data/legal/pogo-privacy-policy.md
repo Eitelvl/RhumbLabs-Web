@@ -28,7 +28,7 @@ The Application collects only the data necessary to provide its core functionali
 
 - Shared Session Data: When a User voluntarily creates or joins a Shared Session, their display name, avatar, logged route levels, fall count, score, and activity timestamps are temporarily shared with the other participants in that room. The complete session is saved only in each participant's individual history. Temporary rooms expire after 12 hours and are automatically removed from Firebase's active systems.
 
-- Location Data: Geographic coordinates of the device, read only when the User has granted location permission. They are used on the device for two purposes: (i) to identify nearby climbing gyms within a 200-meter radius, and (ii) to determine the country whose climbing events are shown in News. Coordinates are not stored permanently and are not sent to RhumbLabs servers; for News, only the resulting two-letter country code is kept (see News Data). If the location does not determine it, the country is taken, on the device, from the country of the mobile network or SIM card, from the device's time zone or, failing those, from the region set on the device; the User can always choose it manually.
+- Location Data: Geographic coordinates of the device, read only when the User has granted location permission. They are used on the device only to identify nearby climbing gyms within a 200-meter radius. Coordinates are not stored permanently and are not sent to RhumbLabs servers. News does not use the location.
 
 - Community Data (optional): If the User turns on Community, the Application processes their alias, Instagram username, bio, city, gym, roles (climber, setter or gym), private-account setting, the people they follow and who follow them, blocks, the session and achievement posts they choose to share, reactions, and the reports they send or receive. The Community profile, posts and follower counts are visible to other users according to the User's privacy settings. Blocks and reports are not visible to the people involved.
 
@@ -38,7 +38,7 @@ The Application collects only the data necessary to provide its core functionali
 
 - Push Notifications: A device identifier for notifications (Firebase Cloud Messaging token), platform, language, time zone and notification preferences, including muted gyms and the weekly events summary. They are used only to send alerts that the User can turn off in Settings or in the operating system.
 
-- News Data: The two-letter code of the country whose climbing events News shows, stored with the User's notification preferences so that the optional weekly summary (sent on Sunday morning, local time) lists the events of that country. Which announcements the User dismissed, when News was last opened and a manually chosen country are stored only on the device. Announcements and curated events are published by RhumbLabs; gym events are published by gym accounts and are linked to the country of the gym.
+- News Data: The two-letter code of the country whose climbing events News shows, determined on the device from the country of the mobile network or SIM card, from the device's time zone or, failing those, from the region set on the device (the User can always choose it manually); it is stored with the User's notification preferences so that the optional weekly summary (sent on Sunday morning, local time) lists the events of that country. Which announcements the User dismissed, when News was last opened and a manually chosen country are stored only on the device. Announcements and curated events are published by RhumbLabs; gym events are published by gym accounts and are linked to the country of the gym. News also lists headlines from climbing media, taken from their public RSS feeds (title, outlet, date and link only); they are the same for every User of a language, are not personalized and do not use the User's data. Opening a headline takes the User to the outlet's website, which has its own privacy policy.
 
 - Images: The Application accesses the photo library only when a gym account picks a cover or logo photo, or when the User picks a photo to send in a chat. A cover or logo photo is uploaded to Cloud Storage and is public within the Application; a chat photo is visible only to the two participants.
 
@@ -80,7 +80,7 @@ The personal data collected is used exclusively for the following purposes:
 
 - To send push notifications that the User can turn off, including an optional weekly summary of climbing events in the User's country.
 
-- To show News: Pogo update announcements and climbing events in the User's country.
+- To show News: Pogo update announcements, climbing events in the User's country and headlines from climbing media.
 
 - To moderate content and handle reports in order to keep the community safe.
 

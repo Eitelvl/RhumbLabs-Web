@@ -67,13 +67,13 @@
 <p>Notificaciones push: Identificador del dispositivo para notificaciones (token de Firebase Cloud Messaging), plataforma, idioma, zona horaria y preferencias de notificación, incluidos los gimnasios silenciados y el resumen semanal de eventos. Se usan solo para enviar avisos que el Usuario puede desactivar en Configuración o en el sistema operativo.</p>
 </li>
 <li>
-<p>Datos de Noticias: El código de dos letras del país cuyos eventos de escalada muestra Noticias, guardado junto a las preferencias de notificación para que el resumen semanal opcional (enviado el domingo en la mañana, hora local) incluya los eventos de ese país. Qué anuncios omitió el Usuario, cuándo abrió Noticias por última vez y el país elegido manualmente se guardan solo en el dispositivo. Los anuncios y los eventos destacados los publica RhumbLabs; los eventos de gimnasios los publican las cuentas de gimnasio y se asocian al país del gimnasio.</p>
+<p>Datos de Noticias: El código de dos letras del país cuyos eventos de escalada muestra Noticias, determinado en el propio dispositivo a partir del país de la red móvil o de la tarjeta SIM, de la zona horaria del dispositivo o, en su defecto, de la región configurada en el dispositivo (el Usuario siempre puede elegirlo manualmente); se guarda junto a las preferencias de notificación para que el resumen semanal opcional (enviado el domingo en la mañana, hora local) incluya los eventos de ese país. Qué anuncios omitió el Usuario, cuándo abrió Noticias por última vez y el país elegido manualmente se guardan solo en el dispositivo. Los anuncios y los eventos destacados los publica RhumbLabs; los eventos de gimnasios los publican las cuentas de gimnasio y se asocian al país del gimnasio. Noticias también muestra titulares de medios de escalada, tomados de sus fuentes RSS públicas (solo título, medio, fecha y enlace); son los mismos para todos los usuarios de un idioma, no se personalizan y no usan datos del Usuario. Al abrir un titular, el Usuario pasa al sitio del medio, que tiene su propia política de privacidad.</p>
 </li>
 <li>
 <p>Imágenes: La Aplicación accede a la galería solo cuando una cuenta de gimnasio elige una foto de portada o logo, o cuando el Usuario elige una foto para enviarla en un chat. La foto de portada o logo se sube a Cloud Storage y es pública dentro de la Aplicación; la foto de un chat solo es visible para los dos participantes.</p>
 </li>
 <li>
-<p>Datos de localización: Coordenadas geográficas del dispositivo, leídas solo cuando el Usuario ha otorgado el permiso de ubicación. Se usan en el propio dispositivo para dos fines: (i) identificar gimnasios de escalada cercanos en un radio de 200 metros, y (ii) determinar el país cuyos eventos de escalada se muestran en Noticias. Las coordenadas no se almacenan de forma permanente ni se envían a los servidores de RhumbLabs; para Noticias solo se conserva el código de país de dos letras resultante (ver Datos de Noticias). Si la ubicación no lo determina, el país se obtiene, en el propio dispositivo, del país de la red móvil o de la tarjeta SIM, de la zona horaria del dispositivo o, en su defecto, de la región configurada en el dispositivo; el Usuario siempre puede elegirlo manualmente.</p>
+<p>Datos de localización: Coordenadas geográficas del dispositivo, leídas solo cuando el Usuario ha otorgado el permiso de ubicación. Se usan en el propio dispositivo solo para identificar gimnasios de escalada cercanos en un radio de 200 metros. Las coordenadas no se almacenan de forma permanente ni se envían a los servidores de RhumbLabs. Noticias no usa la ubicación.</p>
 </li>
 <li>
 <p>Datos de la cámara: La cámara del dispositivo se accede para escanear códigos QR, para permitir al usuario ver perfiles o unirse voluntariamente a Sesiones Compartidas, y para tomar una foto cuando el usuario decide enviarla en un chat. Las imágenes de la cámara usadas para escanear códigos QR no se almacenan ni se transmiten; una foto tomada para un chat solo se envía si el usuario la confirma.</p>
@@ -129,7 +129,7 @@
 <p>Para enviar notificaciones push que el Usuario puede desactivar, incluido un resumen semanal opcional de los eventos de escalada de su país.</p>
 </li>
 <li>
-<p>Para mostrar Noticias: anuncios de actualizaciones de Pogo y eventos de escalada en el país del Usuario.</p>
+<p>Para mostrar Noticias: anuncios de actualizaciones de Pogo, eventos de escalada en el país del Usuario y titulares de medios de escalada.</p>
 </li>
 <li>
 <p>Para moderar contenido y atender reportes con el fin de mantener la seguridad de la comunidad.</p>
@@ -263,7 +263,7 @@
 <p>Shared Session Data: When a User voluntarily creates or joins a Shared Session, their display name, avatar, logged route levels, fall count, score, and activity timestamps are temporarily shared with the other participants in that room. The complete session is saved only in each participant&#x27;s individual history. Temporary rooms expire after 12 hours and are automatically removed from Firebase&#x27;s active systems.</p>
 </li>
 <li>
-<p>Location Data: Geographic coordinates of the device, read only when the User has granted location permission. They are used on the device for two purposes: (i) to identify nearby climbing gyms within a 200-meter radius, and (ii) to determine the country whose climbing events are shown in News. Coordinates are not stored permanently and are not sent to RhumbLabs servers; for News, only the resulting two-letter country code is kept (see News Data). If the location does not determine it, the country is taken, on the device, from the country of the mobile network or SIM card, from the device&#x27;s time zone or, failing those, from the region set on the device; the User can always choose it manually.</p>
+<p>Location Data: Geographic coordinates of the device, read only when the User has granted location permission. They are used on the device only to identify nearby climbing gyms within a 200-meter radius. Coordinates are not stored permanently and are not sent to RhumbLabs servers. News does not use the location.</p>
 </li>
 <li>
 <p>Community Data (optional): If the User turns on Community, the Application processes their alias, Instagram username, bio, city, gym, roles (climber, setter or gym), private-account setting, the people they follow and who follow them, blocks, the session and achievement posts they choose to share, reactions, and the reports they send or receive. The Community profile, posts and follower counts are visible to other users according to the User&#x27;s privacy settings. Blocks and reports are not visible to the people involved.</p>
@@ -278,7 +278,7 @@
 <p>Push Notifications: A device identifier for notifications (Firebase Cloud Messaging token), platform, language, time zone and notification preferences, including muted gyms and the weekly events summary. They are used only to send alerts that the User can turn off in Settings or in the operating system.</p>
 </li>
 <li>
-<p>News Data: The two-letter code of the country whose climbing events News shows, stored with the User&#x27;s notification preferences so that the optional weekly summary (sent on Sunday morning, local time) lists the events of that country. Which announcements the User dismissed, when News was last opened and a manually chosen country are stored only on the device. Announcements and curated events are published by RhumbLabs; gym events are published by gym accounts and are linked to the country of the gym.</p>
+<p>News Data: The two-letter code of the country whose climbing events News shows, determined on the device from the country of the mobile network or SIM card, from the device&#x27;s time zone or, failing those, from the region set on the device (the User can always choose it manually); it is stored with the User&#x27;s notification preferences so that the optional weekly summary (sent on Sunday morning, local time) lists the events of that country. Which announcements the User dismissed, when News was last opened and a manually chosen country are stored only on the device. Announcements and curated events are published by RhumbLabs; gym events are published by gym accounts and are linked to the country of the gym. News also lists headlines from climbing media, taken from their public RSS feeds (title, outlet, date and link only); they are the same for every User of a language, are not personalized and do not use the User&#x27;s data. Opening a headline takes the User to the outlet&#x27;s website, which has its own privacy policy.</p>
 </li>
 <li>
 <p>Images: The Application accesses the photo library only when a gym account picks a cover or logo photo, or when the User picks a photo to send in a chat. A cover or logo photo is uploaded to Cloud Storage and is public within the Application; a chat photo is visible only to the two participants.</p>
@@ -337,7 +337,7 @@
 <p>To send push notifications that the User can turn off, including an optional weekly summary of climbing events in the User&#x27;s country.</p>
 </li>
 <li>
-<p>To show News: Pogo update announcements and climbing events in the User&#x27;s country.</p>
+<p>To show News: Pogo update announcements, climbing events in the User&#x27;s country and headlines from climbing media.</p>
 </li>
 <li>
 <p>To moderate content and handle reports in order to keep the community safe.</p>
