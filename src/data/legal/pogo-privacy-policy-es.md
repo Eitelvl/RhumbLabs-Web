@@ -1,6 +1,6 @@
 # POLÍTICA DE PRIVACIDAD
 
-Última actualización: 18/11/2026
+**Última actualización:** 23/11/2026
 
 Esta Política de Privacidad describe cómo RhumbLabs, RUT 19.524.712-9 ("la Empresa"), recopila, utiliza, almacena y protege los datos personales de los usuarios de Pogo ("la Aplicación").
 
@@ -36,11 +36,13 @@ La Aplicación recopila solo los datos necesarios para proporcionar sus funciona
 
 - Páginas de gimnasio: Las cuentas de gimnasio pueden publicar dirección, horario, sitio web, eventos, equipo de setters y fotos de portada y logo. Esta información es pública para los usuarios de la Aplicación.
 
-- Notificaciones push: Identificador del dispositivo para notificaciones (token de Firebase Cloud Messaging), plataforma, idioma, zona horaria y preferencias de notificación, incluidos los gimnasios silenciados. Se usan solo para enviar avisos que el Usuario puede desactivar en Configuración o en el sistema operativo.
+- Notificaciones push: Identificador del dispositivo para notificaciones (token de Firebase Cloud Messaging), plataforma, idioma, zona horaria y preferencias de notificación, incluidos los gimnasios silenciados y el resumen semanal de eventos. Se usan solo para enviar avisos que el Usuario puede desactivar en Configuración o en el sistema operativo.
+
+- Datos de Noticias: El código de dos letras del país cuyos eventos de escalada muestra Noticias, guardado junto a las preferencias de notificación para que el resumen semanal opcional (enviado el domingo en la mañana, hora local) incluya los eventos de ese país. Qué anuncios omitió el Usuario, cuándo abrió Noticias por última vez y el país elegido manualmente se guardan solo en el dispositivo. Los anuncios y los eventos destacados los publica RhumbLabs; los eventos de gimnasios los publican las cuentas de gimnasio y se asocian al país del gimnasio.
 
 - Imágenes: La Aplicación accede a la galería solo cuando una cuenta de gimnasio elige una foto de portada o logo, o cuando el Usuario elige una foto para enviarla en un chat. La foto de portada o logo se sube a Cloud Storage y es pública dentro de la Aplicación; la foto de un chat solo es visible para los dos participantes.
 
-- Datos de localización: Coordenadas geográficas del dispositivo recogidas únicamente cuando el usuario activa la función de proximidad al gimnasio. Estos datos se utilizan exclusivamente para identificar gimnasios cercanos en un radio de 200 metros y no se almacenan de forma permanente.
+- Datos de localización: Coordenadas geográficas del dispositivo, leídas solo cuando el Usuario ha otorgado el permiso de ubicación. Se usan en el propio dispositivo para dos fines: (i) identificar gimnasios de escalada cercanos en un radio de 200 metros, y (ii) determinar el país cuyos eventos de escalada se muestran en Noticias. Las coordenadas no se almacenan de forma permanente ni se envían a los servidores de RhumbLabs; para Noticias solo se conserva el código de país de dos letras resultante (ver Datos de Noticias). Si la ubicación no lo determina, el país se obtiene, en el propio dispositivo, del país de la red móvil o de la tarjeta SIM, de la zona horaria del dispositivo o, en su defecto, de la región configurada en el dispositivo; el Usuario siempre puede elegirlo manualmente.
 
 - Datos de la cámara: La cámara del dispositivo se accede para escanear códigos QR, para permitir al usuario ver perfiles o unirse voluntariamente a Sesiones Compartidas, y para tomar una foto cuando el usuario decide enviarla en un chat. Las imágenes de la cámara usadas para escanear códigos QR no se almacenan ni se transmiten; una foto tomada para un chat solo se envía si el usuario la confirma.
 
@@ -78,7 +80,9 @@ Los datos personales recopilados se utilizan exclusivamente para los siguientes 
 
 - Para habilitar las funciones sociales opcionales: perfil de Comunidad, publicaciones, mensajes, páginas de gimnasio y eventos.
 
-- Para enviar notificaciones push que el Usuario puede desactivar.
+- Para enviar notificaciones push que el Usuario puede desactivar, incluido un resumen semanal opcional de los eventos de escalada de su país.
+
+- Para mostrar Noticias: anuncios de actualizaciones de Pogo y eventos de escalada en el país del Usuario.
 
 - Para moderar contenido y atender reportes con el fin de mantener la seguridad de la comunidad.
 

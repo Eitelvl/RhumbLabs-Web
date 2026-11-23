@@ -1,6 +1,6 @@
 # TÉRMINOS DE USO
 
-Última actualización: 18/11/2026
+**Última actualización:** 23/11/2026
 
 Estos Términos y Condiciones de Uso ("Términos") rigen el acceso y uso de Pogo (la "Aplicación"), operada bajo el nombre comercial RhumbLabs, RUT 19.524.712-9 (la "Empresa"). Al acceder y utilizar la Aplicación, el usuario ("Usuario") acepta estar obligado por estos Términos.
 
@@ -12,7 +12,11 @@ Pogo es una aplicación personal de registro de escalada que permite a los usuar
 
 La aplicación también incluye una función de proximidad al gimnasio que utiliza la ubicación del dispositivo para detectar automáticamente los gimnasios de escalada cercanos en un radio de 200 metros.
 
-Esta función es opcional y no afecta a la funcionalidad principal de registro de la Aplicación. Pogo es solo una herramienta de seguimiento personal. No constituye asesoramiento profesional, asesoramiento médico ni guía de seguridad para actividades de escalada.
+Esta función es opcional y no afecta a la funcionalidad principal de registro de la Aplicación.
+
+La Aplicación también incluye Noticias, que muestra anuncios sobre actualizaciones de Pogo y eventos de escalada en el país del Usuario, publicados por RhumbLabs o por cuentas de gimnasio, con una notificación de resumen semanal opcional.
+
+Pogo es solo una herramienta de seguimiento personal. No constituye asesoramiento profesional, asesoramiento médico ni guía de seguridad para actividades de escalada.
 
 La aplicación también permite a los usuarios escanear códigos QR usando la cámara del dispositivo para acceder a los perfiles de escalada de otros usuarios y compartir su propio perfil mediante un código QR generado.
 
@@ -66,7 +70,7 @@ El usuario es responsable de la información de perfil que decide hacer visible 
 
 ## 5. Servicios de localización
 
-La Aplicación puede solicitar acceso a la ubicación geográfica del dispositivo únicamente con el propósito de identificar y seleccionar automáticamente los gim nasios de escalada cercanos en un radio de 200 metros.
+La Aplicación puede solicitar acceso a la ubicación geográfica del dispositivo con el propósito de identificar y seleccionar automáticamente los gimnasios de escalada cercanos en un radio de 200 metros. Cuando el permiso de ubicación ya fue otorgado, la Aplicación también usa la ubicación en el propio dispositivo para determinar el país cuyos eventos de escalada se muestran en Noticias; solo se guarda el código de país resultante, nunca las coordenadas. El Usuario puede elegir ese país manualmente en cualquier momento.
 
 Esta función es completamente opcional. Los usuarios pueden negar o revocar permisos de ubicación en cualquier momento a través de la configuración de su dispositivo sin afectar a otras funcionalidades de la Aplicación.
 
@@ -113,6 +117,8 @@ Todos los derechos de propiedad intelectual sobre la Aplicación incluyendo, per
 La escalada en roca y el Boulder Indoor conllevan riesgos físicos inherentes. Pogo es una herramienta personal de registro y no sustituye la formación técnica adecuada, el equipo de seguridad adecuado ni las prácticas de seguridad requeridas para las actividades de escalada.
 
 RhumbLabs no será responsable de ninguna lesión, accidente o daño físico sufrido durante actividades de escalada, independientemente de si dichas actividades se registraron en la Aplicación.
+
+Los eventos que se muestran en Noticias son organizados por terceros (gimnasios, federaciones u otros organizadores). RhumbLabs no los organiza, respalda ni garantiza, y no es responsable de su exactitud, cambios, cancelaciones, seguridad ni de las condiciones que fijen sus organizadores. El Usuario debe confirmar los detalles directamente con el organizador. Los enlaces a sitios externos se rigen por los términos de esos sitios.
 
 En la máxima medida permitida por la ley chilena, RhumbLabs no será responsable de ningún daño indirecto, incidental, especial o consecuencial derivado del uso o incapacidad para utilizar la Aplicación incluyendo, pero no limitándose a pérdida de datos, interrupción del servicio o acceso no autorizado a la cuenta del usuario.
 
