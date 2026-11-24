@@ -5,7 +5,7 @@ import { ActionLink } from '../components/MarketingElements';
 
 const email = 'support@rhumblabs.com';
 const inquiries = [
-  { icon: LifeBuoy, label: 'App Support', description: 'Help with Rhumb Labs products.', subject: 'App Support' },
+  { icon: LifeBuoy, label: 'Product Support', description: 'Help with Rhumb Labs products.', subject: 'Product Support' },
   { icon: BriefcaseBusiness, label: 'Business', description: 'Tell us what you want to build.', subject: 'Business Inquiry' },
   { icon: Shield, label: 'Privacy', description: 'Questions about your personal information.', subject: 'Privacy Request' },
 ];

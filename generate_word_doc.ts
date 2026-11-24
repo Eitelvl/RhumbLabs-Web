@@ -356,14 +356,14 @@ const doc = new Document({
         new Paragraph({
           children: [
             new TextRun({ text: "Card Description: ", bold: true }),
-            new TextRun({ text: "For support, privacy requests, business inquiries, or app-related questions, you can reach the Rhumb Labs team by email." }),
+            new TextRun({ text: "For support, privacy requests, business inquiries, or product-related questions, you can reach the Rhumb Labs team by email." }),
           ],
           spacing: { after: 60 },
         }),
         new Paragraph({
           children: [
             new TextRun({ text: "Action Specific Mail Options: ", bold: true }),
-            new TextRun({ text: "Privacy Request, Business Inquiry, App Support, Delete my Pogo account." }),
+            new TextRun({ text: "Privacy Request, Business Inquiry, Product Support, Delete my Pogo account." }),
           ],
           spacing: { after: 60 },
         }),
