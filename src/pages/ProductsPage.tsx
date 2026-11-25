@@ -8,7 +8,7 @@ export default function ProductsPage() {
     <div>
       <TopBar />
       <main className="marketing-page">
-        <PageIntro title="Our Products" description="Tools from Rhumb Labs to plan flights, log climbing sessions, and track your activity." />
+        <PageIntro title="Our Products" description="Tools from Rhumb Labs to plan flights, log climbing sessions, and take meeting notes." />
         <div className="marketing-band product-catalog"><ProductGrid catalog /></div>
         <SiteCallout title="Have a project in mind?" description="Tell us what you want to build.">
           <ActionLink to="/contact" variant="primary">Let’s talk</ActionLink>

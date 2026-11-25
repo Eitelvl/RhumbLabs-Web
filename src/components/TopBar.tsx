@@ -12,6 +12,7 @@ const navigationSections: Record<string, string> = {
   '/products': 'products',
   '/rhumbnav': 'products',
   '/pogo': 'products',
+  '/aris': 'products',
 };
 
 export default function TopBar() {
@@ -24,6 +25,7 @@ export default function TopBar() {
     cleanPath.includes('legal') ||
     cleanPath.includes('privacy') ||
     cleanPath.includes('terms') ||
+    cleanPath.includes('third-party-notices') ||
     cleanPath.includes('delete-account') ||
     cleanPath.includes('data-deletion');
 
@@ -90,6 +92,7 @@ export default function TopBar() {
               <div className="site-product-options bg-bg-secondary border border-border-subtle rounded-2xl p-2 w-48 shadow-2xl flex flex-col gap-1">
                 <Link to="/rhumbnav" className="px-4 py-2 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-card-element transition-colors">RhumbNav</Link>
                 <Link to="/pogo" className="px-4 py-2 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-card-element transition-colors">Pogo</Link>
+                <Link to="/aris" className="px-4 py-2 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-card-element transition-colors">Aris</Link>
               </div>
             </div>
           </div>
@@ -146,6 +149,7 @@ export default function TopBar() {
                 <div className="flex flex-col gap-2 pl-4 border-l-2 border-border-subtle ml-2">
                   <Link to="/rhumbnav" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-text-secondary hover:text-text-primary">RhumbNav</Link>
                   <Link to="/pogo" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-text-secondary hover:text-text-primary">Pogo</Link>
+                  <Link to="/aris" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-text-secondary hover:text-text-primary">Aris</Link>
                 </div>
               </div>
               <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-medium text-text-secondary hover:text-text-primary">About</Link>

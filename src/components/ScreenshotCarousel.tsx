@@ -9,9 +9,10 @@ function slideDistance(track: HTMLUListElement) {
   return (second as HTMLElement).offsetLeft - (first as HTMLElement).offsetLeft;
 }
 
-export function ScreenshotCarousel({ productName, screenshots }: {
+export function ScreenshotCarousel({ productName, screenshots, device = 'phone' }: {
   productName: string;
   screenshots: ScreenshotGallery;
+  device?: 'phone' | 'window';
 }) {
   const trackId = `${productName.toLowerCase()}-screenshot-track`;
   const track = useRef<HTMLUListElement>(null);
@@ -68,12 +69,12 @@ export function ScreenshotCarousel({ productName, screenshots }: {
           </button>
         </div>
       </div>
-      <ul className="screenshot-carousel-track" id={trackId} ref={track} tabIndex={0}
+      <ul className={`screenshot-carousel-track screenshot-carousel-track-${device}`} id={trackId} ref={track} tabIndex={0}
         aria-label={`${productName} app screenshots`} onScroll={onScroll} onKeyDown={onKeyDown}>
         {screenshots.map(({ light, dark: darkImage, alt }, index) => (
           <li key={light} className="screenshot-carousel-slide" aria-current={active === index ? 'true' : undefined}>
             <figure>
-              <DeviceMockup type="phone" imageSrc={dark && darkImage ? darkImage : light} alt={alt} loading="lazy" />
+              <DeviceMockup type={device} imageSrc={dark && darkImage ? darkImage : light} alt={alt} loading="lazy" />
               <figcaption>{alt}</figcaption>
             </figure>
           </li>
