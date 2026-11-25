@@ -21,25 +21,31 @@ function ProductName({ product, heading: Heading }: { product: Product; heading:
   );
 }
 
-function PreviewPhones({ screenshots, dark, id }: { screenshots: Screenshot[]; dark: boolean; id?: string }) {
+function DevicePreview({ screenshots, dark, device, id }: {
+  screenshots: Screenshot[];
+  dark: boolean;
+  device: 'phone' | 'window';
+  id?: string;
+}) {
   return (
-    <div className="product-preview-phones" id={id}>
+    <div className={device === 'window' ? 'product-preview-window' : 'product-preview-phones'} id={id}>
       {screenshots.map(({ light, dark: darkImage, alt }) => (
-        <DeviceMockup key={light} type="phone" imageSrc={dark ? darkImage ?? light : light} alt={alt} />
+        <DeviceMockup key={light} type={device} imageSrc={dark ? darkImage ?? light : light} alt={alt} />
       ))}
     </div>
   );
 }
 
-function HeroProductPreview({ screenshots }: { screenshots: Screenshot[] }) {
+function HeroProductPreview({ screenshots, device }: { screenshots: Screenshot[]; device: 'phone' | 'window' }) {
+  const previewId = useId();
   const hasDarkCaptures = screenshots.every(({ dark }) => Boolean(dark));
   const [dark, setDark] = useState(false);
   return (
     <div className="product-preview">
       {hasDarkCaptures && (
-        <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls="app-hero-phones" />
+        <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls={previewId} />
       )}
-      <PreviewPhones id="app-hero-phones" screenshots={screenshots} dark={dark} />
+      <DevicePreview id={previewId} screenshots={screenshots} dark={dark} device={device} />
     </div>
   );
 }
@@ -93,7 +99,7 @@ export function ProductGrid({ catalog = false }: { catalog?: boolean }) {
             <ActionLink to={product.route}>{product.action}</ActionLink>
           </div>
           <div className="product-preview">
-            <PreviewPhones screenshots={product.preview} dark />
+            <DevicePreview screenshots={product.preview} device={product.device ?? 'phone'} dark />
           </div>
           {!catalog && <ProductDetails product={product} />}
         </article>
@@ -115,11 +121,17 @@ export function ProductPage({ product, heroActions, children }: {
           <div className="app-hero-copy">
             <ActionLink to="/products" variant="inline" icon={ArrowLeft} className="marketing-back">Back to products</ActionLink>
             <ProductName product={product} heading="p" />
+            {product.branding && (
+              <div className="product-branding">
+                <span>{product.branding.company}</span>
+                <span className="marketing-label">{product.branding.purpose}</span>
+              </div>
+            )}
             <h1>{product.headline}</h1>
             <p>{product.description}</p>
             <div className="marketing-actions">{heroActions}</div>
           </div>
-          <HeroProductPreview screenshots={product.preview} />
+          <HeroProductPreview screenshots={product.preview} device={product.device ?? 'phone'} />
         </section>
         <section className="marketing-band app-features">
           <h2 className="marketing-section-title">What you can do</h2>
@@ -133,11 +145,12 @@ export function ProductPage({ product, heroActions, children }: {
           </div>
         </section>
         <section className="marketing-band app-gallery">
-          <ScreenshotCarousel productName={product.name} screenshots={product.gallery} />
+          <ScreenshotCarousel productName={product.name} screenshots={product.gallery} device={product.device} />
         </section>
         {children}
-        <SiteCallout title="Support and privacy" description="Find help and read the app’s privacy policy.">
+        <SiteCallout title="Support and privacy" description={product.terms ? 'Find help and read the app’s privacy policy and terms of use.' : 'Find help and read the app’s privacy policy.'}>
           <ActionLink to={`/legal${product.route}/privacy-policy`}>Privacy</ActionLink>
+          {product.terms && <ActionLink to={`/legal${product.route}/terms-of-use`}>Terms</ActionLink>}
           <ActionLink to="/contact" variant="primary">Get help</ActionLink>
         </SiteCallout>
       </main>

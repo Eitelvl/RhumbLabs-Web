@@ -46,6 +46,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li><Link to="/rhumbnav" className="text-text-secondary hover:text-text-primary transition-colors text-[13px]">RhumbNav</Link></li>
                 <li><Link to="/pogo" className="text-text-secondary hover:text-text-primary transition-colors text-[13px]">Pogo</Link></li>
+                <li><Link to="/aris" className="text-text-secondary hover:text-text-primary transition-colors text-[13px]">Aris</Link></li>
               </ul>
             </div>
             <div className="col-span-1 sm:col-span-2 lg:col-span-1">

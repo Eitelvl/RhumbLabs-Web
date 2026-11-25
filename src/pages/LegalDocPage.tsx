@@ -29,6 +29,8 @@ export default function LegalDocPage() {
   // Determine product context
   const isRhumbNav = pathParts.some(p => p.toLowerCase().includes('rhumbnav'));
   const isPogo = pathParts.some(p => p.toLowerCase().includes('pogo'));
+  const isAris = pathParts.some(part => /^aris(?:-|$)/i.test(part));
+  const usesLocalizedDocs = isAris || isPogo;
   const isCompany = pathParts.some(p => p.toLowerCase().includes('company'));
 
   let subtitle = 'Rhumb Labs';
@@ -39,6 +41,9 @@ export default function LegalDocPage() {
   } else if (isPogo) {
     subtitle = 'Pogo';
     filenamePrefix = 'pogo-';
+  } else if (isAris) {
+    subtitle = 'Aris';
+    filenamePrefix = 'aris-';
   } else if (isCompany) {
     subtitle = 'Rhumb Labs';
     filenamePrefix = 'company-';
@@ -46,7 +51,7 @@ export default function LegalDocPage() {
 
   // Format title for display
   const displayTitle = rawTitle === 'company-legal' ? 'Legal information' : rawTitle
-    .replace(/^(pogo-|rhumbnav-|company-)/i, '')
+    .replace(/^(pogo-|rhumbnav-|aris-|company-)/i, '')
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
@@ -57,10 +62,12 @@ export default function LegalDocPage() {
   // Candidate 1: /src/data/legal/${filenamePrefix}${cleanTitle}.md
   // Candidate 2: /src/data/legal/${cleanTitle}.md
   // Candidate 3: Fuzzy matching across doc keys
-  const cleanTitle = rawTitle.replace(/^(pogo-|rhumbnav-|company-)/i, '');
+  const cleanTitle = rawTitle.replace(/^(pogo-|rhumbnav-|aris-|company-)/i, '');
   
   let content: string | null = null;
-  const pathCandidates = [
+  const pathCandidates = isAris ? [
+    `/src/data/legal/aris-${cleanTitle}-${language}.md`,
+  ] : [
     ...(isPogo && (cleanTitle === 'privacy-policy' || cleanTitle === 'terms-of-use')
       ? [`/src/data/legal/pogo-${cleanTitle}-${language}.md`]
       : []),
@@ -76,11 +83,12 @@ export default function LegalDocPage() {
     }
   }
 
-  if (!content) {
+  if (!content && !isAris) {
     // Try fuzzy match
     const entries = Object.entries(docs);
     for (const [key, value] of entries) {
       const lowerKey = key.toLowerCase();
+      if (lowerKey.startsWith('/src/data/legal/aris-')) continue;
       const lowerClean = cleanTitle.toLowerCase();
       if (
         (isPogo && lowerKey.includes('pogo') && lowerKey.includes(lowerClean)) ||
@@ -117,14 +125,14 @@ export default function LegalDocPage() {
             {sections.length > 0 && (
               <nav className="linear-card legal-document-index" aria-label="On this page">
                 <h2 className="marketing-label"><List size={17} aria-hidden />On this page</h2>
-                <ul data-i18n-ignore={isPogo ? true : undefined} lang={isPogo ? language : undefined}>
+                <ul data-i18n-ignore={usesLocalizedDocs ? true : undefined} lang={usesLocalizedDocs ? language : undefined}>
                   {sections.map(({ title, id }) => (
                     <li key={id}><a href={`#${id}`}><span>{title}</span><ArrowDownRight size={15} aria-hidden /></a></li>
                   ))}
                 </ul>
               </nav>
             )}
-            <article lang={isPogo ? language : undefined} data-i18n-ignore={isPogo ? true : undefined}
+            <article lang={usesLocalizedDocs ? language : undefined} data-i18n-ignore={usesLocalizedDocs ? true : undefined}
               className="markdown-body prose dark:prose-invert prose-slate legal-document-copy max-w-none
                          prose-headings:text-text-primary prose-p:text-text-secondary prose-li:text-text-secondary
                          prose-strong:text-text-primary">

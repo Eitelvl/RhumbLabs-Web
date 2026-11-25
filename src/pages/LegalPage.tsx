@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import { ActionLink, PageIntro, SiteCallout } from '../components/MarketingElements';
 import { SafeImage } from '../components/SafeImage';
 
+import { aris } from '../data/products';
+
 const groups = [
   {
     name: 'Rhumb Labs', icon: '/images/rhumb-labs-mark-2026.png', insetIcon: true,
@@ -28,6 +30,14 @@ const groups = [
     documents: [
       ['Privacy Policy', '/legal/pogo/privacy-policy'],
       ['Terms of Use', '/legal/pogo/terms-of-use'],
+    ],
+  },
+  {
+    name: aris.name, icon: aris.icon, insetIcon: false,
+    documents: [
+      ['Privacy Policy', '/legal/aris/privacy-policy'],
+      ['Terms of Use', '/legal/aris/terms-of-use'],
+      ['Third Party Notices', '/legal/aris/third-party-notices'],
     ],
   },
 ];

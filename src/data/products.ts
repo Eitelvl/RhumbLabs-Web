@@ -1,4 +1,4 @@
-import { Award, BookOpen, Calculator, ChartNoAxesCombined, ClipboardList, IdCard, Map, type LucideIcon } from 'lucide-react';
+import { AudioLines, FileText, Lock, Mic, Award, BookOpen, Calculator, ChartNoAxesCombined, ClipboardList, IdCard, Map, type LucideIcon } from 'lucide-react';
 
 export type Screenshot = { light: string; dark?: string; alt: string };
 export type ScreenshotGallery = [Screenshot, Screenshot, ...Screenshot[]];
@@ -6,7 +6,10 @@ type Feature = { icon: LucideIcon; title: string; description: string };
 
 export type Product = {
   name: string;
-  route: '/rhumbnav' | '/pogo';
+  route: '/rhumbnav' | '/pogo' | '/aris';
+  device?: 'window';
+  branding?: { company: string; purpose: string };
+  terms?: boolean;
   category: string;
   icon: string;
   summary: string;
@@ -16,7 +19,7 @@ export type Product = {
   action: string;
   headline: string;
   description: string;
-  preview: [Screenshot, Screenshot, Screenshot];
+  preview: [Screenshot, ...Screenshot[]];
   features: Feature[];
   gallery: ScreenshotGallery;
 };
@@ -126,4 +129,57 @@ export const pogo: Product = {
   ],
 };
 
-export const products = [rhumbNav, pogo];
+const arisScreenshots: ScreenshotGallery = [
+  { light: '/images/aris/screenshots/01-home-light.webp', dark: '/images/aris/screenshots/01-home-dark.webp', alt: 'Ready to record' },
+  { light: '/images/aris/screenshots/02-recording-light.webp', dark: '/images/aris/screenshots/02-recording-dark.webp', alt: 'Recording with a live transcript' },
+  { light: '/images/aris/screenshots/03-minutes-light.webp', dark: '/images/aris/screenshots/03-minutes-dark.webp', alt: 'Meeting minutes and next steps' },
+  { light: '/images/aris/screenshots/04-transcript-light.webp', dark: '/images/aris/screenshots/04-transcript-dark.webp', alt: 'Transcript with separate speakers' },
+  { light: '/images/aris/screenshots/05-settings-light.webp', dark: '/images/aris/screenshots/05-settings-dark.webp', alt: 'AI features and appearance controls' },
+  { light: '/images/aris/screenshots/06-menu-bar-light.webp', dark: '/images/aris/screenshots/06-menu-bar-dark.webp', alt: 'Menu bar recording controls' },
+  { light: '/images/aris/screenshots/07-meeting-alert-light.webp', dark: '/images/aris/screenshots/07-meeting-alert-dark.webp', alt: 'Meeting detected alert' },
+];
+
+const arisTagline = 'You talk. I take notes.';
+
+export const aris: Product = {
+  name: 'Aris',
+  route: '/aris',
+  device: 'window',
+  branding: { company: 'Powered by Rhumb Labs', purpose: 'Engineered for meetings' },
+  terms: true,
+  category: 'Meetings',
+  icon: '/images/aris-app-icon.png',
+  summary: 'Record, transcribe, and write meeting minutes on your Mac.',
+  tagline: arisTagline,
+  overview: 'Aris turns conversations into transcripts and meeting minutes. Audio and notes stay on your Mac.',
+  highlights: ['One-click recording', 'Live transcription', 'Meeting minutes in Word', 'On-device processing'],
+  action: 'Explore Aris',
+  headline: arisTagline,
+  description: 'Aris lives in your Mac’s menu bar. It records your microphone and system audio from any meeting app, including Zoom, Google Meet, Teams, Discord, and browser calls. It only records when you start it and never joins the call.',
+  preview: [arisScreenshots[2]],
+  gallery: arisScreenshots,
+  features: [
+    {
+      icon: Mic,
+      title: 'Record from the menu bar',
+      description: 'Start, pause, or resume in one click. Use ⌃⌥⌘A to open the panel. On supported macOS versions, Aris can ask if you want to record when a meeting starts. Let everyone know before you record.',
+    },
+    {
+      icon: AudioLines,
+      title: 'Follow the live transcript',
+      description: 'Read along as people speak. The final transcript separates voices, lets you name the speakers, and filters out filler words and echo.',
+    },
+    {
+      icon: FileText,
+      title: 'Get meeting minutes',
+      description: 'Read a summary, see what was agreed or still needs discussion, and find out who owns each next step. Export the minutes to Word. Find audio in ~/Aris/Audios and minutes in ~/Aris/Actas.',
+    },
+    {
+      icon: Lock,
+      title: 'Keep meetings on your Mac',
+      description: 'Whisper.cpp transcribes and llama.cpp with Qwen2.5 7B writes the minutes on your Mac. Download the models once (about 5 GB, verified by Aris). Aris works offline after setup, with no account or AI subscription. Delete meetings from the app when you’re done. Aris follows your Mac’s appearance by default, and you can switch between light and dark.',
+    },
+  ],
+};
+
+export const products = [rhumbNav, pogo, aris];

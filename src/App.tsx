@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage';
 import ProductsPage from './pages/ProductsPage';
 import RhumbNavPage from './pages/RhumbNavPage';
 import PogoPage from './pages/PogoPage';
+import ArisPage from './pages/ArisPage';
 import PogoDeleteAccountPage from './pages/PogoDeleteAccountPage';
 import RhumbNavDeleteAccountPage from './pages/RhumbNavDeleteAccountPage';
 import DeleteAccountPage from './pages/DeleteAccountPage';
@@ -51,6 +52,12 @@ export default function App() {
             <Route path="/rhumbnav/delete-account" element={<RhumbNavDeleteAccountPage />} />
             <Route path="/rhumbnav-delete-account" element={<RhumbNavDeleteAccountPage />} />
             <Route path="/pogo" element={<PogoPage />} />
+            <Route path="/aris" element={<ArisPage />} />
+            <Route path="/aris/privacy" element={<LegalDocPage />} />
+            <Route path="/aris/privacy-policy" element={<LegalDocPage />} />
+            <Route path="/aris/terms" element={<LegalDocPage />} />
+            <Route path="/aris/terms-of-use" element={<LegalDocPage />} />
+            <Route path="/aris/third-party-notices" element={<LegalDocPage />} />
             <Route path="/pogo/delete-account" element={<PogoDeleteAccountPage />} />
             <Route path="/pogo-delete-account" element={<PogoDeleteAccountPage />} />
             <Route path="/delete-account" element={<DeleteAccountPage />} />

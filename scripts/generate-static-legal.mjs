@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -7,19 +7,29 @@ import remarkGfm from 'remark-gfm';
 
 const root = process.cwd();
 
-for (const document of ['privacy-policy', 'terms-of-use']) {
+const titles = {
+  'privacy-policy': 'Privacy Policy / Política de privacidad',
+  'terms-of-use': 'Terms of Use / Términos de uso',
+  'third-party-notices': 'Third Party Notices / Avisos de terceros',
+};
+
+const products = [
+  { id: 'pogo', name: 'Pogo', documents: ['privacy-policy', 'terms-of-use'] },
+  { id: 'aris', name: 'Aris', documents: ['privacy-policy', 'terms-of-use', 'third-party-notices'] },
+];
+
+function writeDocument({ id, name }, document, directory) {
   const sections = Object.fromEntries(['es', 'en'].map(language => {
-    const markdown = readFileSync(join(root, 'src/data/legal', `pogo-${document}-${language}.md`), 'utf8');
+    const markdown = readFileSync(join(root, 'src/data/legal', `${id}-${document}-${language}.md`), 'utf8');
     return [language, renderToStaticMarkup(React.createElement(ReactMarkdown, { remarkPlugins: [remarkGfm] }, markdown))];
   }));
 
-  const title = document === 'privacy-policy' ? 'Privacy Policy / Política de privacidad' : 'Terms of Use / Términos de uso';
   const html = `<!doctype html>
 <html lang="en" data-language="en" class="standalone-legal">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${title} — Pogo | Rhumb Labs</title>
+  <title>${titles[document]} — ${name} | Rhumb Labs</title>
   <style>
     :root { font-family: system-ui, -apple-system, sans-serif; line-height: 1.65; }
     body { max-width: 800px; margin: 0 auto; padding: 24px 20px 80px; }
@@ -38,7 +48,7 @@ for (const document of ['privacy-policy', 'terms-of-use']) {
   <link rel="stylesheet" href="/styles/standalone-2000.css">
 </head>
 <body>
-  <header><a href="/legal">Rhumb Labs · Pogo</a><button id="language-toggle" type="button" aria-label="Switch to Spanish">EN / ES</button></header>
+  <header><a href="/legal">Rhumb Labs · ${name}</a><button id="language-toggle" type="button" aria-label="Switch to Spanish">EN / ES</button></header>
   <main><article lang="es">${sections.es}</article><article lang="en">${sections.en}</article></main>
   <script>
     document.getElementById('language-toggle').addEventListener('click', function () {
@@ -52,5 +62,11 @@ for (const document of ['privacy-policy', 'terms-of-use']) {
 </body>
 </html>
 `;
-  writeFileSync(join(root, 'public', 'static-legal', 'pogo', `${document}.html`), html);
+  writeFileSync(join(directory, `${document}.html`), html);
+}
+
+for (const product of products) {
+  const directory = join(root, 'public', 'static-legal', product.id);
+  mkdirSync(directory, { recursive: true });
+  for (const document of product.documents) writeDocument(product, document, directory);
 }

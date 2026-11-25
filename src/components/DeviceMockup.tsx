@@ -1,7 +1,7 @@
 import { SafeImage } from './SafeImage';
 
 type DeviceMockupProps = {
-  type: 'tablet' | 'phone';
+  type: 'tablet' | 'phone' | 'window';
   imageSrc: string;
   alt: string;
   loading?: 'eager' | 'lazy';
