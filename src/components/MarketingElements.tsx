@@ -4,10 +4,10 @@ import type { ReactNode } from 'react';
 
 export function ActionLink({
   icon: Icon = ArrowUpRight, variant = 'secondary', className = '', children, ...props
-}: LinkProps & { icon?: LucideIcon; variant?: 'primary' | 'secondary' | 'inline' }) {
+}: LinkProps & { icon?: LucideIcon | null; variant?: 'primary' | 'secondary' | 'inline' }) {
   return (
     <Link className={`marketing-action marketing-action-${variant} ${className}`} {...props}>
-      <span>{children}</span><Icon size={16} aria-hidden />
+      <span>{children}</span>{Icon && <Icon size={16} aria-hidden />}
     </Link>
   );
 }

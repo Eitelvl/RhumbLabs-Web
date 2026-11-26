@@ -1,6 +1,8 @@
-import { useId, useState, type ReactNode } from 'react';
+import { useEffect, useId, useState, type ReactNode } from 'react';
 import { ArrowLeft, Check, ChevronRight } from 'lucide-react';
 import { products, type Product, type Screenshot } from '../data/products';
+import { productMetadata } from '../data/productMetadata';
+import { useLanguage } from '../context/LanguageContext';
 import { DeviceMockup } from './DeviceMockup';
 import { ScreenshotCarousel } from './ScreenshotCarousel';
 import { ScreenshotThemeToggle } from './ScreenshotThemeToggle';
@@ -113,6 +115,28 @@ export function ProductPage({ product, heroActions, children }: {
   heroActions: ReactNode;
   children: ReactNode;
 }) {
+  const { language } = useLanguage();
+  const { title, summary } = productMetadata[product.route][language];
+
+  useEffect(() => {
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const isProductEntry = description?.hasAttribute('data-product');
+    const previousTitle = isProductEntry ? 'RhumbLabs' : document.title;
+    const meta = description ?? document.createElement('meta');
+    const previousSummary = meta.content;
+
+    document.title = title;
+    meta.name = 'description';
+    meta.content = summary;
+    if (!description) document.head.append(meta);
+
+    return () => {
+      document.title = previousTitle;
+      if (description && !isProductEntry) meta.content = previousSummary;
+      else meta.remove();
+    };
+  }, [title, summary]);
+
   return (
     <div>
       <TopBar />
@@ -121,12 +145,6 @@ export function ProductPage({ product, heroActions, children }: {
           <div className="app-hero-copy">
             <ActionLink to="/products" variant="inline" icon={ArrowLeft} className="marketing-back">Back to products</ActionLink>
             <ProductName product={product} heading="p" />
-            {product.branding && (
-              <div className="product-branding">
-                <span>{product.branding.company}</span>
-                <span className="marketing-label">{product.branding.purpose}</span>
-              </div>
-            )}
             <h1>{product.headline}</h1>
             <p>{product.description}</p>
             <div className="marketing-actions">{heroActions}</div>
