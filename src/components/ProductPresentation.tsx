@@ -91,7 +91,7 @@ export function ProductGrid({ catalog = false }: { catalog?: boolean }) {
   return (
     <div className={`product-grid${catalog ? ' product-grid-catalog' : ''}`}>
       {products.map(product => (
-        <article className="linear-card product-card" key={product.name}>
+        <article className="linear-card product-card" data-product={product.name} key={product.name}>
           <div className="product-card-copy">
             <ProductName product={product} heading={catalog ? 'h2' : 'h3'} />
             <p>{catalog ? product.tagline : product.summary}</p>
@@ -116,7 +116,7 @@ export function ProductPage({ product, heroActions, children }: {
   return (
     <div>
       <TopBar />
-      <main className="marketing-page">
+      <main className="marketing-page" data-product={product.name}>
         <section className="marketing-band app-hero">
           <div className="app-hero-copy">
             <ActionLink to="/products" variant="inline" icon={ArrowLeft} className="marketing-back">Back to products</ActionLink>
