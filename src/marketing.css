@@ -174,9 +174,6 @@
   overflow: hidden;
 }
 .device-mockup img { width: 100%; height: auto; border-radius: 8px; display: block; }
-[data-product="Pogo"] { --phone-frame-bottom: 7px; }
-[data-product="Pogo"] .app-gallery { --phone-frame-bottom: 9px; }
-.device-mockup-phone { padding-bottom: var(--phone-frame-bottom, 3px); }
 .device-mockup-phone img { aspect-ratio: auto 6 / 13; object-fit: contain; }
 .device-mockup-tablet { border-radius: 10px; }
 .device-mockup-tablet img { aspect-ratio: 13 / 6; object-fit: cover; }
@@ -247,7 +244,7 @@
   box-shadow: 6px 6px var(--shadow-subtle);
 }
 .app-hero .product-preview .screenshot-theme-toggle { justify-self: end; }
-.app-hero .product-preview .device-mockup { padding: 4px 4px var(--phone-frame-bottom, 4px); border-radius: 15px; }
+.app-hero .product-preview .device-mockup { padding: 4px; border-radius: 15px; }
 .app-hero .product-preview img { border-radius: 11px; }
 .product-status {
   display: inline-flex;
