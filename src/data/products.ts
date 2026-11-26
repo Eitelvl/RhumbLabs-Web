@@ -79,16 +79,16 @@ export const rhumbNav: Product = {
 };
 
 const pogoScreenshots: ScreenshotGallery = [
-  { light: '/images/pogo/screenshots/01-summary-news-light.webp', dark: '/images/pogo/screenshots/01-summary-news-dark.webp', alt: 'Summary' },
-  { light: '/images/pogo/screenshots/02-history-light.webp', dark: '/images/pogo/screenshots/02-history-dark.webp', alt: 'Session history' },
-  { light: '/images/pogo/screenshots/11-active-session-light.webp', dark: '/images/pogo/screenshots/11-active-session-dark.webp', alt: 'Active session' },
-  { light: '/images/pogo/screenshots/04-activity-month-light.webp', dark: '/images/pogo/screenshots/04-activity-month-dark.webp', alt: 'Monthly activity' },
-  { light: '/images/pogo/screenshots/05-gyms-light.webp', dark: '/images/pogo/screenshots/05-gyms-dark.webp', alt: 'Gyms' },
-  { light: '/images/pogo/screenshots/06-gym-detail-light.webp', dark: '/images/pogo/screenshots/06-gym-detail-dark.webp', alt: 'Gym details' },
-  { light: '/images/pogo/screenshots/07-session-detail-light.webp', dark: '/images/pogo/screenshots/07-session-detail-dark.webp', alt: 'Session details' },
-  { light: '/images/pogo/screenshots/08-profile-light.webp', dark: '/images/pogo/screenshots/08-profile-dark.webp', alt: 'Profile' },
-  { light: '/images/pogo/screenshots/09-profile-progress-light.webp', dark: '/images/pogo/screenshots/09-profile-progress-dark.webp', alt: 'Profile progress' },
-  { light: '/images/pogo/screenshots/10-achievements-light.webp', dark: '/images/pogo/screenshots/10-achievements-dark.webp', alt: 'Achievements' },
+  { light: '/images/pogo/screenshots/01-summary-news-v2-light.webp', dark: '/images/pogo/screenshots/01-summary-news-v2-dark.webp', alt: 'Summary' },
+  { light: '/images/pogo/screenshots/02-history-v2-light.webp', dark: '/images/pogo/screenshots/02-history-v2-dark.webp', alt: 'Session history' },
+  { light: '/images/pogo/screenshots/11-active-session-v2-light.webp', dark: '/images/pogo/screenshots/11-active-session-v2-dark.webp', alt: 'Active session' },
+  { light: '/images/pogo/screenshots/04-activity-month-v2-light.webp', dark: '/images/pogo/screenshots/04-activity-month-v2-dark.webp', alt: 'Monthly activity' },
+  { light: '/images/pogo/screenshots/05-gyms-v2-light.webp', dark: '/images/pogo/screenshots/05-gyms-v2-dark.webp', alt: 'Gyms' },
+  { light: '/images/pogo/screenshots/06-gym-detail-v2-light.webp', dark: '/images/pogo/screenshots/06-gym-detail-v2-dark.webp', alt: 'Gym details' },
+  { light: '/images/pogo/screenshots/07-session-detail-v2-light.webp', dark: '/images/pogo/screenshots/07-session-detail-v2-dark.webp', alt: 'Session details' },
+  { light: '/images/pogo/screenshots/08-profile-v2-light.webp', dark: '/images/pogo/screenshots/08-profile-v2-dark.webp', alt: 'Profile' },
+  { light: '/images/pogo/screenshots/09-profile-progress-v2-light.webp', dark: '/images/pogo/screenshots/09-profile-progress-v2-dark.webp', alt: 'Profile progress' },
+  { light: '/images/pogo/screenshots/10-achievements-v2-light.webp', dark: '/images/pogo/screenshots/10-achievements-v2-dark.webp', alt: 'Achievements' },
 ];
 
 export const pogo: Product = {
