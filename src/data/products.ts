@@ -78,7 +78,7 @@ export const rhumbNav: Product = {
 };
 
 const pogoScreenshots: ScreenshotGallery = [
-  { light: '/images/pogo/screenshots/01-summary-news-v3-light.webp', dark: '/images/pogo/screenshots/01-summary-news-v3-dark.webp', alt: 'Summary' },
+  { light: '/images/pogo/screenshots/01-summary-news-v4-light.webp', dark: '/images/pogo/screenshots/01-summary-news-v4-dark.webp', alt: 'Summary' },
   { light: '/images/pogo/screenshots/02-history-v3-light.webp', dark: '/images/pogo/screenshots/02-history-v3-dark.webp', alt: 'Session history' },
   { light: '/images/pogo/screenshots/11-active-session-v3-light.webp', dark: '/images/pogo/screenshots/11-active-session-v3-dark.webp', alt: 'Active session' },
   { light: '/images/pogo/screenshots/04-activity-month-v3-light.webp', dark: '/images/pogo/screenshots/04-activity-month-v3-dark.webp', alt: 'Monthly activity' },
