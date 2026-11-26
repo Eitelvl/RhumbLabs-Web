@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
-import { Apple, Clock, Download, Mail } from 'lucide-react';
+import { Clock, Download } from 'lucide-react';
 import { ActionLink, SiteCallout } from '../components/MarketingElements';
 import { ProductPage } from '../components/ProductPresentation';
 import { useLanguage } from '../context/LanguageContext';
 import { aris } from '../data/products';
-import { arisMetadata } from '../data/arisMetadata';
 
 const downloadUrl = (() => {
   try {
@@ -22,7 +20,7 @@ function AppleDownload({ primary }: { primary: boolean }) {
     <ActionLink to={downloadUrl} variant={variant} icon={Download}>Download for Mac</ActionLink>
   ) : (
     <span className={`marketing-action marketing-action-${variant} aris-download-pending`}>
-      <span>Mac download coming soon</span><Apple size={16} aria-hidden />
+      <span>Mac download coming soon</span>
     </span>
   );
 }
@@ -41,7 +39,7 @@ function PlatformActions() {
     <ActionLink
       to={`mailto:support@rhumblabs.com?subject=Aris%20for%20Windows&body=${encodeURIComponent(message)}`}
       variant={isMac ? 'secondary' : 'primary'}
-      icon={Mail}
+      icon={null}
     >
       Windows — coming soon · Notify me
     </ActionLink>
@@ -51,27 +49,6 @@ function PlatformActions() {
 }
 
 export default function ArisPage() {
-  const { language } = useLanguage();
-
-  useEffect(() => {
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    const isStaticEntry = description?.dataset.product === 'aris';
-    const previousTitle = isStaticEntry ? 'RhumbLabs' : document.title;
-    const meta = description ?? document.createElement('meta');
-    const previousDescription = meta.content;
-    const { title, summary } = arisMetadata[language];
-    document.title = title;
-    meta.name = 'description';
-    meta.content = summary;
-    if (!description) document.head.append(meta);
-
-    return () => {
-      document.title = previousTitle;
-      if (description && !isStaticEntry) meta.content = previousDescription;
-      else meta.remove();
-    };
-  }, [language]);
-
   return (
     <ProductPage product={aris} heroActions={<PlatformActions />}>
       <SiteCallout id="download" title="Get Aris for Mac"

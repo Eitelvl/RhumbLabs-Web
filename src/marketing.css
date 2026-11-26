@@ -612,15 +612,6 @@
 
 .device-mockup-window img { aspect-ratio: 1040 / 700; object-fit: contain; }
 
-.product-branding {
-  display: grid;
-  gap: 3px;
-  margin-top: 8px;
-  font-size: 12px;
-}
-
-.product-branding .marketing-label { font-size: 10px; }
-
 .aris-download-pending { cursor: default; }
 .marketing-action-primary.aris-download-pending:hover { background: var(--accent); border-color: var(--accent); }
 .marketing-action-secondary.aris-download-pending:hover { background: var(--bg-primary); }

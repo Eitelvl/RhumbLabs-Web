@@ -8,7 +8,6 @@ export type Product = {
   name: string;
   route: '/rhumbnav' | '/pogo' | '/aris';
   device?: 'window';
-  branding?: { company: string; purpose: string };
   terms?: boolean;
   category: string;
   icon: string;
@@ -145,7 +144,6 @@ export const aris: Product = {
   name: 'Aris',
   route: '/aris',
   device: 'window',
-  branding: { company: 'Powered by Rhumb Labs', purpose: 'Engineered for meetings' },
   terms: true,
   category: 'Meetings',
   icon: '/images/aris-app-icon.png',

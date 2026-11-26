@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "check:assets": "node scripts/check-assets.mjs",
-    "build": "npm run check:assets && npm run build:static-legal && vite build && tsx scripts/generate-aris-entry.ts",
+    "build": "npm run check:assets && npm run build:static-legal && vite build && tsx scripts/generate-product-entries.ts",
     "build:static-legal": "node scripts/generate-static-legal.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
