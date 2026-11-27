@@ -2,23 +2,24 @@ import { useRef, useState, type KeyboardEvent } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { ScreenshotGallery } from '../data/products';
 import { DeviceMockup } from './DeviceMockup';
-import { ScreenshotThemeToggle } from './ScreenshotThemeToggle';
+import { ScreenshotThemeToggle, type ScreenshotThemeToggleProps } from './ScreenshotThemeToggle';
 
 function slideDistance(track: HTMLUListElement) {
   const [first, second] = track.children;
   return (second as HTMLElement).offsetLeft - (first as HTMLElement).offsetLeft;
 }
 
-export function ScreenshotCarousel({ productName, screenshots, device = 'phone' }: {
+export function ScreenshotCarousel({ productName, screenshots, device = 'phone', trackId, themeToggle }: {
   productName: string;
   screenshots: ScreenshotGallery;
   device?: 'phone' | 'window';
+  trackId: string;
+  themeToggle: ScreenshotThemeToggleProps;
 }) {
-  const trackId = `${productName.toLowerCase()}-screenshot-track`;
   const track = useRef<HTMLUListElement>(null);
   const buttonScroll = useRef<number | null>(null);
   const [active, setActive] = useState(0);
-  const [dark, setDark] = useState(false);
+  const { dark } = themeToggle;
   const hasDarkCaptures = screenshots.every(({ dark: darkImage }) => Boolean(darkImage));
   const last = screenshots.length - 1;
 
@@ -55,7 +56,7 @@ export function ScreenshotCarousel({ productName, screenshots, device = 'phone' 
       <div className="screenshot-carousel-header">
         <h2 className="marketing-section-title">App Screenshots</h2>
         {hasDarkCaptures && (
-          <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls={trackId} />
+          <ScreenshotThemeToggle {...themeToggle} />
         )}
         <div className="screenshot-carousel-arrows">
           <button type="button" aria-label="Previous screenshot" aria-controls={trackId}

@@ -5,7 +5,7 @@ import { productMetadata } from '../data/productMetadata';
 import { useLanguage } from '../context/LanguageContext';
 import { DeviceMockup } from './DeviceMockup';
 import { ScreenshotCarousel } from './ScreenshotCarousel';
-import { ScreenshotThemeToggle } from './ScreenshotThemeToggle';
+import { ScreenshotThemeToggle, type ScreenshotThemeToggleProps } from './ScreenshotThemeToggle';
 import { ActionLink, SiteCallout } from './MarketingElements';
 import { SafeImage } from './SafeImage';
 import TopBar from './TopBar';
@@ -38,16 +38,19 @@ function DevicePreview({ screenshots, dark, device, id }: {
   );
 }
 
-function HeroProductPreview({ screenshots, device }: { screenshots: Screenshot[]; device: 'phone' | 'window' }) {
-  const previewId = useId();
+function HeroProductPreview({ screenshots, device, previewId, themeToggle }: {
+  screenshots: Screenshot[];
+  device: 'phone' | 'window';
+  previewId: string;
+  themeToggle: ScreenshotThemeToggleProps;
+}) {
   const hasDarkCaptures = screenshots.every(({ dark }) => Boolean(dark));
-  const [dark, setDark] = useState(false);
   return (
     <div className="product-preview">
       {hasDarkCaptures && (
-        <ScreenshotThemeToggle dark={dark} onToggle={() => setDark(value => !value)} controls={previewId} />
+        <ScreenshotThemeToggle {...themeToggle} />
       )}
-      <DevicePreview id={previewId} screenshots={screenshots} dark={dark} device={device} />
+      <DevicePreview id={previewId} screenshots={screenshots} dark={themeToggle.dark} device={device} />
     </div>
   );
 }
@@ -117,6 +120,14 @@ export function ProductPage({ product, heroActions, children }: {
 }) {
   const { language } = useLanguage();
   const { title, summary } = productMetadata[product.route][language];
+  const previewId = useId();
+  const trackId = `${product.name.toLowerCase()}-screenshot-track`;
+  const [dark, setDark] = useState(false);
+  const themeToggle: ScreenshotThemeToggleProps = {
+    dark,
+    onToggle: () => setDark(value => !value),
+    controls: `${previewId} ${trackId}`,
+  };
 
   useEffect(() => {
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -149,7 +160,12 @@ export function ProductPage({ product, heroActions, children }: {
             <p>{product.description}</p>
             <div className="marketing-actions">{heroActions}</div>
           </div>
-          <HeroProductPreview screenshots={product.preview} device={product.device ?? 'phone'} />
+          <HeroProductPreview
+            screenshots={product.preview}
+            device={product.device ?? 'phone'}
+            previewId={previewId}
+            themeToggle={themeToggle}
+          />
         </section>
         <section className="marketing-band app-features">
           <h2 className="marketing-section-title">What you can do</h2>
@@ -163,7 +179,13 @@ export function ProductPage({ product, heroActions, children }: {
           </div>
         </section>
         <section className="marketing-band app-gallery">
-          <ScreenshotCarousel productName={product.name} screenshots={product.gallery} device={product.device} />
+          <ScreenshotCarousel
+            productName={product.name}
+            screenshots={product.gallery}
+            device={product.device}
+            trackId={trackId}
+            themeToggle={themeToggle}
+          />
         </section>
         {children}
         <SiteCallout title="Support and privacy" description={product.terms ? 'Find help and read the app’s privacy policy and terms of use.' : 'Find help and read the app’s privacy policy.'}>

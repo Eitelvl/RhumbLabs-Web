@@ -1,10 +1,12 @@
 import { Moon, Sun } from 'lucide-react';
 
-export function ScreenshotThemeToggle({ dark, onToggle, controls }: {
+export type ScreenshotThemeToggleProps = {
   dark: boolean;
   onToggle: () => void;
   controls: string;
-}) {
+};
+
+export function ScreenshotThemeToggle({ dark, onToggle, controls }: ScreenshotThemeToggleProps) {
   const Icon = dark ? Sun : Moon;
   return (
     <button
